@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>Tienda de Camisetas</title>
-                <!-- <link rel="stylesheet" href="<?=base_url?>/css/styles.css" /> -->
+                 <link rel="stylesheet" href="<?=base_url?>/css/styles.css" /> 
                 
 	</head>
 	<body>

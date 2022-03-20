@@ -27,6 +27,7 @@ class usuarioController{
             $usuario->setName($name);
             $usuario->setEmail($email);
             $usuario->setPassword($password);
+           // $usuario->setRol($rol);
             
             $save = $usuario->save();
             if($save){
@@ -57,8 +58,8 @@ public function login(){
        if($identity && is_object($identity)){
            $_SESSION['identity'] = $identity;
            
-        /*   if($dentity->role == 'admin'){
-               $_SESSION['admin'] = true;*/
+           if($identity->rol == 'admin'){
+               $_SESSION['admin'] = true;
            }
        }else{
            $_SESSION['error_login'] = ['Identificacion fallida'];
@@ -68,7 +69,7 @@ public function login(){
    //redirección
     header("Location:".base_url);
 }
-
+}
 public function logout(){
     if(isset($_SESSION['identity'])){
         unset($_SESSION['identity']);
