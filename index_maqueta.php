@@ -6,7 +6,7 @@
 		<link rel="stylesheet" href="css/styles.css" />
 	</head>
 	<body>
-		<div id="container">
+		<div id="container-fluid">
 			<!-- CABECERA -->
 			<header id="header">
 				<div id="logo">
