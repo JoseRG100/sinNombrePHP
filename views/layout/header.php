@@ -7,39 +7,26 @@
                 
 	</head>
 	<body>
-		<div id="container">
-			<!-- CABECERA -->
-			<header id="header">
-				<div id="logo">
-					<img src="assets/img/camiseta.png" alt="Camiseta Logo" />
-					<a href="index.php">
-						Campus virtual
-					</a>
+		<div id="container-fluid">
+			<!-- HEADER -->
+			<header class="row">
+				<div class="col logo">
+					<a href="index.php"><img src="" alt="logo">LOGONAME</a>
 				</div>
+				<!-- NAVBAR -->
+				<nav id="col menu">
+					<ul>
+						<li>
+							<a href="#">Inicio</a>
+						</li>
+						<li>
+							<a href="#">Cat - 1</a>
+						</li>
+						<li>
+							<a href="#">Cat - 2</a>
+						</li>
+					</ul>
+				</nav>
 			</header>
-
-			<!-- MENU -->
-			<nav id="menu">
-				<ul>
-					<li>
-						<a href="#">Inicio</a>
-					</li>
-					<li>
-						<a href="#">Categoria 1</a>
-					</li>
-					<li>
-						<a href="#">Categoria 2</a>
-					</li>
-					<li>
-						<a href="#">Categoria 3</a>
-					</li>
-					<li>
-						<a href="#">Categoria 4</a>
-					</li>
-					<li>
-						<a href="#">Categoria 5</a>
-					</li>
-				</ul>
-			</nav>
 
 			<div id="content">
