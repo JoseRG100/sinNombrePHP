@@ -6,6 +6,7 @@ class Usuario{
     private $name;
     private $email;
     private $password;
+    private $rol;
     private $db;
     
     public function __construct(){
@@ -31,6 +32,10 @@ class Usuario{
     public function getPassword() {
         return password_hash($this->db->real_escape_string($this->password), PASSWORD_BCRYPT, ['cost' => 4]);
     }
+    
+    public function getRol() {
+        return $this->rol;
+    }
 
     public function setId_user_admin($id_user_admin): void {
         $this->id_user_admin = $id_user_admin;
@@ -51,9 +56,13 @@ class Usuario{
     public function setPassword($password): void {
         $this->password = $password;
     }
+    
+    public function setRol($rol): void {
+        $this->rol = $this->db->real_escape_string($rol);
+    }
 
     public function save(){
-        $sql = "INSERT INTO users_admin VALUES(NULL, '{$this->getUsername()}', '{$this->getName()}', '{$this->getEmail()}', '{$this->getPassword()}')";
+        $sql = "INSERT INTO users_admin VALUES(NULL, '{$this->getUsername()}', '{$this->getName()}', '{$this->getEmail()}', '{$this->getPassword()}', 'user')";
         $save = $this->db->query($sql);
         
         $result = false;

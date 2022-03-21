@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="es">
+<<<<<<< HEAD
 <head>
     <meta charset="utf-8" />
     <title>your_Schedule</title>
