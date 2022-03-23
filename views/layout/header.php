@@ -2,7 +2,7 @@
 <html lang="es">
 	<head>
 		<meta charset="utf-8" />
-		<title>Tienda de Camisetas</title>
+		<title>Campus virtual</title>
                  <link rel="stylesheet" href="<?=base_url?>/css/styles.css" /> 
                 
 	</head>
@@ -17,28 +17,21 @@
 					</a>
 				</div>
 			</header>
-
+                         <?php $cursos = Utils::showCursos(); ?>
 			<!-- MENU -->
 			<nav id="menu">
 				<ul>
 					<li>
 						<a href="#">Inicio</a>
 					</li>
+                                        <?php while($cur = $cursos->fetch_object()): ?>                                     
+                                        
 					<li>
-						<a href="#">Categoria 1</a>
+						<a href="#"><?=$cur->name?></a>
 					</li>
-					<li>
-						<a href="#">Categoria 2</a>
-					</li>
-					<li>
-						<a href="#">Categoria 3</a>
-					</li>
-					<li>
-						<a href="#">Categoria 4</a>
-					</li>
-					<li>
-						<a href="#">Categoria 5</a>
-					</li>
+                                        <?php endwhile; ?>
+					
+                                       
 				</ul>
 			</nav>
 

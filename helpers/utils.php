@@ -8,4 +8,19 @@ class Utils{
         }
         return $name;
     }
+    
+     public static function isAdmin(){
+        if(!isset($_SESSION['admin'])){
+            header("Location:".base_url);
+        }else{
+            return true;
+        }
+     }
+     
+    public static function showCursos(){
+        require_once 'models/curso.php';
+         $curso = new Curso();
+        $cursos = $curso->getAll();
+        return $cursos;
+    }
 }

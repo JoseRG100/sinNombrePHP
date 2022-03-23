@@ -17,16 +17,19 @@
         <h3><?=$_SESSION['identity']->username?> <?=$_SESSION['identity']->name?></h3>
         <?php endif; ?>
         <ul>
-           
+            
             <?php if(isset($_SESSION['admin'])): ?>
-            <li><a href="#">Añadir asignatura</a></li>
-            <li><a href="#">Gestionar cursos</a></li>
+            <li><a href="<?=base_url?>curso/index">Gestionar cursos</a></li>           
+            <li><a href="<?=base_url?>asignatura/gestion">Gestionar asignatura</a></li>            
             <?php endif; ?>
             
             <?php if(isset($_SESSION['identity'])): ?>
              <li><a href="#">Mis asignaturas</a></li>
             <li><a href="#">Profesores</a></li>
             <li><a href="<?=base_url?>usuario/logout">Cerrar sesión</a></li>
+            <?php else: ?>
+            
+            <li><a href="<?=base_url?>usuario/registro">Regístrate aquí</a></li>
             <?php endif; ?>
         </ul>
     </div>

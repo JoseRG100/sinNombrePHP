@@ -230,13 +230,16 @@ button, .button{
     cursor:pointer;
 }
 
-.button{
+/*.button{
     background: #33AE3D;
     color: white !important;
     text-decoration: none;
-}
+}*/
 
 .button-small{
+    background: #33AE3D;
+    color: white !important;
+    text-decoration: none;
     width: 120px;
     text-align: center;
     margin-bottom: 20px;
