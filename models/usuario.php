@@ -1,6 +1,7 @@
 <?php
 
-class Usuario{
+class usuario{
+    //ATRIBUTES
     private $id_user_admin;
     private $username;
     private $name;
@@ -8,11 +9,13 @@ class Usuario{
     private $password;
     private $rol;
     private $db;
-    
+
+    //CONSTRUCTOR
     public function __construct(){
         $this->db = Database::connect();
     }
-    
+
+    //GETTERS & SETTERS
     public function getId_user_admin() {
         return $this->id_user_admin;
     }
@@ -61,8 +64,9 @@ class Usuario{
         $this->rol = $this->db->real_escape_string($rol);
     }
 
+    //MODEL METHODES
     public function save(){
-        $sql = "INSERT INTO users_admin VALUES(NULL, '{$this->getUsername()}', '{$this->getName()}', '{$this->getEmail()}', '{$this->getPassword()}', 'user')";
+        $sql = "INSERT INTO users_admin VALUES(NULL, '{$this->getUsername()}', '{$this->getName()}', '{$this->getEmail()}', '{$this->getPassword()}')";
         $save = $this->db->query($sql);
         
         $result = false;
@@ -86,7 +90,6 @@ class Usuario{
             
             //verificar la contraseña
             $verify = password_verify($password, $usuario->password);
-            $result = false;
             
             if($verify){
                 $result = $usuario;

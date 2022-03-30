@@ -1,6 +1,6 @@
     <!-- FOOTER -->
     <footer id="footer">
-        <p>Desarrollado por Víctor Robles WEB &copy; <?= date('Y') ?></p>
+        <p>Developed by "NO_NAME_PHPTeam S.L." &copy; <?= date('Y') ?></p>
     </footer>
 
     <!-- SCRIPTS -->

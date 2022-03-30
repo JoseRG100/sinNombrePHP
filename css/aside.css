@@ -1,0 +1,41 @@
+/* --- ASIDE ---*/
+#lateral{
+    width: 22%;
+    min-height: 500px;
+    float: left;
+    margin-top:20px;
+    margin-left: 10px;
+}
+
+#lateral .block_aside{
+    display: block;
+    width: 90%;
+    margin: 5px auto;
+    padding: 10px;
+}
+
+#lateral h3{
+    display: block;
+    color: #222;
+    width: 100%;
+    text-align: center;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    background: #E1E1E1;
+    border-bottom: 2px solid #01B1EA;
+}
+
+#lateral ul{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#lateral ul li{
+    list-style: square;
+    margin-left: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
