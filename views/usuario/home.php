@@ -11,6 +11,6 @@ require_once '../../helpers/utils.php';
 //VIEWS
 require_once '../layout/header.php';
 require_once '../layout/navbar.php';
-require_once '../layout/sidebar.php';
+require_once '../layout/aside.php';
 
 require_once '../layout/footer.php';
