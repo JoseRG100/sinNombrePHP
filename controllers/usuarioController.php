@@ -75,7 +75,7 @@ class usuarioController{
             */
 
             //redirección
-            header("Location:".base_url.'/views/usuario/userView.php');
+            header("Location:".base_url.'/views/usuario/home.php');
 
         }
     }
