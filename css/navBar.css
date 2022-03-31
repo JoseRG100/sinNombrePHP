@@ -1,38 +1,20 @@
 /*MENU*/
-#menu{
-    clear:both;
-    background: #222;
+#navBar{
     color: white;
-    height: 55px;
     border-bottom: 4px solid #01B1EA;
 }
 
-#menu ul{
-    list-style: none;
-    text-decoration: none;
-    margin: 0px auto;
-    margin-left: 25px;
-}
-
-#menu ul li{
-    line-height: 55px;
-    float:left;
-    border-right: 1px solid #363636;
-}
-
-#menu a{
-    display: block;
-    color: white;
-    text-decoration: none;
+#navBar a{
     padding-left: 12px;
     padding-right: 12px;
     transition: all 300ms;
 }
 
-#menu a:first-child{
-    border-left: 1px solid #363636;
+#navBar a:hover{
+    background: #01B1EA;
 }
 
-#menu a:hover{
-    background: #01B1EA;
+#navBar a:first-child{
+    border-right: 1px solid #363636;
+    border-left: 1px solid #363636;
 }

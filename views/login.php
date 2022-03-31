@@ -10,7 +10,7 @@
 
         <div class="col-md-4 d-grid gap-3">
 
-                <form class="d-grid gap-3" action="<?=base_url?>/usuario/login" method="POST">
+                <form class="d-grid gap-3" action="<?=base_url?>/login/login" method="POST">
                     <div class="form-group">
                         <input type="email" name="email" class="form-control"
                         placeholder="Email" autofocus>
@@ -19,9 +19,10 @@
                         <input type="password" name="password" class="form-control"
                        placeholder="Password">
                     </div>
+                    <!-- REGISTER REDIRECTION -->
                     <div style="text-align: end">
                         <a href="<?=base_url?>/usuario/registro">You have not yet registered?</a>
-                    </div>
+                    </div> <!-- /REGISTER REDIRECTION -->
                     <input type="submit" class="btn btn-success btn-block"
                     name="login" value="LOGIN">
                 </form>

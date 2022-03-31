@@ -4,17 +4,23 @@ require_once 'models/usuario.php';
 
 //CLASS
 class usuarioController{
+
+    //TODO: ANALIZAR ESTA FUNCIÓN
     public function index(){
         echo "Controlador Usuarios, Acción index";
-           
         //renderizar vista
         //require_once 'views/usuario/destacados.php';
-    }         
-    
+    }
+
+    //TODO: ANALIZAR ESTA FUNCIÓN
     public function registro(){
         require_once 'views/usuario/registro.php';
     }
 
+    /**
+     * Reads the INPUTS from the REGISTER URL, and creates a new STUDENT on the DATABASE
+     * @return void
+     */
     public function register(){
         if(isset($_POST)){
                       
@@ -51,45 +57,8 @@ class usuarioController{
 
     }
 
-    public function login(){
-        if(isset($_POST)){
-            //Identificar al usuario
-            //Consulta a la base de datos
-            $usuario = new Usuario();
-            $usuario->setEmail($_POST['email']);
-            $usuario->setPassword($_POST['password']);
-
-            $identity = $usuario->login();
-            session_start();
-            $_SESSION['identity'] = $identity;
-
-            /*
-            if($identity && is_object($identity)){
-                $_SESSION['identity'] = $identity;
-                //if($identity->rol == 'admin'){
-                //    $_SESSION['admin'] = true;
-                //}
-            }else{
-                $_SESSION['error_login'] = ['Identificacion fallida'];
-            }
-            */
-
-            //redirección
-            header("Location:".base_url.'/views/usuario/home.php');
-
-        }
-    }
-
-    public function logout(){
-        if(isset($_SESSION['identity'])){
-            unset($_SESSION['identity']);
-        }
-
-        if(isset($_SESSION['admin'])){
-            unset($_SESSION['admin']);
-        }
-
-        //redirección
-        header("Location:".base_url);
-    }
 }
+
+/* DEAD CODE
+
+ */

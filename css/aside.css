@@ -1,41 +1,24 @@
 /* --- ASIDE ---*/
-#lateral{
-    width: 22%;
-    min-height: 500px;
+#asideContainer{
+    width: 20%;
     float: left;
-    margin-top:20px;
-    margin-left: 10px;
+    min-height: 500px;
+    min-width: 180px;
+    margin-left: 5px;
+    padding-top: 5px;
+    background: #F0F0F0;
 }
-
-#lateral .block_aside{
+.itemContainer {
     display: block;
-    width: 90%;
     margin: 5px auto;
     padding: 10px;
+    border: none;
+    text-align: left;
+    text-decoration: none;
+    color: #01B1EA;
+    background: #F0F0F0;
 }
-
-#lateral h3{
-    display: block;
-    color: #222;
-    width: 100%;
-    text-align: center;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    margin-bottom: 15px;
-    font-size: 16px;
-    font-weight: bold;
-    background: #E1E1E1;
-    border-bottom: 2px solid #01B1EA;
-}
-
-#lateral ul{
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-#lateral ul li{
-    list-style: square;
-    margin-left: 20px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+.itemContainer:hover{
+    text-shadow: 0px 2px 1px #222222, 0px 0px 4px #01B1EA;
+    background: lightgray;
 }

@@ -16,8 +16,7 @@
     <div id="mainContainer">
         <!-- HERO -->
         <header id="hero">
-            <div id="logo">
-                <!--<img src="assets/img/camiseta.png" alt="Camiseta Logo" />-->
+            <div id="titleContainer">
                 <a href="index.php">VIRTUAL CAMPUS</a>
             </div>
         </header>

@@ -12,6 +12,7 @@ require_once 'helpers/utils.php';
 require_once 'views/layout/header.php';
 require_once 'views/login.php';
 
+//TODO: ANALIZAR ESTAS FUNCIONES
 //I DON'T UNDERSTAND THIS FUNCTIONS ---->>>
 function show_error(){
     $error = new errorController();

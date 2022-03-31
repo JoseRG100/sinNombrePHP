@@ -1,38 +1,53 @@
 <!-- BARRA LATERAL -->
-<aside id="lateral">
+<aside id="asideContainer">
 
-    <div id="login" class="block_aside">
+    <div class="container-fluid">
 
-        <ul>
-                <li><a href="#">Añadir asignatura</a></li>
-                <li><a href="#">Añadir profesor</a></li>
-                <li><a href="#">Gestionar cursos</a></li>
+        <!-- SHOWS USER NAME -->
+        <?php if(isset($_SESSION['identity'])): ?>
+            <h3><?=$_SESSION['identity']->name?></h3>
+        <?php endif; ?>
 
-                <li><a href="#">Mis asignaturas</a></li>
-                <li><a href="#">Cerrar sesión</a></li>
-        </ul>
+        <!-- ADMIN SESSION -->
+        <?php if(isset($_SESSION['admin'])): ?>
+            <!-- ADD NEW SUBJECT -->
+            <form class="row" method="POST">
+                <input class="itemContainer" type="submit" name="btn-addNewSubject" value="Añadir curso">
+            </form>
+            <!-- ADD NEW TEACHER -->
+            <form class="row" method="POST">
+                <input class="itemContainer" type="submit" name="btn-addNewTeacher" value="Añadir profesor">
+            </form>
+            <!-- ADD NEW CLASS -->
+            <form class="row" method="POST">
+                <input class="itemContainer" type="submit" name="btn-addNewClass" value="Añadir clase">
+            </form>
+        <?php endif; ?>
 
-<!--
-        <?php /*echo $_SESSION['identity'] */?>
+        <!-- TEACHER SESSION -->
+        <?php if(isset($_SESSION['teacher'])): ?>
+            <!-- SEE CLASS LIST_TEACHERS -->
+                <form class="row" method="POST">
+                    <input class="itemContainer" type="submit" name="btn-teacherClassList" value="Clases">
+                </form>
+        <?php endif; ?>
 
-        <?php /*if(isset($_SESSION['identity'])): */?>
-        <h3><?/*=$_SESSION['identity']->username*/?> <?/*=$_SESSION['identity']->name*/?></h3>
-        <?php /*endif; */?>
+        <!-- STUDENT SESSION -->
+        <?php if(isset($_SESSION['student'])): ?>
+            <!-- SEE CLASS LIST_SUSCRIPTIONS -->
+            <form class="row" method="POST">
+                <input class="itemContainer" type="submit" name="btn-studentClassList" value="Asignaturas">
+            </form>
+            <!-- SEE SCHEDULE -->
+            <form class="row" method="POST">
+                <input class="itemContainer" type="submit" name="btn-schedule" value="Horario">
+            </form>
+        <?php endif; ?>
 
-        <ul>
-            <?php /*if(isset($_SESSION['admin'])): */?>
-            <li><a href="#">Añadir asignatura</a></li>
-            <li><a href="#">Añadir profesor</a></li>
-            <li><a href="#">Gestionar cursos</a></li>
-            <?php /*endif; */?>
-            
-            <?php /*if(isset($_SESSION['identity'])): */?>
-            <li><a href="#">Mis asignaturas</a></li>
-            <li><a href="<?/*=base_url*/?>/usuario/logout">Cerrar sesión</a></li>
-            <?php /*endif; */?>
-        </ul>
--->
-
+        <!-- SIGN OFF -->
+        <form class="row" method="POST">
+            <input class="itemContainer" type="submit" name="btn-singOff" value="Cerrar sesión">
+        </form>
     </div>
 
 </aside>
