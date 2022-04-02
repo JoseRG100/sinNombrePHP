@@ -19,7 +19,7 @@
         <ul>
             
             <?php if(isset($_SESSION['admin'])): ?>
-            <li><a href="<?=base_url?>curso/index">Gestionar cursos</a></li>           
+          
             <li><a href="<?=base_url?>asignatura/gestion">Gestionar asignatura</a></li>            
             <?php endif; ?>
             

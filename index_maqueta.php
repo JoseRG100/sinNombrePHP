@@ -2,7 +2,7 @@
 <html lang="es">
 	<head>
 		<meta charset="utf-8" />
-		<title>Tienda de Camisetas</title>
+		<title>Campus virtual</title>
 		<link rel="stylesheet" href="/css/styles.css" />
 	</head>
 	<body>
@@ -12,7 +12,7 @@
 				<div id="logo">
 					<img src="assets/img/camiseta.png" alt="Camiseta Logo" />
 					<a href="index.php">
-						Tienda de camisetas
+						Campus virtual
 					</a>
 				</div>
 			</header>

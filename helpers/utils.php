@@ -17,10 +17,4 @@ class Utils{
         }
      }
      
-    public static function showCursos(){
-        require_once 'models/curso.php';
-         $curso = new Curso();
-        $cursos = $curso->getAll();
-        return $cursos;
-    }
-}
+   }
