@@ -1,14 +1,19 @@
 <?php
 
 session_start();
-require_once './autoload.php';
+
+//DEPENDENCIES
+require_once 'autoload.php';
 require_once 'config/db.php';
 require_once 'config/parameters.php';
 require_once 'helpers/utils.php';
+
+//VIEWS
 require_once 'views/layout/header.php';
-require_once 'views/layout/sidebar.php';
+require_once 'views/login.php';
 
-
+//TODO: ANALIZAR ESTAS FUNCIONES
+//I DON'T UNDERSTAND THIS FUNCTIONS ---->>>
 function show_error(){
     $error = new errorController();
     $error->index();
@@ -39,7 +44,6 @@ if(class_exists($nombre_controlador)){
     }
 }else{
     show_error();
-}
-
+} //<<<----
 
 require_once 'views/layout/footer.php';

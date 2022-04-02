@@ -1,0 +1,28 @@
+/* --- ASIDE ---*/
+#asideContainer{
+    width: 20%;
+    float: left;
+    min-height: 500px;
+    /*min-width: 180px;*/
+    margin-left: 5px;
+    padding-top: 5px;
+    background: #F0F0F0;
+}
+.itemContainer {
+    display: block;
+    margin: 5px auto;
+    padding: 10px;
+    border: none;
+    text-align: left;
+    text-decoration: none;
+    color: #01B1EA;
+    background: #F0F0F0;
+}
+.itemContainer:hover{
+    text-shadow: 0px 2px 1px #222222, 0px 0px 4px #01B1EA;
+    background: lightgray;
+}
+.contentContainer {
+    width: 79%;
+    float: right;
+}

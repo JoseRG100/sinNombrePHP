@@ -1,84 +1,86 @@
 <?php
 
-class usuario {
+class teacherModel {
     // ------------------------------------- ATRIBUTES ------------------------------------- //
-    private $id_user_admin;
-    private $username;
+    private $id_teacher;
     private $name;
+    private $surname;
+    private $telephone;
+    private $nif;
     private $email;
     private $password;
-    private $rol;
     private $db;
 
     // ----------------------------------- CONSTRUCTOR ----------------------------------- //
-    public function __construct(){
+    public function __construct() {
         $this->db = Database::connect();
     }
 
     // ------------------------------- GETTERS & SETTERS -------------------------------- //
-    public function getId_user_admin() {
-        return $this->id_user_admin;
+    public function getIdTeacher() {
+        return $this->id_teacher;
     }
 
-    public function getUsername() {
-        return $this->username;
+    function setIdTeacher($id_teacher): void {
+        $this->id_teacher = $id_teacher;
     }
 
     public function getName() {
         return $this->name;
     }
 
+    public function setName($name): void {
+        $this->name = $name;
+    }
+
+    public function getSurname() {
+        return $this->surname;
+    }
+
+    public function setSurname($surname): void {
+        $this->surname = $surname;
+    }
+
+    public function getTelephone() {
+        return $this->telephone;
+    }
+
+    public function setTelephone($telephone): void {
+        $this->telephone = $telephone;
+    }
+
+    public function getNif() {
+        return $this->nif;
+    }
+
+    public function setNif($nif): void {
+        $this->nif = $nif;
+    }
+
     public function getEmail() {
         return $this->email;
     }
 
-    public function getPassword() {
-        return password_hash($this->db->real_escape_string($this->password), PASSWORD_BCRYPT, ['cost' => 4]);
-    }
-    
-    public function getRol() {
-        return $this->rol;
-    }
-
-    public function setId_user_admin($id_user_admin): void {
-        $this->id_user_admin = $id_user_admin;
-    }
-
-    public function setUsername($username): void {
-        $this->username = $this->db->real_escape_string($username);
-    }
-
-    public function setName($name): void {
-        $this->name = $this->db->real_escape_string($name);
-    }
-
     public function setEmail($email): void {
-        $this->email = $this->db->real_escape_string($email);
+        $this->email = $email;
+    }
+
+    public function getPassword() {
+        return $this->password;
     }
 
     public function setPassword($password): void {
         $this->password = $password;
     }
-    
-    public function setRol($rol): void {
-        $this->rol = $this->db->real_escape_string($rol);
-    }
-
-    public function getDb(): mysqli {
-        return $this->db;
-    }
-
-    public function setDb(): void {
-        $this->db = Database::connect();
-    }
 
 
 
     // ------------------------------ MODEL METHODES ------------------------------ //
-    public function save(){
-        $sql = "INSERT INTO users_admin VALUES(NULL, '{$this->getUsername()}', '{$this->getName()}', '{$this->getEmail()}', '{$this->getPassword()}')";
+
+    public function signUp(){
+        $sql = "INSERT INTO teachers VALUES(NULL, '{$this->getName()}', '{$this->getSurname()}', '{$this->getTelephone()}', '{$this->getNif()}', '{$this->getEmail()}', '{$this->getPassword()}')";
         $save = $this->db->query($sql);
-        
+
         $result = false;
         if($save){
             $result = true;
@@ -87,7 +89,7 @@ class usuario {
     }
 
     /**
-     * Login methode to userAdmin.
+     * Login methode to teacher.
      * @param $loginEmail
      * @param $logginPassword
      * @return false|object|stdClass|null
@@ -95,7 +97,7 @@ class usuario {
     public static function login($loginEmail, $loginPassword){
         $foundUser = false;
         $dbConnection = Database::connect();
-        $SQL = "SELECT * FROM users_admin WHERE email = '$loginEmail'";
+        $SQL = "SELECT * FROM teachers WHERE email = '$loginEmail'";
 
         //LOOK FOR THE USER IN THE DATABASE
         //TODO: Hay que crear una validación, para que solo se pueda añadir un usuario por EMAIL
@@ -113,7 +115,6 @@ class usuario {
 
         mysqli_close($dbConnection);
         return $foundUser;
-
     }
 
 }

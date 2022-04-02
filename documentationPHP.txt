@@ -1,0 +1,17 @@
+=================
+----. NOTAS -----
+=================
+- El modelo, como mucho, contiene a los CRUD
+=================
+----- TO DO -----
+=================
+- Cambiar paths files y variables a ingles.
+- Seguir limpiando código muerto.
+- Re-enrutar todo.
+- Al dar atras o adelante tras usar el ASIDE,
+  la siguiente URL lanza error.
+
+================
+--- PHP CORE ---
+================
+- echo 'String'         //Printa un mensaje de texto en el navegador

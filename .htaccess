@@ -1,7 +1,8 @@
+# THIS FUNCTION IT'S TO DON'T SHOW THE PREFIX '.PHP' ON OUR URL's
 <IfModule mod_rewrite.c>
 # ACTIVAR REWRITE
 RewriteEngine on
-ErrorDocument 404 http://localhost/proyectoPHP/proyecto6/error/
+ErrorDocument 404 http://localhost/sinNombrePHP/error/
 
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteCond %{SCRIPT_FILENAME} !-f
