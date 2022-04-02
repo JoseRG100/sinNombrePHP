@@ -1,7 +1,7 @@
 <?php
 
-class usuario{
-    //ATRIBUTES
+class usuario {
+    // ------------------------------------- ATRIBUTES ------------------------------------- //
     private $id_user_admin;
     private $username;
     private $name;
@@ -10,12 +10,12 @@ class usuario{
     private $rol;
     private $db;
 
-    //CONSTRUCTOR
+    // ----------------------------------- CONSTRUCTOR ----------------------------------- //
     public function __construct(){
         $this->db = Database::connect();
     }
 
-    //GETTERS & SETTERS
+    // ------------------------------- GETTERS & SETTERS -------------------------------- //
     public function getId_user_admin() {
         return $this->id_user_admin;
     }
@@ -64,7 +64,17 @@ class usuario{
         $this->rol = $this->db->real_escape_string($rol);
     }
 
-    //MODEL METHODES
+    public function getDb(): mysqli {
+        return $this->db;
+    }
+
+    public function setDb(): void {
+        $this->db = Database::connect();
+    }
+
+
+
+    // ------------------------------ MODEL METHODES ------------------------------ //
     public function save(){
         $sql = "INSERT INTO users_admin VALUES(NULL, '{$this->getUsername()}', '{$this->getName()}', '{$this->getEmail()}', '{$this->getPassword()}')";
         $save = $this->db->query($sql);
@@ -75,26 +85,35 @@ class usuario{
         }
         return $result;
     }
-    
-    public function login(){
-        $foundUser= null;
-        $email = $this->email;
-        $password = $this->password;
-        
+
+    /**
+     * Login methode to userAdmin.
+     * @param $loginEmail
+     * @param $logginPassword
+     * @return false|object|stdClass|null
+     */
+    public static function login($loginEmail, $loginPassword){
+        $foundUser = false;
+        $dbConnection = Database::connect();
+        $SQL = "SELECT * FROM users_admin WHERE email = '$loginEmail'";
+
         //LOOK FOR THE USER IN THE DATABASE
-        $sql = "SELECT * FROM users_admin WHERE email = '$email'";
-        $login = $this->db->query($sql);
-        
+        //TODO: Hay que crear una validación, para que solo se pueda añadir un usuario por EMAIL
+
+        $login = $dbConnection->query($SQL);
+
         if($login && $login->num_rows == 1){
-            $usuario = $login->fetch_object();
-            
-            //PASSWORD VERIFY
-            $verify = password_verify($password, $usuario->password);
-            
-            if($verify){
-                $foundUser = $usuario;
-            }
+            $probablyUser = $login->fetch_object();
+
+            //VERIFYING THE PASSWORD IS RIGHT
+            $verify = password_verify($loginPassword, $probablyUser->password);
+            if($verify){ $foundUser = $probablyUser; }
+
         }
+
+        mysqli_close($dbConnection);
         return $foundUser;
+
     }
+
 }

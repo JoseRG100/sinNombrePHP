@@ -1,4 +1,8 @@
 =================
+----. NOTAS -----
+=================
+- El modelo, como mucho, contiene a los CRUD
+=================
 ----- TO DO -----
 =================
 - Cambiar paths files y variables a ingles.
