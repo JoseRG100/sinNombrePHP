@@ -1,5 +1,23 @@
 <!DOCTYPE HTML>
 <html lang="es">
+<<<<<<< HEAD
+	<head>
+		<meta charset="utf-8" />
+		<title>Tienda de Camisetas</title>
+		<link rel="stylesheet" href="css/styles.css" />
+	</head>
+	<body>
+		<div id="container">
+			<!-- CABECERA -->
+			<header id="header">
+				<div id="logo">
+					<img src="assets/img/camiseta.png" alt="Camiseta Logo" />
+					<a href="index.php">
+						Tienda de camisetas
+					</a>
+				</div>
+			</header>
+=======
 <head>
     <meta charset="utf-8" />
     <title>your_Schedule</title>
@@ -20,4 +38,5 @@
                 <a href="index.php">VIRTUAL CAMPUS</a>
             </div>
         </header>
+>>>>>>> e52507a28ebc9495a3934a4ff79c7d64f94a56ac
 
