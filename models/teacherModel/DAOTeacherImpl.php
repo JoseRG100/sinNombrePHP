@@ -1,4 +1,5 @@
 <?php
+require_once 'models/DAOinterface.php';
 
 class DAOTeacherImpl implements DAOinterface {
 

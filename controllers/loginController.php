@@ -1,7 +1,7 @@
 <?php
 //DEPENDENCIES
 require_once 'models/usuario.php';
-require_once 'models/teacherEntity.php';
+require_once 'models/teacherModel/DAOTeacherImpl.php';
 require_once 'models/studentModel.php';
 
 
@@ -12,6 +12,11 @@ class loginController {
      */
     public function login(){
         if(isset($_POST)){
+
+            $_SESSION['admin']      = false;
+            $_SESSION['teacher']    = false;
+            $_SESSION['student']    = false;
+
             //SEARCHING INTO ADMIN_DB
             $admin = usuario::login($_POST['email'], $_POST['password']);
 
@@ -19,14 +24,13 @@ class loginController {
 
                 $_SESSION['identity']   = $admin;
                 $_SESSION['admin']      = true;
-                //$_SESSION['teacher']    = false;
-                //$_SESSION['student']    = false;
                 header("Location:".base_url.'/views/home.php');
+
 
             } else {
 
                 //SEARCHING INTO TEACHER_DB
-                $teacher = teacherEntity::login($_POST['email'], $_POST['password']);
+                $teacher = DAOTeacherImpl::findByLogin($_POST['email'], $_POST['password']);
 
                 if($teacher && is_object($teacher)){
 
