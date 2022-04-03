@@ -8,14 +8,13 @@ class usuario {
     private $email;
     private $password;
     private $rol;
-    private $db;
 
     // ----------------------------------- CONSTRUCTOR ----------------------------------- //
     public function __construct(){
         $this->db = Database::connect();
     }
 
-    // ------------------------------- GETTERS & SETTERS -------------------------------- //
+    // ------------------------------- GETTERS-------------------------------- //
     public function getId_user_admin() {
         return $this->id_user_admin;
     }
@@ -32,6 +31,7 @@ class usuario {
         return $this->email;
     }
 
+    //TODO: Modularizar
     public function getPassword() {
         return password_hash($this->db->real_escape_string($this->password), PASSWORD_BCRYPT, ['cost' => 4]);
     }
@@ -40,18 +40,23 @@ class usuario {
         return $this->rol;
     }
 
+    // ------------------------------- SETTERS -------------------------------- //
+
     public function setId_user_admin($id_user_admin): void {
         $this->id_user_admin = $id_user_admin;
     }
 
+    //TODO: Modularizar
     public function setUsername($username): void {
         $this->username = $this->db->real_escape_string($username);
     }
 
+    //TODO: Modularizar
     public function setName($name): void {
         $this->name = $this->db->real_escape_string($name);
     }
 
+    //TODO: Modularizar
     public function setEmail($email): void {
         $this->email = $this->db->real_escape_string($email);
     }
@@ -59,17 +64,10 @@ class usuario {
     public function setPassword($password): void {
         $this->password = $password;
     }
-    
+
+    //TODO: Modularizar
     public function setRol($rol): void {
         $this->rol = $this->db->real_escape_string($rol);
-    }
-
-    public function getDb(): mysqli {
-        return $this->db;
-    }
-
-    public function setDb(): void {
-        $this->db = Database::connect();
     }
 
 

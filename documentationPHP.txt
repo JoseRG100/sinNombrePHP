@@ -10,6 +10,7 @@
 - Re-enrutar todo.
 - Al dar atras o adelante tras usar el ASIDE,
   la siguiente URL lanza error.
+        //TODO: Hay que crear una validación, para que solo se pueda añadir un usuario por EMAIL
 
 ================
 --- PHP CORE ---

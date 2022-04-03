@@ -1,6 +1,6 @@
 <?php
 
-class teacherModel {
+class teacherEntity {
     // ------------------------------------- ATRIBUTES ------------------------------------- //
     private $id_teacher;
     private $name;
@@ -9,11 +9,9 @@ class teacherModel {
     private $nif;
     private $email;
     private $password;
-    private $db;
 
     // ----------------------------------- CONSTRUCTOR ----------------------------------- //
     public function __construct() {
-        $this->db = Database::connect();
     }
 
     // ------------------------------- GETTERS & SETTERS -------------------------------- //
@@ -73,48 +71,6 @@ class teacherModel {
         $this->password = $password;
     }
 
-
-
     // ------------------------------ MODEL METHODES ------------------------------ //
 
-    public function signUp(){
-        $sql = "INSERT INTO teachers VALUES(NULL, '{$this->getName()}', '{$this->getSurname()}', '{$this->getTelephone()}', '{$this->getNif()}', '{$this->getEmail()}', '{$this->getPassword()}')";
-        $save = $this->db->query($sql);
-
-        $result = false;
-        if($save){
-            $result = true;
-        }
-        return $result;
-    }
-
-    /**
-     * Login methode to teacher.
-     * @param $loginEmail
-     * @param $logginPassword
-     * @return false|object|stdClass|null
-     */
-    public static function login($loginEmail, $loginPassword){
-        $foundUser = false;
-        $dbConnection = Database::connect();
-        $SQL = "SELECT * FROM teachers WHERE email = '$loginEmail'";
-
-        //LOOK FOR THE USER IN THE DATABASE
-        //TODO: Hay que crear una validación, para que solo se pueda añadir un usuario por EMAIL
-
-        $login = $dbConnection->query($SQL);
-
-        if($login && $login->num_rows == 1){
-            $probablyUser = $login->fetch_object();
-
-            //VERIFYING THE PASSWORD IS RIGHT
-            $verify = password_verify($loginPassword, $probablyUser->password);
-            if($verify){ $foundUser = $probablyUser; }
-
-        }
-
-        mysqli_close($dbConnection);
-        return $foundUser;
-    }
-
-}
+}//end class teacherEntity

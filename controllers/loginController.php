@@ -1,7 +1,7 @@
 <?php
 //DEPENDENCIES
 require_once 'models/usuario.php';
-require_once 'models/teacherModel.php';
+require_once 'models/teacherEntity.php';
 require_once 'models/studentModel.php';
 
 
@@ -26,7 +26,7 @@ class loginController {
             } else {
 
                 //SEARCHING INTO TEACHER_DB
-                $teacher = teacherModel::login($_POST['email'], $_POST['password']);
+                $teacher = teacherEntity::login($_POST['email'], $_POST['password']);
 
                 if($teacher && is_object($teacher)){
 
