@@ -1,15 +1,13 @@
 <?php
 //DEPENDENCIES
-require_once 'models/usuario.php';
+require_once 'models/adminModel/DAOAdminImpl.php';
 require_once 'models/teacherModel/DAOTeacherImpl.php';
-require_once 'models/studentModel.php';
+require_once 'models/studentModel/DAOStudentImpl.php';
 
 
 class loginController {
 
-    /**
-     * @return void
-     */
+    //TODO: FALTAN HACER TODAS LAS VALIDACIONES
     public function login(){
         if(isset($_POST)){
 
@@ -18,7 +16,7 @@ class loginController {
             $_SESSION['student']    = false;
 
             //SEARCHING INTO ADMIN_DB
-            $admin = usuario::login($_POST['email'], $_POST['password']);
+            $admin = DAOAdminImpl::findByLogin($_POST['email'], $_POST['password']);
 
             if($admin && is_object($admin)){
 
@@ -39,11 +37,11 @@ class loginController {
                     header("Location:".base_url.'/views/home.php');
 
                 }
-                /*
+
                     else {
 
                     //SEARCHING INTO STUDENT_DB
-                    $student = studentModel::login($_POST['email'], $_POST['password']);
+                    $student = DAOStudentImpl::findByLogin($_POST['email'], $_POST['password']);
 
                     if($student){
 
@@ -52,38 +50,13 @@ class loginController {
                         header("Location:".base_url.'/views/home.php');
 
                     }
-*/
+
                     else {
                         //$_SESSION['error_login'] = ['Identificacion fallida'];
                         echo 'Identificación Fallida';
                     }
                 }
             }
-    }
-
-
-
-
-    public function login_callback(){
-        if(isset($_POST)){
-            //Identificar al usuario
-            $usuario = new Usuario();
-            $usuario->setEmail($_POST['email']);
-            $usuario->setPassword($_POST['password']);
-
-            //Consulta a la base de datos
-            $identity = $usuario->login();
-
-            if($identity && is_object($identity)){
-                $_SESSION['identity'] = $identity;
-                //if($identity->rol == 'admin'){
-                $_SESSION['admin'] = true;
-                header("Location:".base_url.'/views/home.php');
-            }else{
-                //$_SESSION['error_login'] = ['Identificacion fallida'];
-                echo 'Identificación Fallida';
-            }
-
         }
     }
 

@@ -1,10 +1,12 @@
 <?php
-
 require_once 'models/asignatura.php';
-class asignaturaController{
-    public function index(){
-        require_once 'views/asignatura/destacados.php';
-    }
+
+//TODO: PASAR TODAS ESTAS FUNCIONES A LA CLASE "COURSECONTROLLER" Y ELIMINAR ESTA CLASE
+class asignaturaController {
+    //CREO QUE ESTA FUNCIÓN SOLO SE USA EN LOS USUARIOS
+    //public function index(){
+    //    require_once 'views/asignatura/destacados.php';
+    //}
     
     public function gestion(){
         Utils::isAdmin();

@@ -5,11 +5,11 @@
 =================
 ----- TO DO -----
 =================
-- Cambiar paths files y variables a ingles.
-- Seguir limpiando código muerto.
-- Re-enrutar todo.
+- Falta hacer perfil de usuario.
+- Falta hacer cerrar SESSION
 - Al dar atras o adelante tras usar el ASIDE,
   la siguiente URL lanza error.
+- Faltan todas las validaciones de TEACHER & STUDENT
         //TODO: Hay que crear una validación, para que solo se pueda añadir un usuario por EMAIL
 
 ================

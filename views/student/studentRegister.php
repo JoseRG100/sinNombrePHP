@@ -13,37 +13,51 @@
 </div>
 
 <!-- REGISTER-VIEW BODY -->
-<div style="height: 400px;" class="container my-5">
-    <div style="height: 400px;" class="row d-flex justify-content-center row align-items-center">
+<div style="height: auto;" class="container my-5">
+    <div style="height: auto" class="row d-flex justify-content-center row align-items-center">
 
         <div class="col-md-4 d-grid gap-3">
 
-            <form class="d-grid gap-3" action="<?=base_url?>/usuario/register" method="POST">
+            <form class="d-grid gap-3" action="<?=base_url?>/student/register" method="POST">
                 <!-- USERNAME INPUT -->
                 <div class="form-group">
                     <label>Username</label>
                     <input type="text" name="username" class="form-control" autofocus>
-                </div>
-                <!-- NAME AND LASTNAME INPUT -->
-                <div class="form-group">
-                    <label>Name and Lastname</label>
-                    <input type="text" name="name" class="form-control">
-                </div>
-                <!-- EMAIL INPUT -->
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" name="email" class="form-control">
                 </div>
                 <!-- PASSWORD INPUT -->
                 <div class="form-group">
                     <label>Password</label>
                     <input type="password" name="password" class="form-control">
                 </div>
-
+                <!-- EMAIL INPUT -->
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" class="form-control">
+                </div>
+                <!-- NAME -->
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" name="name" class="form-control">
+                </div>
+                <!-- SURNAME -->
+                <div class="form-group">
+                    <label>Surname</label>
+                    <input type="text" name="surname" class="form-control">
+                </div>
+                <!-- TELEPHONE -->
+                <div class="form-group">
+                    <label>Telephone</label>
+                    <input type="text" name="telephone" class="form-control">
+                </div>
+                <!-- NIF -->
+                <div class="form-group">
+                    <label>NIF</label>
+                    <input type="text" name="nif" class="form-control">
+                </div>
                 <!-- LAST ROW -->
                 <div class="d-flex justify-content-end gap-3 d-row align-items-center ">
                         <!-- COME BACK TO LOGIN -->
-                        <a href="<?=base_url?>">Already registered?</a>
+                        <a href="<?=base_url?>/routes/index">Already registered?</a>
                         <!-- REGISTER BUTTON -->
                         <input type="submit" class="btn btn-success btn-block"
                                value="REGISTER">

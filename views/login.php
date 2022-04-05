@@ -3,8 +3,9 @@
     <strong class="alert_green">Registro completado correctamente</strong>
 <?php endif; ?>
 <?php Utils::deleteSession('register'); ?>
+<!-- /ALERTS (MISTAKE AND SUCCESFULL) -->
 
-<!--BODY -->
+<!-- LOGIN CONTAINER -->
 <div id="login" style="height: 400px;" class="container">
     <div style="height: 400px;" class="row d-flex justify-content-center row align-items-center">
 
@@ -21,7 +22,7 @@
                     </div>
                     <!-- REGISTER REDIRECTION -->
                     <div style="text-align: end">
-                        <a href="<?=base_url?>/usuario/registro">You have not yet registered?</a>
+                        <a href="<?=base_url?>/routes/studentRegister">You have not yet registered?</a>
                     </div> <!-- /REGISTER REDIRECTION -->
                     <input type="submit" class="btn btn-success btn-block"
                     name="login" value="LOGIN">
@@ -29,4 +30,4 @@
         </div>
 
     </div>
-</div>
+</div> <!-- LOGIN CONTAINER -->

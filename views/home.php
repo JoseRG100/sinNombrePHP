@@ -12,8 +12,10 @@ require_once '../helpers/utils.php';
 require_once 'layout/header.php';
 require_once 'layout/navbar.php';
 require_once 'layout/aside.php';
+require_once '../controllers/routesController.php';
 
 //REQUIRED VIEWS
+//TODO: MODULARIZAR DENTRO DEL ROUTES CONTROLLER
 if(isset($_POST['btn-addNewSubject'])){
     require_once 'admin/adminSubjectList.php';
 }
@@ -27,10 +29,10 @@ if(isset($_POST['btn-teacherClassList'])){
     require_once 'teacher/teacherClassList.php';
 }
 if(isset($_POST['btn-studentClassList'])){
-    require_once 'usuario/studentClassList.php';
+    require_once 'student/studentClassList.php';
 }
 if(isset($_POST['btn-schedule'])){
-    require_once 'usuario/schedule.php';
+    require_once 'student/schedule.php';
 }
 if(isset($_POST['btn-singOff'])){
     //TODO: AQUI MANEJAMOS EL CIERRE DE SESSIÓN.

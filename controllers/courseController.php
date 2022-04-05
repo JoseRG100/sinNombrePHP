@@ -1,5 +1,5 @@
 <?php
 
-class courseController{
+class courseController {
 
 }

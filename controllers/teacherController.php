@@ -1,11 +1,18 @@
 <?php
+require_once 'models/teacherModel/teacherEntity.php';
+require_once 'models/teacherModel/DAOTeacherImpl.php';
 
 class teacherController{
-    //TODO: ¿Porqué es necesaria está función?
+    //TODO: ESTA FUNCIÓN SERÁ UTILIZADA CUANDO UNA SESIÓN PREVIAMENTE INICIALIZADA SE ENCUENTRE EN LA MEMORIA CACHE
     public function index(){
-        echo "Controlador Teacher, Acción index";
+    //    echo "Controlador Teacher, Acción index";
     }
 
+    //TODO: FALTAN TODAS LAS VALIDACIONES
+    /**
+     * Reads the INPUTS from the REGISTER URL, and creates a new STUDENT on the DATABASE
+     * @return void
+     */
     public function register(){
         if(isset($_POST)){
 
@@ -15,16 +22,15 @@ class teacherController{
             $password   = isset($_POST['password']) ? $_POST['password'] : false;
 
             if($username && $name && $email && $password){
-                $usuario = new Usuario();
-                $usuario->setUsername($username);
-                $usuario->setName($name);
-                $usuario->setEmail($email);
-                $usuario->setPassword($password);
-                // $usuario->setRol($rol);
+                $newAdmin = new adminEntity();
+                $newAdmin->setUsername($username);
+                $newAdmin->setName($name);
+                $newAdmin->setEmail($email);
+                $newAdmin->setPassword($password);
 
-                $save = $usuario->save();
+                $registerSuccessful = DAOAdminImpl::insert($newAdmin);
 
-                if($save){
+                if($registerSuccessful){
                     $_SESSION['register'] = "complete";
                 }else{
                     $_SESSION['register'] = "failed";
