@@ -17,8 +17,12 @@ require_once '../controllers/routesController.php';
 //REQUIRED VIEWS
 //TODO: MODULARIZAR DENTRO DEL ROUTES CONTROLLER
 if(isset($_POST['btn-addNewSubject'])){
-    require_once 'admin/adminSubjectList.php';
+    require_once 'admin/courseManager/adminCourseList.php';
 }
+if(isset($_POST['btn-addNewCourse'])){
+    require_once 'admin/courseManager/addNewCourse.php';
+}
+
 if(isset($_POST['btn-addNewTeacher'])){
     require_once 'admin/adminTeacherList.php';
 }

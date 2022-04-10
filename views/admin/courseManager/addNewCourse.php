@@ -1,7 +1,7 @@
 <h1>Crear nuevas asignaturas</h1>
 
 <div class="form_container">
-<form action="<?=base_url?>asignatura/save" method="POST">
+<form action="<?=base_url?>/course/save" method="POST">
     <label for="nombre">Nombre</label>
     <input type="text" name="nombre" />
     

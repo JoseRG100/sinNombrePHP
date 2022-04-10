@@ -1,6 +1,6 @@
 <?php
-require_once '../models/courseModel/courseEntity.php';
-require_once '../models/courseModel/DAOcourseImpl.php';
+require_once 'models/courseModel/courseEntity.php';
+require_once 'models/courseModel/DAOcourseImpl.php';
 
 //TODO: PASAR TODAS ESTAS FUNCIONES A LA CLASE "COURSECONTROLLER" Y ELIMINAR ESTA CLASE
 class courseController {
@@ -12,16 +12,18 @@ class courseController {
     public function gestion(){
         Utils::isAdmin();
         
-        $asignatura = new Asignatura();
+        $asignatura = new courseEntity();
         $asignaturas = $asignatura->getAll();
         
-        require_once 'views/asignatura/gestion.php';
+        require_once 'views/admin/courseManager/adminCourseList.php';
     }
-    
+
+    /*
     public function crear(){
         Utils::isAdmin();
-        require_once 'views/asignatura/crear.php';
+        require_once 'views/admin/courseManager/addNewCourse.php';
     }
+    */
     
     public function save(){
         Utils::isAdmin();    
@@ -32,15 +34,15 @@ class courseController {
             $date_end = isset($_POST['acaba']) ? $_POST['acaba'] : false;
             $active = isset($_POST['activo']) ? $_POST['activo'] : false;
             
-            if($nombre && $descripcion && $empieza && $acaba && $activo){
-                $asignatura = new Asignatura();
+            if($name && $description && $date_start && $date_end && $active){
+                $asignatura = new courseEntity();
                 $asignatura->setName($name);
                 $asignatura->setDescription($description);
                 $asignatura->setDate_start($date_start);
                 $asignatura->setDate_end($date_end);
                 $asignatura->setActive($active);
                 
-                $save = $producto->save();
+                $save = $asignatura->save();
                     if($save){
                     $_SESSION['asignatura'] = "complete";
                     }else{
@@ -53,7 +55,7 @@ class courseController {
                 $_SESSION['asignatura'] = "failed";
             
         }
-        header('Location:'.base_url.'asignatura/gestion');
+        header('Location:'.base_url.'/course/gestion');
         
     }
     

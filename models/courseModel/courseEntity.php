@@ -61,26 +61,28 @@ class courseEntity {
         $this->active = $this->db->real_escape_string($active);
     }
     
-    
+    //TODO: AISLAR AL DAO Y HACER STATIC- SEGUIR EJEMPLO STUDENT MODEL
     public function getAll(){
         $asignatura = $this->db->query("SELECT * FROM courses ORDER BY id_course DESC");
         return $asignatura;
     }
 
+    //TODO: AISLAR AL DAO Y HACER STATIC - SEGUIR EJEMPLO STUDENT MODEL
       public function save(){
-        $sql = "INSERT INTO courses VALUES(NULL, '{$this->getName()}', '{$this->getDescription()}', {$this->getDescription()}, {$this->getDescription()}, {$this->getActive()})";
+        $sql = "INSERT INTO courses VALUES(NULL, '{$this->getName()}', '{$this->getDescription()}', {$this->getDate_start()}, {$this->getDate_end()}, {$this->getActive()})";
         $save = $this->db->query($sql);
         
         
-        echo $sql;
-        echo "<br/>";
-        echo $this->db->error;
-        die();
+        //echo $sql;
+        //echo "<br/>";
+        //echo $this->db->error;
+        //die();
         
         $result = false;
         if($save){
             $result = true;
         }
         return $result;
+
     }
 }  
