@@ -1,6 +1,6 @@
 <?php
 
-class Asignatura{
+class courseEntity {
     private $id_course;    
     private $name;
     private $description;

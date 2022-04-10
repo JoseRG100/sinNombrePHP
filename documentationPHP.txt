@@ -1,16 +1,18 @@
 =================
-----. NOTAS -----
+----- NOTAS -----
 =================
-- El modelo, como mucho, contiene a los CRUD
+- La lógica del modelo, como mucho, contiene a los CRUD
+
 =================
 ----- TO DO -----
 =================
-- Falta hacer perfil de usuario.
-- Falta hacer cerrar SESSION
-- Al dar atras o adelante tras usar el ASIDE,
-  la siguiente URL lanza error.
-- Faltan todas las validaciones de TEACHER & STUDENT
-        //TODO: Hay que crear una validación, para que solo se pueda añadir un usuario por EMAIL
+- Falta: Hacer perfil de usuario.
+- Falta: Implementar la lógica del botón cerrar SESSION
+- Falta: Refactorizar todos los enlaces de las vistas en el controlador routesManager
+- Faltan: Todas las validaciones de TEACHER & STUDENT
+          mirar de incluir todos los manejadores de excepciones en errorController
+- Corregir: Al retroceder o adelantar en el navegador tras usar las vistas del ASIDE,
+            el cambio de URL's lanza error (no se sabe cual error).
 
 ================
 --- PHP CORE ---
