@@ -24,7 +24,7 @@ if(isset($_POST['btn-addNewCourse'])){
 }
 
 if(isset($_POST['btn-addNewTeacher'])){
-    require_once 'admin/adminTeacherList.php';
+    require_once 'admin/teacherManager/adminTeacherList.php';
 }
 if(isset($_POST['btn-addNewClass'])){
     require_once 'admin/adminClassList.php';
