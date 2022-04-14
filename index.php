@@ -7,7 +7,7 @@ require_once 'autoload.php';
 require_once 'config/db.php';
 require_once 'config/parameters.php';
 require_once 'helpers/utils.php';
-require_once 'models/DAOinterface.php';
+require_once 'controllers/routesController.php';
 
 //VIEWS
 require_once 'views/layout/header.php';
@@ -15,6 +15,7 @@ require_once 'views/login.php';
 
 //TODO: ANALIZAR ESTAS FUNCIONES
 //I DON'T UNDERSTAND THIS FUNCTIONS ---->>>
+//ERROR CONTROLLER
 function show_error(){
     $error = new errorController();
     $error->index();
@@ -30,6 +31,7 @@ if(isset($_GET['controller'])){
     show_error();
     exit();
 }
+//ERROR CONTROLLER
 
 if(class_exists($nombre_controlador)){
     $controlador = new $nombre_controlador();

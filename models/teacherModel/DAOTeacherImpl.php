@@ -1,15 +1,16 @@
 <?php
 
+
 class DAOTeacherImpl implements DAOinterface {
 
     public static function insert($newObject) {
 
         $db     = Database::connect();
 
-        //-------- ENCRYPT PASSWORD -------- //
+        //ENCRYPT PASSWORD
         $password = $newObject->getPassword();
         $password = password_hash($db->real_escape_string($password), PASSWORD_BCRYPT, ['cost' => 4]);
-        //------- /ENCRYPT PASSWORD -------- //
+        //END ENCRYPT PASSWORD
 
         $query  = "INSERT INTO teachers (id_teacher, name, surname, telephone, nif, email, password)
                    VALUES (NULL, '{$newObject->getName()}', '{$newObject->getSurname()}', '{$newObject->getTelephone()}', '{$newObject->getNif()}', '{$newObject->getEmail()}', '{$password}')";
@@ -20,6 +21,7 @@ class DAOTeacherImpl implements DAOinterface {
             return TRUE;
         } //end if
         return FALSE;
+        //END OF VALIDATION
 
     }//end insert
 
@@ -49,24 +51,26 @@ class DAOTeacherImpl implements DAOinterface {
 
         $db     = Database::connect();
         $query  = "SELECT * FROM teachers WHERE id_teacher=$objectId";
-        $result = $db->query($query);
-        $data  = array();
+        return $result = $db->query($query);
 
-        if( $result->num_rows ) {
-            while( $row = $result->fetch_assoc() ) {
-                $data[] = [
-                    'id_teacher' => $row['id_teacher'],
-                    'name'       => $row['name'],
-                    'surname'    => $row['surname'],
-                    'telephone'  => $row['telephone'],
-                    'nif'        => $row['nif'],
-                    'email'      => $row['email'],
-                    'password'   => $row['password'],
-                ];
-            } //end while
-            return $data;
-        }//end if
-        return $data;
+//      NOTA: NO ELIMINAR, NO SABEMOS SI NECESITAREMOS TRANSFORMAR LOS REGISTROS EN OBJETOS MÁS ADELANTE
+//        $data  = array();
+//
+//        if( $result->num_rows ) {
+//            while( $row = $result->fetch_assoc() ) {
+//                $data[] = [
+//                    'id_teacher' => $row['id_teacher'],
+//                    'name'       => $row['name'],
+//                    'surname'    => $row['surname'],
+//                    'telephone'  => $row['telephone'],
+//                    'nif'        => $row['nif'],
+//                    'email'      => $row['email'],
+//                    'password'   => $row['password'],
+//                ];
+//            } //end while
+//            return $data;
+//        }//end if
+//        return $data;
 
     }//end getOne
 
@@ -74,24 +78,27 @@ class DAOTeacherImpl implements DAOinterface {
 
         $db     = Database::connect();
         $query  = "SELECT * FROM teachers";
-        $result = $db->query($query);
-        $data  = array();
+        return $result = $db->query($query);
 
-        if( $result->num_rows ) {
-            while( $row = $result->fetch_assoc() ) {
-                $data[] = [
-                    'id_teacher' => $row['id_teacher'],
-                    'name' => $row['name'],
-                    'surname' => $row['surname'],
-                    'telephone' => $row['telephone'],
-                    'nif' => $row['nif'],
-                    'email' => $row['email'],
-                    'password' => $row['password'],
-                ];
-            } //end while
-            return $data;
-        }//end if
-        return $data;
+//      NOTA: NO ELIMINAR, NO SABEMOS SI NECESITAREMOS TRANSFORMAR LOS REGISTROS EN OBJETOS MÁS ADELANTE
+//            $data  = array();
+//
+//            if( $result->num_rows ) {
+//                while( $row = $result->fetch_assoc() ) {
+//                    $data[] = [
+//                        'id_teacher' => $row['id_teacher'],
+//                        'name' => $row['name'],
+//                        'surname' => $row['surname'],
+//                        'telephone' => $row['telephone'],
+//                        'nif' => $row['nif'],
+//                        'email' => $row['email'],
+//                        'password' => $row['password'],
+//                    ];
+//                } //end while
+//                return $data;
+//            }//end if
+
+//        return $result;
 
     }//end getAll
 

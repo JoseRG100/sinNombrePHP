@@ -1,8 +1,17 @@
 <!-- ALERTS (MISTAKE AND SUCCESFULL) -->
-<?php if(isset($_SESSION['register']) && $_SESSION['register'] == 'failed'): ?>
-    <strong>Registro fallido, introduce bien los datos</strong>
+<?php if(isset($_SESSION['studentRegister']) && $_SESSION['studentRegister'] == 'failed'): ?>
+
+    <!-- SUCCESS ALERT (STUDENT REGISTER) -->
+    <div class="d-flex justify-content-around alert alert-danger alert-dismissible fade show" role="alert">
+        <p>Registro fallido, revisa que estén bien todos los datos</p>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div> <!-- END SUCCESS ALERT (STUDENT REGISTER) -->
+
 <?php endif; ?>
-<?php Utils::deleteSession('register'); ?>
+<?php Utils::deleteSession('studentRegister'); ?>
+<!-- END ALERTS (MISTAKE AND SUCCESFULL) -->
 
 <!-- SCRIPT: Hide the LOGIN view -->
 <script type="text/javascript">document.getElementById('login').style.display = 'none';</script>

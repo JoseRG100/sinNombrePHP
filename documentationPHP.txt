@@ -18,3 +18,12 @@
 --- PHP CORE ---
 ================
 - echo 'String'         //Printa un mensaje de texto en el navegador
+
+==================
+--- PENDIENTES ---
+==================
+- Arreglar inicio de sesión de distintos tipos de usuarios.
+- ¿necesitamos transformar los datos que vienen de mysql en objetos?
+- Arreglar arquitectura y enrutado de Home.php
+- terminar crud de TEACHER php.
+- validaciones de GETIN.

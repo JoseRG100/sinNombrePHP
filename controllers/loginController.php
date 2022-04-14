@@ -7,6 +7,7 @@ require_once 'models/studentModel/DAOStudentImpl.php';
 
 class loginController {
 
+    //TODO: DOCUMENTAR TODAS LAS FUNCIONES CON /**
     //TODO: FALTAN HACER TODAS LAS VALIDACIONES
     public function login(){
         if(isset($_POST)){
@@ -22,7 +23,10 @@ class loginController {
 
                 $_SESSION['identity']   = $admin;
                 $_SESSION['admin']      = true;
-                header("Location:".base_url.'/views/home.php');
+                unset($_SESSION['teacher']);
+                unset($_SESSION['student']);
+
+                header("Location:".base_url.'/home.php');
 
 
             } else {
@@ -34,7 +38,10 @@ class loginController {
 
                     $_SESSION['identity'] = $teacher;
                     $_SESSION['teacher'] = true;
-                    header("Location:".base_url.'/views/home.php');
+                    unset($_SESSION['admin']);
+                    unset($_SESSION['student']);
+
+                    header("Location:".base_url.'/home.php');
 
                 }
 
@@ -43,31 +50,45 @@ class loginController {
                     //SEARCHING INTO STUDENT_DB
                     $student = DAOStudentImpl::findByLogin($_POST['email'], $_POST['password']);
 
-                    if($student){
+                    if($student && is_object($student)){
 
                         $_SESSION['identity'] = $student;
                         $_SESSION['student'] = true;
-                        header("Location:".base_url.'/views/home.php');
+                        unset($_SESSION['admin']);
+                        unset($_SESSION['teacher']);
+
+                        header("Location:".base_url.'/home.php');
 
                     }
 
                     else {
-                        //$_SESSION['error_login'] = ['Identificacion fallida'];
-                        echo 'Identificación Fallida';
+                        $_SESSION['error_login'] = 'Error. Identificación fallida.';
+                        header("Location:".base_url);
                     }
                 }
             }
         }
     }
 
-    //TODO: Terminar está función con todos los tipos de usuarios.
-    public function logout(){
+    public static function logout(){
         if(isset($_SESSION['identity'])){
             unset($_SESSION['identity']);
         }
 
         if(isset($_SESSION['admin'])){
             unset($_SESSION['admin']);
+        }
+
+        if(isset($_SESSION['admin'])){
+            unset($_SESSION['admin']);
+        }
+
+        if(isset($_SESSION['teacher'])){
+            unset($_SESSION['teacher']);
+        }
+
+        if(isset($_SESSION['student'])){
+            unset($_SESSION['student']);
         }
 
         //REDIRECTION

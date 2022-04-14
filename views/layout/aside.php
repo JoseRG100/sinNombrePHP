@@ -4,47 +4,47 @@
     <div class="container-fluid">
 
         <!-- SHOWS USER NAME -->
-        <?php if(isset($_SESSION['identity'])): ?>
+        <?php if( isset($_SESSION['identity']) ): ?>
             <h3><?=$_SESSION['identity']->name?></h3>
         <?php endif; ?>
 
         <!-- ADMIN SESSION -->
-        <?php if($_SESSION['admin'] == true): ?>
+        <?php if( isset($_SESSION['admin']) ): ?>
             <!-- ADD NEW SUBJECT -->
             <form class="row" method="POST">
-                <input class="itemContainer" type="submit" name="btn-addNewSubject" value="Gestionar cursos">
+                <input class="itemContainer" type="submit" name="btn-showCourseManager" value="Gestionar cursos">
             </form>
             <!-- ADD NEW TEACHER -->
             <form class="row" method="POST">
-                <input class="itemContainer" type="submit" name="btn-addNewTeacher" value="Gestionar profesores">
+                <input class="itemContainer" type="submit" name="btn-showTeacherManager" value="Gestionar profesores">
             </form>
             <!-- ADD NEW CLASS -->
             <form class="row" method="POST">
-                <input class="itemContainer" type="submit" name="btn-addNewClass" value="Gestionar clases">
+                <input class="itemContainer" type="submit" name="btn-showClassManager" value="Gestionar clases">
             </form>
         <?php endif; ?>
 
         <!-- TEACHER SESSION -->
-        <?php if($_SESSION['teacher'] == true): ?>
+        <?php if( isset($_SESSION['teacher']) ): ?>
             <!-- SEE CLASS LIST_TEACHERS -->
                 <form class="row" method="POST">
-                    <input class="itemContainer" type="submit" name="btn-teacherClassList" value="Ver clases">
+                    <input class="itemContainer" type="submit" name="btn-showClassList" value="Ver clases">
                 </form>
             <!-- SEE SCHEDULE -->
                 <form class="row" method="POST">
-                    <input class="itemContainer" type="submit" name="btn-schedule" value="Horario">
+                    <input class="itemContainer" type="submit" name="btn-showTeacherSchedule" value="Horario">
                 </form>
         <?php endif; ?>
 
         <!-- STUDENT SESSION -->
-        <?php if($_SESSION['student'] == true): ?>
+        <?php if( isset($_SESSION['student']) ): ?>
             <!-- SEE CLASS LIST_SUSCRIPTIONS -->
             <form class="row" method="POST">
-                <input class="itemContainer" type="submit" name="btn-studentClassList" value="Asignaturas">
+                <input class="itemContainer" type="submit" name="btn-showClassListAvailable" value="Asignaturas">
             </form>
             <!-- SEE SCHEDULE -->
             <form class="row" method="POST">
-                <input class="itemContainer" type="submit" name="btn-schedule" value="Horario">
+                <input class="itemContainer" type="submit" name="btn-showStudentSchedule" value="Horario">
             </form>
         <?php endif; ?>
 

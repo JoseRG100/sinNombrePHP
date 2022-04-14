@@ -1,62 +1,53 @@
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Launch demo modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Modal -->
-
 <div class="contentContainer" style="border: solid red">
-    <h2>This space is to add a new TEACHER</h2>
 
-    <form class="container-fluid" action="<?=base_url?>/teacher/register" method="POST">
-        <!-- NAME INPUT -->
-        <div class="form-group">
-            <label>Nombres</label>
-            <input type="text" name="name" class="form-control" placeholder="Ingrese nombre" autofocus>
-        </div>
-        <!-- SURNAME INPUT -->
-        <div class="form-group">
-            <label>Apellidos</label>
-            <input type="text" name="surname" class="form-control" placeholder="Ingrese apellidos">
-        </div>
-        <!-- TELEPHONE INPUT -->
-        <div class="form-group">
-            <label>Teléfono</label>
-            <input type="text" name="telephone" class="form-control" placeholder="Ingrese teléfono">
-        </div>
-        <!-- NIF INPUT -->
-        <div class="form-group">
-            <label>NIF</label>
-            <input type="text" name="nif" class="form-control" placeholder="Ingrese NIF">
-        </div>
-        <!-- EMAIL INPUT -->
-        <div class="form-group">
-            <label>Email</label>
-            <input type="email" class="form-control" placeholder="Ingrese email">
-        </div>
-        <!-- PASSWORD INPUT -->
-        <div class="form-group">
-            <label>Password</label>
-            <input type="password" class="form-control" placeholder="Password">
-        </div>
-        <button type="submit" class="btn btn-primary mt-2">CREAR PROFESOR</button>
-    </form>
+    <!-- ALERTS (MISTAKE AND SUCCESFULL) -->
+    <?php if(isset($_SESSION['teacherRegister']) && $_SESSION['teacherRegister'] == 'complete'): ?>
+        <div class="d-flex justify-content-around alert alert-success alert-dismissible fade show" role="alert">
+            <p>Nuevo profesor, registrado correctamente.</p>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div><?php endif; ?>
+    <?php Utils::deleteSession('teacherRegister'); ?>
+    <!-- END ALERTS (MISTAKE AND SUCCESFULL) -->
+
+    <!-- TITTLE -->
+    <h2>Gestión de maestros</h2>
+    <!-- END TITTLE -->
+
+    <!-- BUTTON ADD NEW TEACHER (MODAL) -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        AÑADIR PROFESOR
+    </button> <!-- END BUTTON ADD NEW TEACHER (MODAL) -->
+
+    <!-- TEACHERS TABLE -->
+
+    <?php $teachers = DAOTeacherImpl::getAll() ?>
+    <table style="border: solid 1px" class="mt-2">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NOMBRE</th>
+                <th>APELLIDOS</th>
+                <th>TELÉFONO</th>
+                <th>NIF</th>
+                <th>EMAIL</th>
+            </tr>
+        </thead>
+        <?php while( $teacher = mysqli_fetch_array($teachers) ) { ?>
+        <tbody>
+            <tr>
+                <td><?php echo $teacher['id_teacher'] ;?></td>
+                <td><?php echo $teacher['name'] ;?></td>
+                <td><?php echo $teacher['surname'] ;?></td>
+                <td><?php echo $teacher['telephone'] ;?></td>
+                <td><?php echo $teacher['nif'] ;?></td>
+                <td><?php echo $teacher['email'] ;?></td>
+            </tr>
+        </tbody>
+        <?php } ?>
+
+    </table> <!-- END TEACHERS TABLE -->
+
+
 </div>
