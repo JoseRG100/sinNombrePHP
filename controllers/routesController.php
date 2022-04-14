@@ -20,6 +20,10 @@ class routesController {
         require_once 'home.php';
     }
 
+    public static function showProfile(){
+        require_once 'views/profile.php';
+    }
+
     // --- ADMIN VIEWS --- //
     public static function showCourseManager(){
         require_once 'views/admin/courseManager/adminCourseList.php';

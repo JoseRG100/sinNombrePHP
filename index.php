@@ -13,8 +13,8 @@ require_once 'controllers/routesController.php';
 require_once 'views/layout/header.php';
 require_once 'views/login.php';
 
-//TODO: ANALIZAR ESTAS FUNCIONES
-//I DON'T UNDERSTAND THIS FUNCTIONS ---->>>
+
+//TODO: MODULARIZAR ERROR CONTROLLER EN LIBRERÍA UTILS
 //ERROR CONTROLLER
 function show_error(){
     $error = new errorController();
@@ -30,9 +30,13 @@ if(isset($_GET['controller'])){
 }else{
     show_error();
     exit();
-}
-//ERROR CONTROLLER
+} //ERROR CONTROLLER
 
+
+//TODO: CREAR FUNCIONES DE INICIO DE SESSION
+
+
+//I DON'T UNDERSTAND THIS FUNCTIONS ---->>>
 if(class_exists($nombre_controlador)){
     $controlador = new $nombre_controlador();
     
@@ -47,7 +51,6 @@ if(class_exists($nombre_controlador)){
     }
 }else{
     show_error();
-}
-//<<<----
+} //<<<----
 
 require_once 'views/layout/footer.php';

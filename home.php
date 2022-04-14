@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+ob_start();
 
 //DEPENDENCIES
 require_once 'autoload.php';
@@ -17,33 +18,61 @@ require_once 'views/layout/aside.php';
 // ------------- MAIN VIEWS ------------- //
 
 //TODO: CREAR FUNCIÓN "CHANGE SESSION".
-
 //$_SESSION['current_session'] = null;
-showSession();
+$one    = 1;
+$two    = 2;
 
-//function changeSession($chosenSession) {
-//    $_SESSION['current_session'] = $chosenSession;
-//}
+//showSession();
 
-function showSession() {
-    if ( isset($_SESSION['view_teacher_manager'])) {
-        routesController::showTeacherManager();
-        //TODO: CAMBIAR LA SIGUIENTE LINEA POR LA FUNCIÓN "CHANGE SESSION".
-        Utils::deleteSession('view_teacher_manager');
-    }
+function changeSession($chosenSession) {
+    //echo $chosenSession;
+    $_SESSION['current_session'] = $chosenSession;
+    //echo $_SESSION['current_session'];
 }
 
+/*
+function showSession() {
+
+    if ( !isset( $_SESSION['current_session'] ) ) {
+        $_SESSION['current_session'] = null;
+    }
+    else if ( ( $_SESSION['current_session'] ) == null ) {
+        //VOID
+    }
+    if ( $_SESSION['current_session'] == 1 ) {
+        routesController::showCourseManager();
+
+    }     else {
+        //VOID
+    }
+    if ( $_SESSION['current_session'] == 2 ) {
+        routesController::showTeacherManager();
+
+    }  else {
+        //VOID
+    }
+
+    Utils::deleteSession('current_session');
+
+}
+*/
 
 //TODO: MODULARIZAR DENTRO DEL ROUTES CONTROLLER
 
 // --- ADMIN VIEWS --- //
-    if(isset($_GET['btn-showCourseManager'])){
+    if( isset($_GET['btn-showCourseManager']) || ( isset($_SESSION['current_session']) && $_SESSION['current_session'] == 1 ) ){
         routesController::showCourseManager();
+
+        //$_SESSION['view_course_manager'] = true;
+        changeSession($one);
+        //Utils::deleteSession('view_course_manager');
     }
-    if(isset($_GET['btn-showTeacherManager'])){
+    if( isset($_GET['btn-showTeacherManager']) || ( isset($_SESSION['current_session']) && $_SESSION['current_session'] == 2 ) ){
         routesController::showTeacherManager();
-        $_SESSION['view_teacher_manager'] = true;
-        //changeSession($_SESSION['view_teacher_manager']);
+
+        //$_SESSION['view_teacher_manager'] = true;
+        changeSession($two);
+        //Utils::deleteSession('view_teacher_manager');
     }
     if(isset($_GET['btn-showClassManager'])){
         routesController::showClassManager();
@@ -66,7 +95,8 @@ function showSession() {
     }
 
 // --- SIGN OFF --- //
-    if(isset($_POST['btn-singOff'])){
+    if(isset($_GET['btn-singOff'])){
+        ob_clean();
         loginController::logout();
     }
 

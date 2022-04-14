@@ -6,13 +6,26 @@
 =================
 ----- TO DO -----
 =================
+JULIO:
+------
+- Falta: Terminar la función CHANGE que hace que retorne a la vista
+         de la lista usada antes del registro o el resto del CRUD.
 - Falta: Hacer perfil de usuario.
-- Falta: Implementar la lógica del botón cerrar SESSION
-- Falta: Refactorizar todos los enlaces de las vistas en el controlador routesManager
-- Faltan: Todas las validaciones de TEACHER & STUDENT
+         CREAR VISTA PARA PERFIL DE USUARIO.
+- Faltan: Todas las validaciones de LOGIN
+- Faltan: Todas las validaciones de STUDENT REGISTER
+- Faltan: Todas las validaciones de TEACHER REGISTER
           mirar de incluir todos los manejadores de excepciones en errorController
-- Corregir: Al retroceder o adelantar en el navegador tras usar las vistas del ASIDE,
-            el cambio de URL's lanza error (no se sabe cual error).
+- Agregar etiqueta mainContainer a todas las Views de los compis.
+- Falta: Terminar la función CHANGE que hace que retorne a la vista
+         de la lista usada antes del registro o el resto del CRUD.
+
+OTROS:
+------
+- ¿Necesitamos transformar los datos que vienen de MySQL en OBJETOS de Clase?
+- Terminar CRUD (del lado de las vistas) de TEACHERS.
+- Validaciones del CRUD de teachers.
+
 
 ================
 --- PHP CORE ---

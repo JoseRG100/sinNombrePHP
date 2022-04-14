@@ -71,6 +71,7 @@ class loginController {
     }
 
     public static function logout(){
+
         if(isset($_SESSION['identity'])){
             unset($_SESSION['identity']);
         }
@@ -93,5 +94,6 @@ class loginController {
 
         //REDIRECTION
         header("Location:".base_url);
+
     }
 }

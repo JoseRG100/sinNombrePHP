@@ -50,7 +50,7 @@
         <?php endif; ?>
 
         <!-- SIGN OFF -->
-        <form class="row" method="POST">
+        <form class="row" method="GET">
             <input class="itemContainer" type="submit" name="btn-singOff" value="Cerrar sesión">
         </form>
     </div>
