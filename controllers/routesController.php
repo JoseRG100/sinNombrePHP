@@ -11,13 +11,13 @@ require_once 'controllers/teacherController.php';
  */
 class routesController {
 
-    // --- INDEX --- //
+    // --- MAIN VIEWS --- //
     public static function index(){
-        require_once 'views/login.php';
+        require_once 'index.php';
     }
 
-    public static function showStudentRegister(){
-        require_once 'views/student/studentRegister.php';
+    public static function home(){
+        require_once 'home.php';
     }
 
     // --- ADMIN VIEWS --- //
@@ -45,6 +45,10 @@ class routesController {
     }
 
     // --- STUDENT VIEWS --- //
+    public static function showStudentRegister(){
+        require_once 'views/student/studentRegister.php';
+    }
+
     public static function showClassListAvailable(){
         require_once 'views/student/studentClassList.php';
     }

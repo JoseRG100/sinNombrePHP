@@ -37,31 +37,31 @@ function showSession() {
 //TODO: MODULARIZAR DENTRO DEL ROUTES CONTROLLER
 
 // --- ADMIN VIEWS --- //
-    if(isset($_POST['btn-showCourseManager'])){
+    if(isset($_GET['btn-showCourseManager'])){
         routesController::showCourseManager();
     }
-    if(isset($_POST['btn-showTeacherManager'])){
+    if(isset($_GET['btn-showTeacherManager'])){
         routesController::showTeacherManager();
         $_SESSION['view_teacher_manager'] = true;
         //changeSession($_SESSION['view_teacher_manager']);
     }
-    if(isset($_POST['btn-showClassManager'])){
+    if(isset($_GET['btn-showClassManager'])){
         routesController::showClassManager();
     }
 
 // --- TEACHER VIEWS --- //
-    if(isset($_POST['btn-showClassList'])){
+    if(isset($_GET['btn-showClassList'])){
         routesController::showClassList();
     }
-    if(isset($_POST['btn-showTeacherSchedule'])){
+    if(isset($_GET['btn-showTeacherSchedule'])){
         routesController::showTeacherSchedule();
     }
 
 // --- STUDENT VIEWS --- //
-    if(isset($_POST['btn-showClassListAvailable'])){
+    if(isset($_GET['btn-showClassListAvailable'])){
         routesController::showClassListAvailable();
     }
-    if(isset($_POST['btn-showStudentSchedule'])){
+    if(isset($_GET['btn-showStudentSchedule'])){
         routesController::showStudentSchedule();
     }
 
