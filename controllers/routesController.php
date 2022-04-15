@@ -1,6 +1,7 @@
 <?php
 
 require_once 'models/DAOinterface.php';
+require_once 'controllers/courseController.php';
 require_once 'controllers/loginController.php';
 require_once 'controllers/teacherController.php';
 
