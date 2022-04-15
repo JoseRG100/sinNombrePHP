@@ -43,7 +43,14 @@
                     <td><?= $asi->date_start;?></td>
                     <td><?= $asi->date_end;?></td>
                     <td><?= $asi->active;?></td>
+                    <td>
+                        <a href="" class="button button-small">Editar</a>
+                        <a href="" class="button button-small">Eliminar</a>
+                    </td>
+
                 </tr>
+
+
             <?php endwhile; ?>
         <?php endif ?>
     </table>
