@@ -44,17 +44,21 @@ class courseController {
                 
                 $save = $asignatura->save();
                     if($save){
-                    $_SESSION['asignatura'] = "complete";
+                        $_SESSION['addCourse'] = "complete";
+                        $_SESSION['message'] = 'Se ha creado un nuevo curso exitosamente';
                     }else{
-                        $_SESSION['asignatura'] = "failed";
+                        $_SESSION['addCourse'] = "failed";
+                        $_SESSION['message'] = 'La QUERY no ha ingresado a la BBDD';
                     }
             }else{
-                $_SESSION['asignatura'] = "failed";
+                $_SESSION['addCourse'] = "failed";
+                $_SESSION['message'] = 'Los datos del metodos POST no han entrado correctamente a la funcion';
             }
-            }else{
-                $_SESSION['asignatura'] = "failed";
-            
+        }else{
+            $_SESSION['addCourse'] = "failed";
+            $_SESSION['message'] = 'El metodo POST no ha ingresado correctamete';
         }
+
         header('Location:'.base_url.'/home');
         
     }
