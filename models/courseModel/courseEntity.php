@@ -62,9 +62,10 @@ class courseEntity {
     }
     
     //TODO: AISLAR AL DAO Y HACER STATIC- SEGUIR EJEMPLO STUDENT MODEL
-    public function getAll(){
-        $asignatura = $this->db->query("SELECT * FROM courses ORDER BY id_course DESC");
-        return $asignatura;
+    public static function getAll(){
+        $db = Database::connect();
+        $courses = $db->query("SELECT * FROM courses ORDER BY id_course DESC");
+        return $courses;
     }
 
     //TODO: AISLAR AL DAO Y HACER STATIC - SEGUIR EJEMPLO STUDENT MODEL

@@ -17,8 +17,6 @@
     }?> <!-- END ERROR: TEACHER REGISTER -->
 <!-- END VALIDACIONES -->
 
-
-
     <h1>Gestión de asignaturas</h1>
 
     <!-- ADD NEW COURSE -->
@@ -26,25 +24,29 @@
         <input class="button-small" type="submit" name="btn-addNewCourse">
     </form>
 
+    <?php $courses = courseEntity::getAll() ?>
     <table style="border: solid 1px">
-        <tr>
-            <th>ID</th>
-            <th>NAME</th>
-            <th>description</th>
-            <th>date_start</th>
-            <th>date_end</th>
-            <th>active</th>
-        <?php if (isset($asignaturas)): ?>
-            <?php while($asi = $asignaturas->fetch_object()): ?>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>description</th>
+                <th>date_start</th>
+                <th>date_end</th>
+                <th>active</th>
+            </tr>
+        </thead>
+            <?php while( $course = mysqli_fetch_array($courses) ): ?>
+        <tbody>
                 <tr>
-                    <td><?= $asi->id_course;?></td>
-                    <td><?= $asi->name;?></td>
-                    <td><?= $asi->description;?></td>
-                    <td><?= $asi->date_start;?></td>
-                    <td><?= $asi->date_end;?></td>
-                    <td><?= $asi->active;?></td>
+                    <td><?php echo $course['id_course'] ;?></td>
+                    <td><?php echo $course['name'] ;?></td>
+                    <td><?php echo $course['description'] ;?></td>
+                    <td><?php echo $course['date_start'] ;?></td>
+                    <td><?php echo $course['date_end'] ;?></td>
+                    <td><?php echo $course['active'] ;?></td>
                 </tr>
             <?php endwhile; ?>
-        <?php endif ?>
+        </tbody>
     </table>
 </div>
