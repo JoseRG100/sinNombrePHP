@@ -1,1 +1,12 @@
-<h1>The SCHEDULE for STUDENTS is here</h1>
+<h1 class="contentContainer">
+
+
+
+
+    The SCHEDULE for STUDENTS is here
+
+
+
+
+
+</h1>

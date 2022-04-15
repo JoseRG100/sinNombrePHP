@@ -110,7 +110,8 @@ class teacherController {
     }
 
     public function delete(){
-
+        var_dump($_GET);
+        /*
         if( isset( $_GET['id'] ) ) {
             $id_teacher = $_GET['id'];
             $deleteSuccessful = DAOTeacherImpl::delete($id_teacher);
@@ -130,7 +131,16 @@ class teacherController {
             $_SESSION['message'] = 'Error. Tipo de solicitud incorrectemante enviado.';
             header("Location:".base_url.'/home');
         }
-
+        */
+        if( isset( $_GET['id'] ) ) {
+            $_SESSION['teacherDelete']  = "complete";
+            $_SESSION['message']        = 'Profesor, eliminado correctamente.';
+            header("Location:".base_url.'/home');
+        }else {
+            $_SESSION['teacherDelete'] = "failed";
+            $_SESSION['message'] = 'Super error.';
+            header("Location:".base_url.'/home');
+        }
     }
 
 }

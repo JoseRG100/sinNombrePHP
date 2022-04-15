@@ -101,7 +101,7 @@
                     </button> <!-- END BUTTON ADD NEW TEACHER (MODAL) -->
 
                     <!-- BUTTON DELETE TEACHER -->
-                    <a href="<?=base_url?>/controllers/delete?id=<?php echo $teacher['id_teacher'];?>">
+                    <a href="<?=base_url?>/teacher/delete?id=<?php echo $teacher['id_teacher'] ;?>">
                         Eliminar
                     </a> <!-- END BUTTON DELETE TEACHER -->
                 </td>
