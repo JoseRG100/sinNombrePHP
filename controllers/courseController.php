@@ -55,7 +55,7 @@ class courseController {
                 $_SESSION['asignatura'] = "failed";
             
         }
-        header('Location:'.base_url.'/course/gestion');
+        header('Location:'.base_url.'/home');
         
     }
     

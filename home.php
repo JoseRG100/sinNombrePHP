@@ -15,64 +15,16 @@ require_once 'views/layout/header.php';
 require_once 'views/layout/navbar.php';
 require_once 'views/layout/aside.php';
 
+showBeforeSession();
+
 // ------------- MAIN VIEWS ------------- //
 
-//TODO: CREAR FUNCIÓN "CHANGE SESSION".
-//$_SESSION['current_session'] = null;
-$one    = 1;
-$two    = 2;
-
-//showSession();
-
-function changeSession($chosenSession) {
-    //echo $chosenSession;
-    $_SESSION['current_session'] = $chosenSession;
-    //echo $_SESSION['current_session'];
-}
-
-/*
-function showSession() {
-
-    if ( !isset( $_SESSION['current_session'] ) ) {
-        $_SESSION['current_session'] = null;
-    }
-    else if ( ( $_SESSION['current_session'] ) == null ) {
-        //VOID
-    }
-    if ( $_SESSION['current_session'] == 1 ) {
-        routesController::showCourseManager();
-
-    }     else {
-        //VOID
-    }
-    if ( $_SESSION['current_session'] == 2 ) {
-        routesController::showTeacherManager();
-
-    }  else {
-        //VOID
-    }
-
-    Utils::deleteSession('current_session');
-
-}
-*/
-
-//TODO: MODULARIZAR DENTRO DEL ROUTES CONTROLLER
-
 // --- ADMIN VIEWS --- //
-    if( isset($_GET['btn-showCourseManager']) || ( isset($_SESSION['current_session']) && $_SESSION['current_session'] == 1 ) ){
+    if( isset($_GET['btn-showCourseManager']) ){
         routesController::showCourseManager();
-
-        //$_SESSION['view_course_manager'] = true;
-        changeSession($one);
-        //Utils::deleteSession('view_course_manager');
     }
-    if( isset($_GET['btn-showTeacherManager']) || ( isset($_SESSION['current_session']) && $_SESSION['current_session'] == 2 ) ){
+    if( isset($_GET['btn-showTeacherManager']) ){
         routesController::showTeacherManager();
-
-        //$_SESSION['view_teacher_manager'] = true;
-        changeSession($two);
-        //Utils::deleteSession('view_teacher_manager');
     }
     if(isset($_GET['btn-showClassManager'])){
         routesController::showClassManager();
@@ -97,9 +49,29 @@ function showSession() {
 // --- SIGN OFF --- //
     if(isset($_GET['btn-singOff'])){
         ob_clean();
+        ob_end_flush();
         loginController::logout();
     }
 
 // ------------- END MAIN VIEWS ------------- //
+
+//TODO: TERMINAR FUNCIÓN SHOW-SESSION.
+function showBeforeSession() {
+
+    if ( isset( $_SESSION['teacherRegister'] ) ) {
+        routesController::showTeacherManager();
+        Utils::deleteSession('teacherRegister');
+    }
+    if ( isset( $_SESSION['teacherUpdate'] ) ) {
+        routesController::showTeacherManager();
+        Utils::deleteSession('teacherUpdate');
+    }
+    if ( isset( $_SESSION['teacherDelete'] ) ) {
+        routesController::showTeacherManager();
+        Utils::deleteSession('teacherDelete');
+    }
+
+}
+
 
 require_once 'views/layout/footer.php';

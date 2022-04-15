@@ -1,6 +1,5 @@
 <?php
 
-
 class DAOTeacherImpl implements DAOinterface {
 
     public static function insert($newObject) {

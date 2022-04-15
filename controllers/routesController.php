@@ -26,13 +26,14 @@ class routesController {
 
     // --- ADMIN VIEWS --- //
     public static function showCourseManager(){
-        require_once 'views/admin/courseManager/adminCourseList.php';
         require_once 'views/admin/courseManager/addNewCourse.php';
+        require_once 'views/admin/courseManager/adminCourseList.php';
     }
 
     public static function showTeacherManager(){
         require_once 'views/admin/teacherManager/adminTeacherList.php';
         require_once 'views/admin/teacherManager/addNewTeacher.php';
+        require_once 'views/admin/teacherManager/updateTeacher.php';
     }
 
     public static function showClassManager(){

@@ -92,6 +92,8 @@ class loginController {
             unset($_SESSION['student']);
         }
 
+        session_unset();
+
         //REDIRECTION
         header("Location:".base_url);
 
