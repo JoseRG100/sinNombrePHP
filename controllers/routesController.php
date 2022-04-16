@@ -35,6 +35,7 @@ class routesController {
     public static function showCourseManager(){
         require_once 'views/admin/courseManager/addNewCourse.php';
         require_once 'views/admin/courseManager/adminCourseList.php';
+        require_once 'views/admin/courseManager/updateCourse.php';
     }
 
     public static function showTeacherManager(){

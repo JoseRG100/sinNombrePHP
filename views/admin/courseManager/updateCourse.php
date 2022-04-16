@@ -1,11 +1,11 @@
 <!-- MODAL CONTAINER -->
-<div class="modal fade" id="btnUpdateClass" tabindex="-1" role="dialog" aria-labelledby="btnUpdateClass" aria-hidden="true">
+<div class="modal fade" id="btnUpdateCourse" tabindex="-1" role="dialog" aria-labelledby="btnUpdateCourse" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
 
             <!-- MODAL HEADER -->
             <div class="modal-header">
-                <h5 class="modal-title" id="btnUpdateClass">Añadir nueva clase</h5>
+                <h5 class="modal-title" id="btnUpdateTeacher">Añadir nueva asignatura</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -14,39 +14,38 @@
             <!-- MODAL BODY -->
             <div class="modal-body">
                 <!-- FORM CONTAINER -->
-                <form class="container-fluid" action="<?=base_url?>/class/update" method="POST">
+                <form class="container-fluid" action="<?=base_url?>/course/update" method="POST">
                     <!-- ID -->
                     <div class="form-group">
-                        <label>ID_CLASS: </label>
-                        <input type="text" id="id_class" name="id_class" readonly>
+                        <label>ID</label>
+                        <input type="text" id="id_course" name="id_teacher" readonly>
                     </div>
                     <!-- NAME INPUT -->
                     <div class="form-group">
-                        <label>ID_TEACHER</label>
-                        <input type="text" id="classId_teacher" name="id_teacher" class="form-control"  autofocus>
+                        <label>Nombre</label>
+                        <input type="text" id="courseName" name="name" class="form-control"  autofocus>
                     </div>
                     <!-- SURNAME INPUT -->
                     <div class="form-group">
-                        <label>ID_COURSE</label>
-                        <input type="text" id="classId_course" name="id_course" class="form-control" >
+                        <label>Description</label>
+                        <input type="text" id="courseDescription" name="descripcion" class="form-control" >
                     </div>
                     <!-- TELEPHONE INPUT -->
                     <div class="form-group">
-                        <label>NAME</label>
-                        <input type="text" id="className" name="name" class="form-control" >
+                        <label>date_start</label>
+                        <input type="date" id="courseDate_start" name="date_start" class="form-control" >
                     </div>
                     <!-- NIF INPUT -->
+                    <div class="date_end">
+                        <label>NIF</label>
+                        <input type="date" id="courseDate_end" name="date_end" class="form-control" >
+                    </div>
+                    <!-- EMAIL INPUT -->
                     <div class="form-group">
-                        <label>COLOR</label>
-
-                        <input type="text" id="color" name="color" class="form-control" ">
+                        <label>active</label>
+                        <input type="number" id="courseActive" name="active" class="form-control" >
                     </div>
-
-
-
-                        <input type="text" id="classColor" name="color" class="form-control" ">
-                    </div>
-
+                    <!-- PASSWORD INPUT -->
 
                     <br>
 

@@ -70,11 +70,18 @@ class courseEntity {
 
     //TODO: AISLAR AL DAO Y HACER STATIC - SEGUIR EJEMPLO STUDENT MODEL
       public function save(){
+<<<<<<< HEAD
 
         $date_start  = date('Y-m-d', strtotime( $this->getDate_start() ));
         $date_end    = date('Y-m-d', strtotime( $this->getDate_end() ));
 
         $sql = "INSERT INTO courses VALUES(NULL, '{$this->getName()}', '{$this->getDescription()}', '$date_start', '$date_end', {$this->getActive()})";
+=======
+          $date_start  = date('Y-m-d', strtotime( $this->getDate_start() ));
+          $date_end    = date('Y-m-d', strtotime( $this->getDate_end() ));
+
+          $sql = "INSERT INTO courses VALUES(NULL, '{$this->getName()}', '{$this->getDescription()}', '$date_start', '$date_end', {$this->getActive()})";
+>>>>>>> 780027d3b39835ed641456454dcb82b4bb6e038e
         $save = $this->db->query($sql);
         
         
