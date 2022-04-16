@@ -40,18 +40,22 @@ class classController {
                 if($registerSuccessful){
 
                     $_SESSION['classRegister'] = "complete";
+                    $_SESSION['message'] = 'Clase, registrada correctamente.';
                     header("Location:".base_url.'/home');
 
                 }else{
                     $_SESSION['classRegister'] = "failed";
+                    $_SESSION['message'] = 'Error. El registro no pudo ingresar a la BBDD';
                 }
 
             }else{
                 $_SESSION['classRegister'] = "failed";
+                $_SESSION['message'] = 'Error. Uno de los datos no se capturó correctamente';
             }
 
         }else{
             $_SESSION['classRegister'] = "failed";
+            $_SESSION['message'] = 'Error. La solicitud REST no fue enviada correctamente';
         }
 
         header("Location:".base_url.'/home');

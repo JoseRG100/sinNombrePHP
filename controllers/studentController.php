@@ -3,9 +3,9 @@ require_once 'models/studentModel/studentEntity.php';
 require_once 'models/studentModel/DAOStudentImpl.php';
 
 class studentController {
-    //TODO: ESTA FUNCIÓN SERÁ UTILIZADA CUANDO UNA SESIÓN PREVIAMENTE INICIALIZADA SE ENCUENTRE EN LA MEMORIA CACHE
-    public function index(){
-        //echo "Controlador student, Acción index";
+
+    public function actionDefault(){
+        Utils::showError();
     }
 
     //TODO: FALTAN TODAS LAS VALIDACIONES

@@ -11,7 +11,11 @@ class DAOClassImpl implements DAOinterface
 
         //-------- ENCRYPT PASSWORD -------- //
         //$password = $newObject->getPassword();
+
        // $password = password_hash($db->real_escape_string($password), PASSWORD_BCRYPT, ['cost' => 4]);
+
+
+
         //------- /ENCRYPT PASSWORD -------- //
 
         $query = "INSERT INTO class (id_class, id_teacher, id_course, id_schedule, name, color)

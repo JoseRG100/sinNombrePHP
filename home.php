@@ -9,6 +9,7 @@ require_once 'config/db.php';
 require_once 'config/parameters.php';
 require_once 'helpers/utils.php';
 require_once 'controllers/routesController.php';
+//require_once 'helpers/errorManager.php';
 
 //VIEWS
 require_once 'views/layout/header.php';
@@ -57,7 +58,8 @@ showBeforeSession();
 
 //TODO: TERMINAR FUNCIÓN SHOW-SESSION.
 function showBeforeSession() {
-
+    //-------------------------------------------------//
+    //SHOW IF YOU'RE IN TEACHER_MANAGER
     if ( isset( $_SESSION['teacherRegister'] ) ) {
         routesController::showTeacherManager();
         Utils::deleteSession('teacherRegister');
@@ -69,9 +71,24 @@ function showBeforeSession() {
     if ( isset( $_SESSION['teacherDelete'] ) ) {
         routesController::showTeacherManager();
         Utils::deleteSession('teacherDelete');
+    }//END SHOW IF YOU'RE IN TEACHER_MANAGER
+
+    //-------------------------------------------------//
+    //SHOW IF YOU'RE IN CLASS_MANAGER
+    if ( isset( $_SESSION['classRegister'] ) ) {
+        routesController::showClassManager();
+        Utils::deleteSession('classRegister');
     }
+    if ( isset( $_SESSION['classUpdate'] ) ) {
+        routesController::showClassManager();
+        Utils::deleteSession('classUpdate');
+    }
+    if ( isset( $_SESSION['classDelete'] ) ) {
+        routesController::showClassManager();
+        Utils::deleteSession('classDelete');
+    }//END SHOW IF YOU'RE IN CLASS_MANAGER
+
 
 }
-
 
 require_once 'views/layout/footer.php';

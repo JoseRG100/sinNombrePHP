@@ -3,9 +3,9 @@ require_once 'models/teacherModel/teacherEntity.php';
 require_once 'models/teacherModel/DAOTeacherImpl.php';
 
 class teacherController {
-    //TODO: ESTA FUNCIÓN SERÁ UTILIZADA CUANDO UNA SESIÓN PREVIAMENTE INICIALIZADA SE ENCUENTRE EN LA MEMORIA CACHE
-    public function index(){
-    //    echo "Controlador Teacher, Acción index";
+
+    public function actionDefault(){
+        Utils::showError();
     }
 
     //TODO: FALTAN TODAS LAS VALIDACIONES
@@ -14,6 +14,8 @@ class teacherController {
      * @return void
      */
     public function register(){
+
+        Utils::isAdmin();
         if(isset($_POST)){
 
             $name       = isset($_POST['name']) ? $_POST['name'] : false;
@@ -56,7 +58,10 @@ class teacherController {
 
     }
 
+    //TODO: FALTAN TODAS LAS VALIDACIONES
     public function update(){
+
+        Utils::isAdmin();
         if(isset($_POST)){
 
             $id_teacher = isset($_POST['id_teacher']) ? $_POST['id_teacher'] : false;
@@ -67,6 +72,7 @@ class teacherController {
             $email      = isset($_POST['email']) ? $_POST['email'] : false;
             $password   = isset($_POST['password']) ? $_POST['password'] : false;
 
+            //TODO: FALTAN TODAS LAS VALIDACIONES
             if( $id_teacher && $name && $surname && $telephone && $nif && $email && $password){
                 $changedTeacher = new teacherEntity();
                 $changedTeacher->setName($name);
@@ -92,14 +98,12 @@ class teacherController {
                 }
 
             }else{
-                //TODO: SE PUEDE OCUPAR PARA EL $_SESSION[message]
                 $_SESSION['teacherUpdate'] = "failed";
                 $_SESSION['message'] = 'Error. Uno de los datos no se capturó correctamente';
                 header("Location:".base_url.'/home');
             }
 
         }else{
-            //TODO: SE PUEDE OCUPAR PARA EL $_SESSION[msg-txt]
             $_SESSION['teacherUpdate'] = "failed";
             $_SESSION['message'] = 'Error. La solicitud REST no fue enviada correctamente';
             header("Location:".base_url.'/home');
@@ -111,6 +115,7 @@ class teacherController {
 
     public function delete(){
 
+        Utils::isAdmin();
         if( isset( $_GET['id'] ) ) {
             $id_teacher = $_GET['id'];
             $deleteSuccessful = DAOTeacherImpl::delete($id_teacher);

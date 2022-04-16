@@ -18,17 +18,17 @@
                     <!-- NAME INPUT -->
                     <div class="form-group">
                         <label>id_teacher</label>
-                        <input type="text" name="teacher" class="form-control"  autofocus>
+                        <input type="text" name="id_teacher" class="form-control"  autofocus>
                     </div>
                     <!-- SURNAME INPUT -->
                     <div class="form-group">
                         <label>id_course</label>
-                        <input type="text" name="course" class="form-control" >
+                        <input type="text" name="id_course" class="form-control" >
                     </div>
                     <!-- TELEPHONE INPUT -->
                     <div class="form-group">
                         <label>id_schedule</label>
-                        <input type="text" name="schedule" class="form-control" >
+                        <input type="text" name="id_schedule" class="form-control" >
                     </div>
                     <!-- NIF INPUT -->
                     <div class="form-group">

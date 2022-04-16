@@ -3,37 +3,63 @@
 =================
 - La lógica del modelo, como mucho, contiene a los CRUD
 
-=================
------ TO DO -----
-=================
-- Terminar CRUD (del lado de las vistas) de TEACHERS.
-- Validaciones del CRUD de teachers.
-
-- Falta: Hacer perfil de usuario.
-         CREAR VISTA PARA PERFIL DE USUARIO.
-
-- Faltan: Todas las validaciones de LOGIN               `ADRI`
-- Faltan: Todas las validaciones de STUDENT REGISTER    `ADRI`
-- Faltan: Todas las validaciones de TEACHER REGISTER    `ADRI`
-          mirar de incluir todos los manejadores de excepciones en errorController
-
-- Agregar etiqueta mainContainer a todas las Views de los compis.
-
-OTROS:
-------
-- ¿Necesitamos transformar los datos que vienen de MySQL en OBJETOS de Clase?
-- Modularizar las alertas en la carpeta UTILS
-
 ================
 --- PHP CORE ---
 ================
 - echo 'String'         //Printa un mensaje de texto en el navegador
 
+
+=================
+----- TO DO -----
+=================
+
+------------------
+TODOS:
+------------------
+- TODO: TERMINAR FUNCIÓN SHOW-SESSION.
+
+------------------
+ADRI:
+------------------
+- CREAR: Vistas para calendario -> MENSUAL, SEMANAL, DIARIO.
+- CREAR: Vista para perfil de usuario.
+- MODIFICAR: Toda la mascara / logo / etc, del producto nuestro
+             (Que tenga identidad propia)
+
+------------------
+JOSE:
+------------------
+- FALTA: Terminar CRUD (MODELOS Y CONTROLADORES) PARA:
+    - admin     (NO).
+    - class     (faltan controladores y modelos).
+    - course    (faltan controladores y modelos).
+
+- SI SE PUEDE:
+    - Crear las VISTA de las dos entidades llamando a MODALS (BOOTSTRAP).
+
+------------------
+JULIO:
+------------------
+- IMPORTANTE: Agregar etiqueta contentContainer a todas las Views de los compis.    [CUANDO ESTÉN TODOS LOS CRUD TERMINADOS]
+- IMPORTANTE: Enrutar todas las vistas actualmente creadas.                         [CUANDO ESTÉN TODOS LOS CRUD TERMINADOS]
+- IMPORTANTE: Pasar models/DAOinterface a cada uno de los DAOImpl                   [CUANDO ESTÉN TODOS LOS CRUD TERMINADOS]
+
+- IMPORTANTE: Comunicar al consultor la desición de esperar a laravel para crear todas las validaciones.    [FALTA]
+- Faltan: Todas las validaciones de formulario LOGIN               `JULIO`          [ESPERAR AL PRODUCTO 3: LARAVEL]
+- Faltan: Todas las validaciones de formulario STUDENT REGISTER    `JULIO`          [ESPERAR AL PRODUCTO 3: LARAVEL]
+- Faltan: Todas las validaciones de formulario TEACHER REGISTER    `JULIO`          [ESPERAR AL PRODUCTO 3: LARAVEL]
+- Faltan: Todas las validaciones de formulario TEACHER UPDATE      `JULIO`          [ESPERAR AL PRODUCTO 3: LARAVEL]
+          (mirar de incluir todos los manejadores de excepciones en errorController o utils).
+
+- TODO: CASTEAR DATES PARA QUE INGRESEN EN LA BBDD
+
+------------------
+OTROS:
+------------------
+- ¿Necesitamos transformar los datos que vienen de MySQL en OBJETOS de Clase?
+- ¿Modularizar las alertas en el fichero UTILS?
+
 ==================
 --- PENDIENTES ---
 ==================
 - Arreglar inicio de sesión de distintos tipos de usuarios.
-- ¿necesitamos transformar los datos que vienen de mysql en objetos?
-- Arreglar arquitectura y enrutado de Home.php
-- terminar crud de TEACHER php.
-- validaciones de GETIN.
