@@ -25,11 +25,7 @@
                         <label>id_course</label>
                         <input type="number" name="id_course" class="form-control" >
                     </div>
-                    <!-- TELEPHONE INPUT -->
-                    <div class="form-group">
-                        <label>id_schedule</label>
-                        <input type="number" name="id_schedule" class="form-control" >
-                    </div>
+
                     <!-- NIF INPUT -->
                     <div class="form-group">
                         <label>name</label>

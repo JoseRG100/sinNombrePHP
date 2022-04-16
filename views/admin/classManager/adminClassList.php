@@ -68,7 +68,6 @@
             <th>ID_CLASS</th>
             <th>ID_TEACHER</th>
             <th>ID_COURSE</th>
-            <th>ID_SCHEDULE</th>
             <th>NAME</th>
             <th>COLOR</th>
         </tr>
@@ -79,7 +78,6 @@
                 <td> <?php echo $class['id_class'] ;?> </td>
                 <td> <?php echo $class['id_teacher'] ;?> </td>
                 <td> <?php echo $class['id_course'] ;?> </td>
-                <td> <?php echo $class['id_schedule'] ;?> </td>
                 <td> <?php echo $class['name'] ;?> </td>
                 <td> <?php echo $class['color'] ;?> </td>
 
@@ -90,7 +88,6 @@
                             data-id_class    = "<?php echo $class['id_class'] ;?>"
                             data-id_teacher  = "<?php echo $class['id_teacher'] ;?>"
                             data-id_course   = "<?php echo $class['id_course'] ;?>"
-                            data-id_schedule = "<?php echo $class['id_schedule'] ;?>"
                             data-name        = "<?php echo $class['name'] ;?>"
                             data-color       = "<?php echo $class['color'] ;?>">
                         Editar
@@ -113,7 +110,6 @@
             let id_class   = $(this).data('id_class');
             let id_teacher        = $(this).data('id_teacher');
             let id_course     = $(this).data('id_course');
-            let id_schedule   = $(this).data('id_schedule');
             let name         = $(this).data('name');
             let color       = $(this).data('color');
 
@@ -121,7 +117,6 @@
             $("#id_class").val(id_class);
             $("#classId_teacher").val(id_teacher);
             $("#classId_course").val(id_course);
-            $("#classId_schedule").val(id_schedule);
             $("#className").val(name);
             $("#classColor").val(color);
 

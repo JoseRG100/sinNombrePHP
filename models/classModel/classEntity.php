@@ -5,7 +5,6 @@ class classEntity{
     private $id_class;
     private $id_teacher;
     private $id_course;
-    private $id_schedule;
     private $name;
     private $color;
 
@@ -61,21 +60,7 @@ class classEntity{
         $this->id_course = $id_course;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getIdSchedule()
-    {
-        return $this->id_schedule;
-    }
 
-    /**
-     * @param mixed $id_schedule
-     */
-    public function setIdSchedule($id_schedule): void
-    {
-        $this->id_schedule = $id_schedule;
-    }
 
     /**
      * @return mixed
