@@ -56,6 +56,7 @@ class teacherController {
 
     }
 
+    //TODO: FALTAN TODAS LAS VALIDACIONES
     public function update(){
         if(isset($_POST)){
 
@@ -67,6 +68,7 @@ class teacherController {
             $email      = isset($_POST['email']) ? $_POST['email'] : false;
             $password   = isset($_POST['password']) ? $_POST['password'] : false;
 
+            //TODO: FALTAN TODAS LAS VALIDACIONES
             if( $id_teacher && $name && $surname && $telephone && $nif && $email && $password){
                 $changedTeacher = new teacherEntity();
                 $changedTeacher->setName($name);
@@ -92,14 +94,12 @@ class teacherController {
                 }
 
             }else{
-                //TODO: SE PUEDE OCUPAR PARA EL $_SESSION[message]
                 $_SESSION['teacherUpdate'] = "failed";
                 $_SESSION['message'] = 'Error. Uno de los datos no se capturó correctamente';
                 header("Location:".base_url.'/home');
             }
 
         }else{
-            //TODO: SE PUEDE OCUPAR PARA EL $_SESSION[msg-txt]
             $_SESSION['teacherUpdate'] = "failed";
             $_SESSION['message'] = 'Error. La solicitud REST no fue enviada correctamente';
             header("Location:".base_url.'/home');
