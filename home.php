@@ -88,6 +88,21 @@ function showBeforeSession() {
         Utils::deleteSession('classDelete');
     }//END SHOW IF YOU'RE IN CLASS_MANAGER
 
+    //-------------------------------------------------//
+    //SHOW IF YOU'RE IN COURSE_MANAGER
+    if ( isset( $_SESSION['addCourse'] ) ) {
+        routesController::showCourseManager();
+        Utils::deleteSession('addCourse');
+    }
+    if ( isset( $_SESSION['courseUpdate'] ) ) {
+        routesController::showCourseManager();
+        Utils::deleteSession('courseUpdate');
+    }
+    if ( isset( $_SESSION['courseDelete'] ) ) {
+        routesController::showCourseManager();
+        Utils::deleteSession('courseDelete');
+    }//END SHOW IF YOU'RE IN COURSE_MANAGER
+
 
 }
 

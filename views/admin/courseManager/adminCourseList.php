@@ -1,20 +1,20 @@
-<div class="contentContainer">
+<div class="contentContainer" style="...">
 <!-- VALIDACIONES -->
-    <!-- SUCCESS: TEACHER REGISTER -->
+    <!-- SUCCESS: COURSE REGISTER -->
     <?php if(isset($_SESSION['addCourse']) && $_SESSION['addCourse'] == 'complete') {
         $_SESSION['message_type'] = 'success';
         require_once 'views/flashAlert.php';
         Utils::deleteSession('message');
         Utils::deleteSession('message_type');
-    }?> <!-- END SUCCESS: TEACHER REGISTER -->
+    }?> <!-- END SUCCESS: COURSE REGISTER -->
 
-    <!-- ERROR: TEACHER REGISTER -->
+    <!-- ERROR: COURSE REGISTER -->
     <?php if(isset($_SESSION['addCourse']) && $_SESSION['addCourse'] == 'failed') {
         $_SESSION['message_type'] = 'danger';
         require_once 'views/flashAlert.php';
         Utils::deleteSession('message');
         Utils::deleteSession('message_type');
-    }?> <!-- END ERROR: TEACHER REGISTER -->
+    }?> <!-- END ERROR: COURSE REGISTER -->
 <!-- END VALIDACIONES -->
 
     <h1>Gestión de asignaturas</h1>
@@ -36,7 +36,7 @@
                 <th>active</th>
             </tr>
         </thead>
-            <?php while( $course = mysqli_fetch_array($courses) ): ?>
+            <?php while( $course = mysqli_fetch_array($courses) ){ ?>
         <tbody>
                 <tr>
 
@@ -47,12 +47,50 @@
                     <td><?php echo $course['date_end'] ;?></td>
                     <td><?php echo $course['active'] ;?></td>
 
+                    <!-- CRUD BUTTONS -->
+                    <td>
+                        <!-- BUTTON ADD NEW COURSE (MODAL) -->
+                        <button type="button" class="btn btn-primary" id="updateCourse" data-toggle="modal" data-target="#btnUpdateCourse"
+                                data-id_course = "<?php echo $course['id_course'] ;?>"
+                                data-name       = "<?php echo $course['name'] ;?>"
+                                data-description    = "<?php echo $course['description'] ;?>"
+                                data-date_start  = "<?php echo $course['date_start'] ;?>"
+                                data-date_end        = "<?php echo $course['date_end'] ;?>"
+                                data-active      = "<?php echo $course['active'] ;?>">
 
-
+                            Editar
+                        </button> <!-- END BUTTON ADD NEW COURSER (MODAL) -->
+                        <!-- BUTTON DELETE COURSE -->
+                        <a href="<?=base_url?>/course/delete&id=<?php echo $course['id_course'] ;?>">
+                            Eliminar
+                        </a> <!-- END BUTTON DELETE COURSE -->
+                    </td> <!-- END CRUD BUTTONS -->
                 </tr>
 
-
-            <?php endwhile; ?>
         </tbody>
-    </table>
+        <?php } ?>
+    </table> <!-- END COURSE TABLE -->
+    <!-- -------------------------- END MAIN VIEW -------------------------- -->
+
+    <script>
+        $(document).on("click", "#updateCourse", function() {
+            let id_course   = $(this).data('id_course');
+            let name        = $(this).data('name');
+            let description     = $(this).data('description');
+            let date_start   = $(this).data('date_start');
+            let date_end         = $(this).data('date_end');
+            let active       = $(this).data('active');
+
+
+            $("#id_course").val(id_course);
+            $("#courseName").val(name);
+            $("#courseDescription").val(description);
+            $("#courseDate_start").val(date_start);
+            $("#courseDate_end").val(date_end);
+            $("#courseActive").val(active);
+
+        })
+    </script>
+
 </div>
+
