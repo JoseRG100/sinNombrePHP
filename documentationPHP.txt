@@ -16,7 +16,7 @@
 ------------------
 TODOS:
 ------------------
-- TODO: TERMINAR FUNCIÓN SHOW-SESSION.
+- TODO: TERMINAR FUNCIÓN SHOW-ACTIVE-SESSION.
 
 ------------------
 ADRI:
@@ -52,7 +52,8 @@ JULIO:
           (mirar de incluir todos los manejadores de excepciones en errorController o utils).
 
 - TODO: CASTEAR DATES PARA QUE INGRESEN EN LA BBDD
--
+- TODO: CREAR MODELOS PARA ENROLLMENT -> NECESITA COURSE (OK) && NECESITA COURSE (OK)
+- TODO: CREAR MODELOS PARA SCHEDULE -> NECESITA CLASS (OK)
 
 ------------------
 OTROS:
