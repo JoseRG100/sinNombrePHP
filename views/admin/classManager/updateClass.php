@@ -40,11 +40,8 @@
                         <label>COLOR</label>
                         <input type="text" id="color" name="color" class="form-control" ">
                     </div>
-                    <!-- EMAIL INPUT -->
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" id="teacherEmail" name="email" class="form-control" placeholder="Ingrese email">
-                    </div>
+
+
 
                     <br>
 
