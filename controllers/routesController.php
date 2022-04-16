@@ -9,6 +9,7 @@ require_once 'controllers/loginController.php';
 require_once 'controllers/scheduleController.php';
 require_once 'controllers/studentController.php';
 require_once 'controllers/teacherController.php';
+require_once 'controllers/classController.php';
 
 
 /**
@@ -43,7 +44,9 @@ class routesController {
     }
 
     public static function showClassManager(){
-        require_once 'views/admin/adminClassList.php';
+        require_once 'views/admin/classManager/adminClassList.php';
+        require_once 'views/admin/classManager/addNewClass.php';
+        require_once 'views/admin/teacherManager/updateTeacher.php';
     }
 
     // --- TEACHER VIEWS --- //

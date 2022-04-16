@@ -61,4 +61,4 @@ class DAOAdminImpl implements DAOinterface {
         //[THIS FUNCTION IT'S NOT NECESSARY YET]
     }//end delete
 
-}//end class DAOTeacherImpl
+}//end classManager DAOTeacherImpl

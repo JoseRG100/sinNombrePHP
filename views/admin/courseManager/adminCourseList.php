@@ -39,13 +39,19 @@
             <?php while( $course = mysqli_fetch_array($courses) ): ?>
         <tbody>
                 <tr>
+
                     <td><?php echo $course['id_course'] ;?></td>
                     <td><?php echo $course['name'] ;?></td>
                     <td><?php echo $course['description'] ;?></td>
                     <td><?php echo $course['date_start'] ;?></td>
                     <td><?php echo $course['date_end'] ;?></td>
                     <td><?php echo $course['active'] ;?></td>
+
+
+
                 </tr>
+
+
             <?php endwhile; ?>
         </tbody>
     </table>
