@@ -107,10 +107,10 @@
 
     <script>
         $(document).on("click", "#updateClass", function() {
-            let id_class   = $(this).data('id_class');
-            let id_teacher        = $(this).data('id_teacher');
-            let id_course     = $(this).data('id_course');
-            let name         = $(this).data('name');
+            let id_class    = $(this).data('id_class');
+            let id_teacher  = $(this).data('id_teacher');
+            let id_course   = $(this).data('id_course');
+            let name        = $(this).data('name');
             let color       = $(this).data('color');
 
 

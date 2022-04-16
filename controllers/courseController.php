@@ -21,11 +21,11 @@ class courseController {
     public function save(){
         Utils::isAdmin();    
         if(isset($_POST)){
-            $name = isset($_POST['nombre']) ? $_POST['nombre'] : false;
+            $name        = isset($_POST['nombre']) ? $_POST['nombre'] : false;
             $description = isset($_POST['descripcion']) ? $_POST['descripcion'] : false;
-            $date_start = isset($_POST['empieza']) ? $_POST['empieza'] : false;
-            $date_end = isset($_POST['acaba']) ? $_POST['acaba'] : false;
-            $active = isset($_POST['activo']) ? $_POST['activo'] : false;
+            $date_start  = date('Y-m-d', strtotime( (isset($_POST['empieza']) ? $_POST['empieza'] : false) ));
+            $date_end    = isset($_POST['acaba']) ? $_POST['acaba'] : false;
+            $active      = isset($_POST['activo']) ? $_POST['activo'] : false;
             
             if($name && $description && $date_start && $date_end && $active){
                 $asignatura = new courseEntity();

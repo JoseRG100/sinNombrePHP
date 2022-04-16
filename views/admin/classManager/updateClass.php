@@ -1,5 +1,5 @@
 <!-- MODAL CONTAINER -->
-<div class="modal fade" id="btnUpdateTeacher" tabindex="-1" role="dialog" aria-labelledby="btnUpdateClass" aria-hidden="true">
+<div class="modal fade" id="btnUpdateClass" tabindex="-1" role="dialog" aria-labelledby="btnUpdateClass" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
 
@@ -17,30 +17,35 @@
                 <form class="container-fluid" action="<?=base_url?>/class/update" method="POST">
                     <!-- ID -->
                     <div class="form-group">
-                        <label><ID_CLASS></label>
+                        <label>ID_CLASS: </label>
                         <input type="text" id="id_class" name="id_class" readonly>
                     </div>
                     <!-- NAME INPUT -->
                     <div class="form-group">
                         <label>ID_TEACHER</label>
-                        <input type="text" id="id_teacher" name="id_teacher" class="form-control"  autofocus>
+                        <input type="text" id="classId_teacher" name="id_teacher" class="form-control"  autofocus>
                     </div>
                     <!-- SURNAME INPUT -->
                     <div class="form-group">
                         <label>ID_COURSE</label>
-                        <input type="text" id="id_course" name="id_course" class="form-control" >
+                        <input type="text" id="classId_course" name="id_course" class="form-control" >
                     </div>
                     <!-- TELEPHONE INPUT -->
                     <div class="form-group">
                         <label>NAME</label>
-                        <input type="text" id="name" name="name" class="form-control" >
+                        <input type="text" id="className" name="name" class="form-control" >
                     </div>
                     <!-- NIF INPUT -->
                     <div class="form-group">
                         <label>COLOR</label>
+
                         <input type="text" id="color" name="color" class="form-control" ">
                     </div>
 
+
+
+                        <input type="text" id="classColor" name="color" class="form-control" ">
+                    </div>
 
 
                     <br>
