@@ -87,18 +87,17 @@
                 <td>
                     <!-- BUTTON ADD NEW CLASS (MODAL) -->
                     <button type="button" class="btn btn-primary" id="updateClass" data-toggle="modal" data-target="#btnUpdateClass"
-                            data-id_class = "<?php echo $class['id_class'] ;?>"
-                            data-id_teacher       = "<?php echo $class['id_teacher'] ;?>"
-                            data-id_course    = "<?php echo $class['id_course'] ;?>"
-                            data-id_schedule  = "<?php echo $class['id_schedule'] ;?>"
+                            data-id_class    = "<?php echo $class['id_class'] ;?>"
+                            data-id_teacher  = "<?php echo $class['id_teacher'] ;?>"
+                            data-id_course   = "<?php echo $class['id_course'] ;?>"
+                            data-id_schedule = "<?php echo $class['id_schedule'] ;?>"
                             data-name        = "<?php echo $class['name'] ;?>"
-                            data-color      = "<?php echo $class['color'] ;?>">
-
+                            data-color       = "<?php echo $class['color'] ;?>">
                         Editar
                     </button> <!-- END BUTTON ADD NEW CLASS (MODAL) -->
 
                     <!-- BUTTON DELETE CLASS -->
-                    <a href="<?=base_url?>/controllers/delete?id=<?php echo $class['id_class'];?>">
+                    <a href="<?=base_url?>/class/delete&id=<?php echo $class['id_class'];?>">
                         Eliminar
                     </a> <!-- END BUTTON DELETE CLASS -->
                 </td>
