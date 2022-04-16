@@ -1,21 +1,12 @@
 <?php
 require_once 'models/courseModel/courseEntity.php';
-require_once 'models/courseModel/DAOcourseImpl.php';
+require_once 'models/courseModel/DAOCourseImpl.php';
 
 //TODO: PASAR TODAS ESTAS FUNCIONES A LA CLASE "COURSECONTROLLER" Y ELIMINAR ESTA CLASE
 class courseController {
 
     public function actionDefault(){
         Utils::showError();
-    }
-
-    public function gestion(){
-        Utils::isAdmin();
-        
-        $asignatura = new courseEntity();
-        $asignaturas = $asignatura->getAll();
-        
-        require_once 'views/admin/courseManager/adminCourseList.php';
     }
     
     public function save(){
@@ -29,15 +20,15 @@ class courseController {
             $active      = isset($_POST['activo']) ? $_POST['activo'] : false;
             
             if($name && $description && $date_start && $date_end && $active){
-                $asignatura = new courseEntity();
-                $asignatura->setName($name);
-                $asignatura->setDescription($description);
-                $asignatura->setDate_start($date_start);
-                $asignatura->setDate_end($date_end);
-                $asignatura->setActive($active);
+                $newCourse = new courseEntity();
+                $newCourse->setName($name);
+                $newCourse->setDescription($description);
+                $newCourse->setDateStart($date_start);
+                $newCourse->setDateEnd($date_end);
+                $newCourse->setActive($active);
                 
-                $save = $asignatura->save();
-                    if($save){
+                $insertSuccessfull = DAOCourseImpl::insert($newCourse);
+                    if($insertSuccessfull){
                         $_SESSION['addCourse'] = "complete";
                         $_SESSION['message'] = 'Se ha creado un nuevo curso exitosamente';
                     }else{
@@ -58,25 +49,22 @@ class courseController {
     }
 
     public function update(){
-
         Utils::isAdmin();
         if(isset($_POST)){
 
-            $id_course = isset($_POST['id_course']) ? $_POST['id_course'] : false;
-            $name       = isset($_POST['name']) ? $_POST['name'] : false;
-            $description    = isset($_POST['descripcion']) ? $_POST['descripcion'] : false;
+            $id_course   = isset($_POST['id_course']) ? $_POST['id_course'] : false;
+            $name        = isset($_POST['name']) ? $_POST['name'] : false;
+            $description = isset($_POST['descripcion']) ? $_POST['descripcion'] : false;
             $date_start  = isset($_POST['date_start']) ? $_POST['date_start'] : false;
-            $date_end        = isset($_POST['date_end']) ? $_POST['date_end'] : false;
+            $date_end    = isset($_POST['date_end']) ? $_POST['date_end'] : false;
             $active      = isset($_POST['active']) ? $_POST['active'] : false;
-
-
 
             if( $id_course && $name && $description && $date_start && $date_end && $active){
                 $changedCourse = new courseEntity();
                 $changedCourse->setName($name);
                 $changedCourse->setDescription($description);
-                $changedCourse->setDate_start($date_start);
-                $changedCourse->setDate_end($date_end);
+                $changedCourse->setDateStart($date_start);
+                $changedCourse->setDateEnd($date_end);
                 $changedCourse->setActive($active);
 
                 $updateSuccessful = DAOCourseImpl::update($id_course, $changedCourse);
@@ -84,7 +72,7 @@ class courseController {
                 if( $updateSuccessful ){
 
                     $_SESSION['courseUpdate']  = "complete";
-                    $_SESSION['message']        = 'Asignatura, actualizada correctamente.';
+                    $_SESSION['message'] = 'Asignatura, actualizada correctamente.';
                     header("Location:".base_url.'/home');
 
                 }else{
@@ -117,7 +105,7 @@ class courseController {
 
             if( $deleteSuccessful ){
                 $_SESSION['courseDelete']  = "complete";
-                $_SESSION['message']        = 'Asignatura, eliminada correctamente.';
+                $_SESSION['message'] = 'Asignatura, eliminada correctamente.';
                 header("Location:".base_url.'/home');
             }else {
                 $_SESSION['courseDelete'] = "failed";

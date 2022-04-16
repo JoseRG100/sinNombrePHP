@@ -40,7 +40,6 @@ class teacherController {
                 if($registerSuccessful){
 
                     $_SESSION['teacherRegister'] = "complete";
-                    header("Location:".base_url.'/home');
 
                 }else{
                     $_SESSION['teacherRegister'] = "failed";
@@ -64,7 +63,7 @@ class teacherController {
         Utils::isAdmin();
         if(isset($_POST)){
 
-            $id_teacher = isset($_POST['id_teacher']) ? $_POST['id_teacher'] : false;
+            $id_course  = isset($_POST['id_course']) ? $_POST['id_course'] : false;
             $name       = isset($_POST['name']) ? $_POST['name'] : false;
             $surname    = isset($_POST['surname']) ? $_POST['surname'] : false;
             $telephone  = isset($_POST['telephone']) ? $_POST['telephone'] : false;
@@ -73,7 +72,7 @@ class teacherController {
             $password   = isset($_POST['password']) ? $_POST['password'] : false;
 
             //TODO: FALTAN TODAS LAS VALIDACIONES
-            if( $id_teacher && $name && $surname && $telephone && $nif && $email && $password){
+            if( $id_course && $name && $surname && $telephone && $nif && $email && $password){
                 $changedTeacher = new teacherEntity();
                 $changedTeacher->setName($name);
                 $changedTeacher->setSurname($surname);
@@ -82,34 +81,29 @@ class teacherController {
                 $changedTeacher->setEmail($email);
                 $changedTeacher->setPassword($password);
 
-                $updateSuccessful = DAOTeacherImpl::update($id_teacher, $changedTeacher);
+                $updateSuccessful = DAOTeacherImpl::update($id_course, $changedTeacher);
 
                 if( $updateSuccessful ){
 
                     $_SESSION['teacherUpdate']  = "complete";
                     $_SESSION['message']        = 'Profesor, actualizado correctamente.';
-                    header("Location:".base_url.'/home');
 
                 }else{
                     $_SESSION['teacherUpdate'] = "failed";
                     $_SESSION['message'] = 'Error. El registro no pudo ingresar a la BBDD';
-                    header("Location:".base_url.'/home');
-
                 }
 
             }else{
                 $_SESSION['teacherUpdate'] = "failed";
                 $_SESSION['message'] = 'Error. Uno de los datos no se capturó correctamente';
-                header("Location:".base_url.'/home');
             }
 
         }else{
             $_SESSION['teacherUpdate'] = "failed";
             $_SESSION['message'] = 'Error. La solicitud REST no fue enviada correctamente';
-            header("Location:".base_url.'/home');
         }
 
-        //header("Location:".base_url.'/home');
+        header("Location:".base_url.'/home');
 
     }
 
@@ -123,18 +117,18 @@ class teacherController {
             if( $deleteSuccessful ){
                 $_SESSION['teacherDelete']  = "complete";
                 $_SESSION['message']        = 'Profesor, eliminado correctamente.';
-                header("Location:".base_url.'/home');
+
             }else {
                 $_SESSION['teacherDelete'] = "failed";
                 $_SESSION['message'] = 'Error. El registro no se encontró en la BBDD.';
-                header("Location:".base_url.'/home');
             }
 
         }else {
             $_SESSION['teacherDelete'] = "failed";
             $_SESSION['message'] = 'Error. Tipo de solicitud incorrectemante enviado.';
-            header("Location:".base_url.'/home');
         }
+
+        header("Location:".base_url.'/home');
 
     }
 

@@ -17,8 +17,8 @@
                 <form class="container-fluid" action="<?=base_url?>/course/update" method="POST">
                     <!-- ID -->
                     <div class="form-group">
-                        <label>ID</label>
-                        <input type="text" id="id_course" name="id_teacher" readonly>
+                        <label>ID: </label>
+                        <input type="text" id="id_course" name="id_course" readonly>
                     </div>
                     <!-- NAME INPUT -->
                     <div class="form-group">

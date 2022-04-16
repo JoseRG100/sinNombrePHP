@@ -1,100 +1,132 @@
 <?php
 
 class courseEntity {
-    private $id_course;    
+    // ------------------------------------- ATRIBUTES ------------------------------------- //
+    private $id_course;
     private $name;
     private $description;
     private $date_start;
     private $date_end;
     private $active;
     private $db;
-    
+
+    // ----------------------------------- CONSTRUCTOR ----------------------------------- //
     public function __construct(){
-        $this->db = Database::connect();
     }
-    
-    public function getId_course() {
+
+    // ------------------------------- GETTERS & SETTERS -------------------------------- //
+    /**
+     * @return mixed
+     */
+    public function getIdCourse()
+    {
         return $this->id_course;
     }
 
-    public function getName() {
-        return $this->name;
-    }
-
-    public function getDescription() {
-        return $this->description;
-    }
-
-    public function getDate_start() {
-        return $this->date_start;
-    }
-
-    public function getDate_end() {
-        return $this->date_end;
-    }
-
-    public function getActive() {
-        return $this->active;
-    }
-
-    public function setId_course($id_course) {
+    /**
+     * @param mixed $id_course
+     */
+    public function setIdCourse($id_course): void
+    {
         $this->id_course = $id_course;
     }
 
-    public function setName($name) {
-        $this->name = $this->db->real_escape_string($name);
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 
-    public function setDescription($description) {
-        $this->description = $this->db->real_escape_string($description);
+    /**
+     * @param mixed $name
+     */
+    public function setName($name): void
+    {
+        $this->name = $name;
     }
 
-    public function setDate_start($date_start) {
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description): void
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateStart()
+    {
+        return $this->date_start;
+    }
+
+    /**
+     * @param mixed $date_start
+     */
+    public function setDateStart($date_start): void
+    {
         $this->date_start = $date_start;
     }
 
-    public function setDate_end($date_end) {
+    /**
+     * @return mixed
+     */
+    public function getDateEnd()
+    {
+        return $this->date_end;
+    }
+
+    /**
+     * @param mixed $date_end
+     */
+    public function setDateEnd($date_end): void
+    {
         $this->date_end = $date_end;
     }
 
-    public function setActive($active) {
-        $this->active = $this->db->real_escape_string($active);
-    }
-    
-    //TODO: AISLAR AL DAO Y HACER STATIC- SEGUIR EJEMPLO STUDENT MODEL
-    public static function getAll(){
-        $db = Database::connect();
-        $courses = $db->query("SELECT * FROM courses ORDER BY id_course DESC");
-        return $courses;
+    /**
+     * @return mixed
+     */
+    public function getActive()
+    {
+        return $this->active;
     }
 
-    //TODO: AISLAR AL DAO Y HACER STATIC - SEGUIR EJEMPLO STUDENT MODEL
-      public function save(){
-<<<<<<< HEAD
-
-        $date_start  = date('Y-m-d', strtotime( $this->getDate_start() ));
-        $date_end    = date('Y-m-d', strtotime( $this->getDate_end() ));
-
-        $sql = "INSERT INTO courses VALUES(NULL, '{$this->getName()}', '{$this->getDescription()}', '$date_start', '$date_end', {$this->getActive()})";
-=======
-          $date_start  = date('Y-m-d', strtotime( $this->getDate_start() ));
-          $date_end    = date('Y-m-d', strtotime( $this->getDate_end() ));
-
-          $sql = "INSERT INTO courses VALUES(NULL, '{$this->getName()}', '{$this->getDescription()}', '$date_start', '$date_end', {$this->getActive()})";
->>>>>>> 780027d3b39835ed641456454dcb82b4bb6e038e
-        $save = $this->db->query($sql);
-        
-        
-        //echo $sql;
-        //echo "<br/>";
-        //echo $this->db->error;
-        //die();
-        
-        $result = false;
-        if($save){
-            $result = true;
-        }
-        return $result;
-
+    /**
+     * @param mixed $active
+     */
+    public function setActive($active): void
+    {
+        $this->active = $active;
     }
-}  
+
+    /**
+     * @return mixed
+     */
+    public function getDb()
+    {
+        return $this->db;
+    }
+
+    /**
+     * @param mixed $db
+     */
+    public function setDb($db): void
+    {
+        $this->db = $db;
+    }
+
+    // ------------------------------ MODEL METHODES ------------------------------ //
+
+} //end courseEntity
