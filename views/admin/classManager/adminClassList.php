@@ -3,7 +3,6 @@
     <!-- -------------------------- ALERTS -------------------------- -->
     <!-- SUCCESS: CLASS  REGISTER -->
     <?php if(isset($_SESSION['classRegister']) && $_SESSION['classRegister'] == 'complete') {
-        $_SESSION['message'] = 'Clase, registrada correctamente.';
         $_SESSION['message_type'] = 'success';
         require_once 'views/flashAlert.php';
         Utils::deleteSession('message');
@@ -12,7 +11,6 @@
 
     <!-- ERROR: CLASS REGISTER -->
     <?php if(isset($_SESSION['classRegister']) && $_SESSION['classRegister'] == 'failed') {
-        $_SESSION['message'] = 'Error. La clase no se registró en la base de datos';
         $_SESSION['message_type'] = 'danger';
         require_once 'views/flashAlert.php';
         Utils::deleteSession('message');

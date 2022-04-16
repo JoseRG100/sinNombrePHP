@@ -10,11 +10,11 @@ class DAOClassImpl implements DAOinterface
         $db = Database::connect();
 
         //-------- ENCRYPT PASSWORD -------- //
-        $password = $newObject->getPassword();
-        $password = password_hash($db->real_escape_string($password), PASSWORD_BCRYPT, ['cost' => 4]);
+        //$password = $newObject->getPassword();
+        //$password = password_hash($db->real_escape_string($password), PASSWORD_BCRYPT, ['cost' => 4]);
         //------- /ENCRYPT PASSWORD -------- //
 
-        $query = "INSERT INTO students (id_class, id_teacher, id_course, id_schedule, name, color)
+        $query = "INSERT INTO class (id_class, id_teacher, id_course, id_schedule, name, color)
                    VALUES (NULL, '{$newObject->getIdTeacher()}', '{$newObject->getIdCourse()}', '{$newObject->getIdSchedule()}', '{$newObject->getName()}', '{$newObject->getColor()}'";
         $db->query($query);
 
