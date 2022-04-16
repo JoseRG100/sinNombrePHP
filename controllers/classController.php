@@ -18,11 +18,11 @@ class classController {
     public function register(){
         if(isset($_POST)){
 
-            $id_teacher = isset($_POST['id_teacher']) ? $_POST['id_teacher'] : false;
-            $id_course = isset($_POST['id_course']) ? $_POST['id_course'] : false;
-            $id_schedule = isset($_POST['id_schedule']) ? $_POST['id_schedule'] : false;
-            $name = isset($_POST['name']) ? $_POST['name'] : false;
-            $color = isset($_POST['color']) ? $_POST['color'] : false;
+            $id_teacher     = isset($_POST['id_teacher']) ? $_POST['id_teacher'] : false;
+            $id_course      = isset($_POST['id_course']) ? $_POST['id_course'] : false;
+            $id_schedule    = isset($_POST['id_schedule']) ? $_POST['id_schedule'] : false;
+            $name           = isset($_POST['name']) ? $_POST['name'] : false;
+            $color          = isset($_POST['color']) ? $_POST['color'] : false;
 
 
             if($id_teacher && $id_course && $id_schedule && $name && $color){

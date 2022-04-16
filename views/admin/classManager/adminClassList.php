@@ -92,7 +92,7 @@
                             data-id_course    = "<?php echo $class['id_course'] ;?>"
                             data-id_schedule  = "<?php echo $class['id_schedule'] ;?>"
                             data-name        = "<?php echo $class['name'] ;?>"
-                            data-color      = "<?php echo $class['color'] ;?>"
+                            data-color      = "<?php echo $class['color'] ;?>">
 
                         Editar
                     </button> <!-- END BUTTON ADD NEW CLASS (MODAL) -->

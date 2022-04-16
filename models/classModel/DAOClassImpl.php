@@ -9,6 +9,7 @@ class DAOClassImpl implements DAOinterface
 
         $db = Database::connect();
 
+
         //-------- ENCRYPT PASSWORD -------- //
         //$password = $newObject->getPassword();
 
@@ -22,11 +23,16 @@ class DAOClassImpl implements DAOinterface
                    VALUES (NULL, '{$newObject->getIdTeacher()}', '{$newObject->getIdCourse()}', '{$newObject->getIdSchedule()}', '{$newObject->getName()}', '{$newObject->getColor()}'";
         $db->query($query);
 
+        $query = "INSERT INTO class (id_class, id_teacher, id_course , id_schedule, name, color)
+                   VALUES (NULL, '{$newObject->getIdTeacher()}', '{$newObject->getIdCourse()}', '{$newObject->getIdSchedule()}', '{$newObject->getName()}', '{$newObject->getColor()}')";
+        $result = $db->query($query);
+
+
         //VALIDATING THE METHODE
-        if ($db->affected_rows) {
-            return TRUE;
+        if ( !$result ) {
+            return FALSE;
         } //end if
-        return FALSE;
+        return TRUE;
 
     }//end insert
 
