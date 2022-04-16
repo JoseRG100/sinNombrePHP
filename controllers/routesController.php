@@ -5,7 +5,6 @@ require_once 'controllers/adminController.php';
 require_once 'controllers/classController.php';
 require_once 'controllers/courseController.php';
 require_once 'controllers/enrollmentController.php';
-require_once 'controllers/errorController.php';
 require_once 'controllers/loginController.php';
 require_once 'controllers/scheduleController.php';
 require_once 'controllers/studentController.php';

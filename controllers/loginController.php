@@ -7,6 +7,10 @@ require_once 'models/studentModel/DAOStudentImpl.php';
 
 class loginController {
 
+    public function actionDefault(){
+        Utils::showError();
+    }
+
     //TODO: DOCUMENTAR TODAS LAS FUNCIONES CON /**
     //TODO: FALTAN HACER TODAS LAS VALIDACIONES
     public function login(){

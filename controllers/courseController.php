@@ -4,11 +4,11 @@ require_once 'models/courseModel/DAOcourseImpl.php';
 
 //TODO: PASAR TODAS ESTAS FUNCIONES A LA CLASE "COURSECONTROLLER" Y ELIMINAR ESTA CLASE
 class courseController {
-    //CREO QUE ESTA FUNCIÓN SOLO SE USA EN LOS USUARIOS
-    //public function index(){
-    //    require_once 'views/asignatura/destacados.php';
-    //}
-    
+
+    public function actionDefault(){
+        Utils::showError();
+    }
+
     public function gestion(){
         Utils::isAdmin();
         
@@ -17,13 +17,6 @@ class courseController {
         
         require_once 'views/admin/courseManager/adminCourseList.php';
     }
-
-    /*
-    public function crear(){
-        Utils::isAdmin();
-        require_once 'views/admin/courseManager/addNewCourse.php';
-    }
-    */
     
     public function save(){
         Utils::isAdmin();    

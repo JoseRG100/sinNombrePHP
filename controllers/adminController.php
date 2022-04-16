@@ -3,9 +3,9 @@ require_once 'models/adminModel/adminEntity.php';
 require_once 'models/adminModel/DAOAdminImpl.php';
 
 class adminController {
-    //TODO: ESTA FUNCIÓN SERÁ UTILIZADA CUANDO UNA SESIÓN PREVIAMENTE INICIALIZADA SE ENCUENTRE EN LA MEMORIA CACHE
-    public function index(){
-        //echo "Controlador student, Acción index";
+
+    public function actionDefault(){
+        Utils::showError();
     }
 
     public function register(){

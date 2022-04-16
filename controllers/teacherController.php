@@ -3,9 +3,9 @@ require_once 'models/teacherModel/teacherEntity.php';
 require_once 'models/teacherModel/DAOTeacherImpl.php';
 
 class teacherController {
-    //TODO: ESTA FUNCIÓN SERÁ UTILIZADA CUANDO UNA SESIÓN PREVIAMENTE INICIALIZADA SE ENCUENTRE EN LA MEMORIA CACHE
-    public function index(){
-    //    echo "Controlador Teacher, Acción index";
+
+    public function actionDefault(){
+        Utils::showError();
     }
 
     //TODO: FALTAN TODAS LAS VALIDACIONES
@@ -14,6 +14,8 @@ class teacherController {
      * @return void
      */
     public function register(){
+
+        Utils::isAdmin();
         if(isset($_POST)){
 
             $name       = isset($_POST['name']) ? $_POST['name'] : false;
@@ -58,6 +60,8 @@ class teacherController {
 
     //TODO: FALTAN TODAS LAS VALIDACIONES
     public function update(){
+
+        Utils::isAdmin();
         if(isset($_POST)){
 
             $id_teacher = isset($_POST['id_teacher']) ? $_POST['id_teacher'] : false;
@@ -111,6 +115,7 @@ class teacherController {
 
     public function delete(){
 
+        Utils::isAdmin();
         if( isset( $_GET['id'] ) ) {
             $id_teacher = $_GET['id'];
             $deleteSuccessful = DAOTeacherImpl::delete($id_teacher);

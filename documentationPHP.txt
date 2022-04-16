@@ -14,6 +14,11 @@
 =================
 
 ------------------
+TODOS:
+------------------
+- TODO: TERMINAR FUNCIÓN SHOW-SESSION.
+
+------------------
 ADRI:
 ------------------
 - CREAR: Vistas para calendario -> MENSUAL, SEMANAL, DIARIO.
@@ -35,8 +40,9 @@ JOSE:
 ------------------
 JULIO:
 ------------------
-- IMPORTANTE: Agregar etiqueta contentContainer a todas las Views de los compis.
-- IMPORTANTE: Enrutar todas las vistas actualmente creadas.
+- IMPORTANTE: Agregar etiqueta contentContainer a todas las Views de los compis.    [CUANDO ESTÉN TODOS LOS CRUD TERMINADOS]
+- IMPORTANTE: Enrutar todas las vistas actualmente creadas.                         [CUANDO ESTÉN TODOS LOS CRUD TERMINADOS]
+- IMPORTANTE: Pasar models/DAOinterface a cada uno de los DAOImpl                   [CUANDO ESTÉN TODOS LOS CRUD TERMINADOS]
 
 - Faltan: Todas las validaciones de LOGIN               `JULIO`
 - Faltan: Todas las validaciones de STUDENT REGISTER    `JULIO`

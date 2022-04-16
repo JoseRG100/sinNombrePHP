@@ -9,6 +9,7 @@ require_once 'config/db.php';
 require_once 'config/parameters.php';
 require_once 'helpers/utils.php';
 require_once 'controllers/routesController.php';
+require_once 'helpers/errorManager.php';
 
 //VIEWS
 require_once 'views/layout/header.php';
@@ -72,6 +73,5 @@ function showBeforeSession() {
     }
 
 }
-
 
 require_once 'views/layout/footer.php';
