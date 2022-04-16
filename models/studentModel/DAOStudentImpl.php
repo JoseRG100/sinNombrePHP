@@ -61,4 +61,4 @@ class DAOStudentImpl implements DAOinterface {
         //[THIS FUNCTION IT'S NOT NECESSARY YET]
     }//end delete
 
-}//end class DAOStudentImpl
+}//end classManager DAOStudentImpl

@@ -11,7 +11,7 @@ interface DAOinterface {
     // -------------- READ -------------- //
     /**
      * Return the user with the given login ID.
-     * This methode, just be implemented if the class have a LOGIN.
+     * This methode, just be implemented if the classManager have a LOGIN.
      */
     public static function findByLogin($loginEmail, $loginPassword);
 

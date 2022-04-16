@@ -47,10 +47,7 @@
                     <td><?php echo $course['date_end'] ;?></td>
                     <td><?php echo $course['active'] ;?></td>
 
-                    <td>
-                        <a href="" class="button button-small">Editar</a>
-                        <a href="" class="button button-small">Eliminar</a>
-                    </td>
+
 
                 </tr>
 
