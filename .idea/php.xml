@@ -5,7 +5,4 @@
       <path value="$PROJECT_DIR$/../../bin/php/php8.1.0" />
     </include_path>
   </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="8.1">
-    <option name="suggestChangeDefaultLanguageLevel" value="false" />
-  </component>
 </project>
