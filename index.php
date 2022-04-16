@@ -25,10 +25,12 @@ if ( isset($_SESSION['identity'])) {
 
 function autoOpenSession(){
     //OPEN ADMIN SESSION
+    /*
     if ( isset($_SESSION['admin']) && $_SESSION['admin'] ) {
         Utils::isAdmin();
         header("Location:".base_url.'/home.php');
     }
+    */
     //OPEN TEACHER SESSION
     if ( isset($_SESSION['teacher']) && $_SESSION['teacher'] ) {
         Utils::isTeacher();

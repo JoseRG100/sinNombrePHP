@@ -17,6 +17,6 @@
     <label for="activo">Activo</label>
     <input type="number" name="activo" />
     
-    <input type="submit" value="Guardar" />
+    <input type="submit" name="save_course" value="Guardar" />
 </form>
 </div>

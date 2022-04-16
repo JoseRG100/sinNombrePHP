@@ -37,27 +37,27 @@ class courseEntity {
         return $this->active;
     }
 
-    public function setId_course($id_course): void {
+    public function setId_course($id_course) {
         $this->id_course = $id_course;
     }
 
-    public function setName($name): void {
+    public function setName($name) {
         $this->name = $this->db->real_escape_string($name);
     }
 
-    public function setDescription($description): void {
+    public function setDescription($description) {
         $this->description = $this->db->real_escape_string($description);
     }
 
-    public function setDate_start($date_start): void {
+    public function setDate_start($date_start) {
         $this->date_start = $date_start;
     }
 
-    public function setDate_end($date_end): void {
+    public function setDate_end($date_end) {
         $this->date_end = $date_end;
     }
 
-    public function setActive($active): void {
+    public function setActive($active) {
         $this->active = $this->db->real_escape_string($active);
     }
     
@@ -70,7 +70,11 @@ class courseEntity {
 
     //TODO: AISLAR AL DAO Y HACER STATIC - SEGUIR EJEMPLO STUDENT MODEL
       public function save(){
-        $sql = "INSERT INTO courses VALUES(NULL, '{$this->getName()}', '{$this->getDescription()}', {$this->getDate_start()}, {$this->getDate_end()}, {$this->getActive()})";
+
+        $date_start  = date('Y-m-d', strtotime( $this->getDate_start() ));
+        $date_end    = date('Y-m-d', strtotime( $this->getDate_end() ));
+
+        $sql = "INSERT INTO courses VALUES(NULL, '{$this->getName()}', '{$this->getDescription()}', '$date_start', '$date_end', {$this->getActive()})";
         $save = $this->db->query($sql);
         
         

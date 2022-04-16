@@ -73,4 +73,4 @@ class teacherEntity {
 
     // ------------------------------ MODEL METHODES ------------------------------ //
 
-}//end classManager teacherEntity
+}//end teacherEntity
