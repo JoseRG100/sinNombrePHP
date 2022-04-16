@@ -19,12 +19,10 @@ class DAOClassImpl implements DAOinterface
 
         //------- /ENCRYPT PASSWORD -------- //
 
-        $query = "INSERT INTO class (id_class, id_teacher, id_course, id_schedule, name, color)
-                   VALUES (NULL, '{$newObject->getIdTeacher()}', '{$newObject->getIdCourse()}', '{$newObject->getIdSchedule()}', '{$newObject->getName()}', '{$newObject->getColor()}'";
-        $db->query($query);
 
-        $query = "INSERT INTO class (id_class, id_teacher, id_course , id_schedule, name, color)
-                   VALUES (NULL, '{$newObject->getIdTeacher()}', '{$newObject->getIdCourse()}', '{$newObject->getIdSchedule()}', '{$newObject->getName()}', '{$newObject->getColor()}')";
+
+        $query = "INSERT INTO class (id_class, id_teacher, id_course , name, color)
+                   VALUES (NULL, '{$newObject->getIdTeacher()}', '{$newObject->getIdCourse()}', '{$newObject->getName()}', '{$newObject->getColor()}')";
         $result = $db->query($query);
 
 
@@ -68,8 +66,7 @@ class DAOClassImpl implements DAOinterface
 
         $query  = "UPDATE class SET
                    id_teacher      = '{$changedObject->getIdTeacher()}', 
-                   id_course   = '{$changedObject->getIdCourse()}', 
-                   id_schedule = '{$changedObject->getIdSchedule()}', 
+                   id_course   = '{$changedObject->getIdCourse()}',                    
                    name       = '{$changedObject->getName()}', 
                    color     = '{$changedObject->getColor()}'
                    

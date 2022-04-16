@@ -20,16 +20,14 @@ class classController {
 
             $id_teacher     = isset($_POST['id_teacher']) ? $_POST['id_teacher'] : false;
             $id_course      = isset($_POST['id_course']) ? $_POST['id_course'] : false;
-            $id_schedule    = isset($_POST['id_schedule']) ? $_POST['id_schedule'] : false;
             $name           = isset($_POST['name']) ? $_POST['name'] : false;
             $color          = isset($_POST['color']) ? $_POST['color'] : false;
 
 
-            if($id_teacher && $id_course && $id_schedule && $name && $color){
+            if($id_teacher && $id_course  && $name && $color){
                 $newClass = new classEntity();
                 $newClass->setIdTeacher($id_teacher);
                 $newClass->setIdCourse($id_course);
-                $newClass->setIdSchedule($id_schedule);
                 $newClass->setName($name);
                 $newClass->setColor($color);
 
@@ -68,15 +66,13 @@ class classController {
             $id_class = isset($_POST['id_class']) ? $_POST['id_class'] : false;
             $id_teacher = isset($_POST['id_teacher']) ? $_POST['id_teacher'] : false;
             $id_course = isset($_POST['id_course']) ? $_POST['id_course'] : false;
-            $id_schedule = isset($_POST['id_schedule']) ? $_POST['id_schedule'] : false;
             $name = isset($_POST['name']) ? $_POST['name'] : false;
             $color = isset($_POST['color']) ? $_POST['color'] : false;
 
-            if($id_class && $id_teacher && $id_course && $id_schedule && $name && $color){
+            if($id_class && $id_teacher && $id_course && $name && $color){
                 $changedClass = new classEntity();
                 $changedClass->setIdTeacher($id_teacher);
                 $changedClass->setIdCourse($id_course);
-                $changedClass->setIdSchedule($id_schedule);
                 $changedClass->setName($name);
                 $changedClass->setColor($color);
 
