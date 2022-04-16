@@ -44,11 +44,14 @@ JULIO:
 - IMPORTANTE: Enrutar todas las vistas actualmente creadas.                         [CUANDO ESTÉN TODOS LOS CRUD TERMINADOS]
 - IMPORTANTE: Pasar models/DAOinterface a cada uno de los DAOImpl                   [CUANDO ESTÉN TODOS LOS CRUD TERMINADOS]
 
-- Faltan: Todas las validaciones de LOGIN               `JULIO`
-- Faltan: Todas las validaciones de STUDENT REGISTER    `JULIO`
-- Faltan: Todas las validaciones de TEACHER REGISTER    `JULIO`
-- Faltan: Todas las validaciones de TEACHER UPDATE      `JULIO`
+- IMPORTANTE: Comunicar al consultor la desición de esperar a laravel para crear todas las validaciones.    [FALTA]
+- Faltan: Todas las validaciones de formulario LOGIN               `JULIO`          [ESPERAR AL PRODUCTO 3: LARAVEL]
+- Faltan: Todas las validaciones de formulario STUDENT REGISTER    `JULIO`          [ESPERAR AL PRODUCTO 3: LARAVEL]
+- Faltan: Todas las validaciones de formulario TEACHER REGISTER    `JULIO`          [ESPERAR AL PRODUCTO 3: LARAVEL]
+- Faltan: Todas las validaciones de formulario TEACHER UPDATE      `JULIO`          [ESPERAR AL PRODUCTO 3: LARAVEL]
           (mirar de incluir todos los manejadores de excepciones en errorController o utils).
+
+- TODO: CASTEAR DATES PARA QUE INGRESEN EN LA BBDD
 
 ------------------
 OTROS:
