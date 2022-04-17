@@ -5,55 +5,37 @@
 
 
     <!-- TITTLE -->
-    <h2>Gestión del alumno</h2>
+    <h2>Gestión asignaturas alumno</h2>
     <!-- END TITTLE -->
 
     <!-- BUTTON ADD NEW TEACHER (MODAL) -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#insertTeacher">
-        AÑADIR PROFESOR
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#insertInCourse">
+        Matricularse en asignaturas
     </button> <!-- END BUTTON ADD NEW TEACHER (MODAL) -->
 
-    <!-- TEACHERS TABLE -->
-    <?php $teachers = DAOTeacherImpl::getAll() ?>
+    <!-- STUDENT TABLE -->
+    <?php $student = DAOStudentImpl::getAll() ?>
     <table style="border: solid 1px" class="mt-2">
         <thead>
         <tr>
-            <th>ID</th>
-            <th>NOMBRE</th>
-            <th>APELLIDOS</th>
-            <th>TELÉFONO</th>
-            <th>NIF</th>
-            <th>EMAIL</th>
+            <th>ASIGNATURA</th>
+            <th>PROFESOR</th>
+            <th>CLASE</th>
+
         </tr>
         </thead>
-        <?php while( $teacher = mysqli_fetch_array($teachers) ) { ?>
+        <?php while( $student = mysqli_fetch_array($student) ) { ?>
             <tbody>
             <tr>
-                <td> <?php echo $teacher['id_teacher'] ;?> </td>
-                <td> <?php echo $teacher['name'] ;?> </td>
-                <td> <?php echo $teacher['surname'] ;?> </td>
-                <td> <?php echo $teacher['telephone'] ;?> </td>
-                <td> <?php echo $teacher['nif'] ;?> </td>
-                <td> <?php echo $teacher['email'] ;?> </td>
+                <td> <?php echo $student['id_teacher'] ;?> </td>
+                <td> <?php echo $student['name'] ;?> </td>
+                <td> <?php echo $student['surname'] ;?> </td>
+                <td> <?php echo $student['telephone'] ;?> </td>
+                <td> <?php echo $student['nif'] ;?> </td>
+                <td> <?php echo $student['email'] ;?> </td>
 
                 <!-- CRUD BUTTONS -->
-                <td>
-                    <!-- BUTTON ADD NEW TEACHER (MODAL) -->
-                    <button type="button" class="btn btn-primary" id="updateTeacher" data-toggle="modal" data-target="#btnUpdateTeacher"
-                            data-id_teacher = "<?php echo $teacher['id_teacher'] ;?>"
-                            data-name       = "<?php echo $teacher['name'] ;?>"
-                            data-surname    = "<?php echo $teacher['surname'] ;?>"
-                            data-telephone  = "<?php echo $teacher['telephone'] ;?>"
-                            data-nif        = "<?php echo $teacher['nif'] ;?>"
-                            data-email      = "<?php echo $teacher['email'] ;?>"
-                            data-password   = "<?php echo $teacher['password'] ;?>">
-                        Editar
-                    </button> <!-- END BUTTON ADD NEW TEACHER (MODAL) -->
-                    <!-- BUTTON DELETE TEACHER -->
-                    <a href="<?=base_url?>/teacher/delete&id=<?php echo $teacher['id_teacher'] ;?>">
-                        Eliminar
-                    </a> <!-- END BUTTON DELETE TEACHER -->
-                </td> <!-- END CRUD BUTTONS -->
+                <!-- END CRUD BUTTONS -->
 
             </tr>
             </tbody>
@@ -61,24 +43,6 @@
     </table> <!-- END TEACHERS TABLE -->
     <!-- -------------------------- END MAIN VIEW -------------------------- -->
 
-    <script>
-        $(document).on("click", "#updateTeacher", function() {
-            let id_teacher   = $(this).data('id_teacher');
-            let name        = $(this).data('name');
-            let surname     = $(this).data('surname');
-            let telephone   = $(this).data('telephone');
-            let nif         = $(this).data('nif');
-            let email       = $(this).data('email');
-            let password    = $(this).data('password');
 
-            $("#id_teacher").val(id_teacher);
-            $("#teacherName").val(name);
-            $("#teacherSurname").val(surname);
-            $("#teacherTelephone").val(telephone);
-            $("#teacherNif").val(nif);
-            $("#teacherEmail").val(email);
-            $("#teacherPassword").val(password);
-        })
-    </script>
 
 </div>
