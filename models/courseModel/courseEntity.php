@@ -8,7 +8,6 @@ class courseEntity {
     private $date_start;
     private $date_end;
     private $active;
-    private $db;
 
     // ----------------------------------- CONSTRUCTOR ----------------------------------- //
     public function __construct(){
