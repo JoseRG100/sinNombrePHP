@@ -9,12 +9,15 @@
     <!-- END TITTLE -->
 
     <!-- BUTTON ADD NEW TEACHER (MODAL) -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#insertInCourse">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#courseSingUp">
         Matricularse en asignaturas
     </button> <!-- END BUTTON ADD NEW TEACHER (MODAL) -->
 
-    <!-- STUDENT TABLE -->
-    <h1>CURSOS DISPONIBLES</h1>
+
+
+
+
+    <!-- AVAILABLE CLASSES TABLE -->
     <?php $classes = DAOClassImpl::getAll() ?>
     <table style="border: solid 1px" class="mt-2">
         <thead>
@@ -22,6 +25,8 @@
             <th>PROFESOR</th>
             <th>ASIGNATURA</th>
             <th>NOMBRE</th>
+            <th>FECHA INICIO</th>
+            <th>FECHA FIN</th>
             <th>COLOR</th>
 
         </tr>
@@ -29,23 +34,34 @@
         <?php while( $class = mysqli_fetch_array($classes) ) { ?>
             <tbody>
             <tr>
-                <td> <?php echo $class['id_teacher'] ;?>, <?php echo DAOTeacherImpl::getOneToObject($class['id_teacher'])->getName() ;?> </td>
-                <td> <?php echo $class['id_course'] ;?>, <?php echo ;?> </td>
+                <td> <?php echo DAOTeacherImpl::getOneToObject($class['id_teacher'])->getName() ;?> <?php echo DAOTeacherImpl::getOneToObject($class['id_teacher'])->getSurname() ;?> </td>
+                <td> <?php echo DAOCourseImpl::getOneToObject($class['id_course'])->getName() ;?> </td>
                 <td> <?php echo $class['name'] ;?> </td>
-                <!-- FECHA INICIO -> CURSO -->
-                <!-- FECHA FIN -> CURSO -->
+                <!-- CURSO -> FECHA INICIO -->
+                <td> <?php echo DAOCourseImpl::getOneToObject($class['id_course'])->getDateStart() ;?> </td>
+                <!-- CURSO -> FECHA FIN -->
+                <td> <?php echo DAOCourseImpl::getOneToObject($class['id_course'])->getDateEnd() ;?> </td>
+                <!-- COLOR -->
                 <td> <?php echo $class['color'] ;?> </td>
-
-                <!-- CRUD BUTTONS -->
-                <!-- END CRUD BUTTONS -->
-                <!-- END CRUD BUTTONS -->
-
             </tr>
             </tbody>
         <?php } ?>
-    </table> <!-- END TEACHERS TABLE -->
+    </table> <!-- END AVAILABLE CLASSES TABLE -->
+
+
+
+
+
+
+
+
+
+
+
     <!-- -------------------------- END MAIN VIEW -------------------------- -->
 
-
+    <!-- CRUD BUTTONS -->
+    <!-- END CRUD BUTTONS -->
+    <!-- END CRUD BUTTONS -->
 
 </div>
