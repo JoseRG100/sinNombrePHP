@@ -14,27 +14,30 @@
     </button> <!-- END BUTTON ADD NEW TEACHER (MODAL) -->
 
     <!-- STUDENT TABLE -->
-    <?php $student = DAOStudentImpl::getAll() ?>
+    <h1>CURSOS DISPONIBLES</h1>
+    <?php $classes = DAOClassImpl::getAll() ?>
     <table style="border: solid 1px" class="mt-2">
         <thead>
         <tr>
-            <th>ASIGNATURA</th>
             <th>PROFESOR</th>
-            <th>CLASE</th>
+            <th>ASIGNATURA</th>
+            <th>NOMBRE</th>
+            <th>COLOR</th>
 
         </tr>
         </thead>
-        <?php while( $student = mysqli_fetch_array($student) ) { ?>
+        <?php while( $class = mysqli_fetch_array($classes) ) { ?>
             <tbody>
             <tr>
-                <td> <?php echo $student['id_teacher'] ;?> </td>
-                <td> <?php echo $student['name'] ;?> </td>
-                <td> <?php echo $student['surname'] ;?> </td>
-                <td> <?php echo $student['telephone'] ;?> </td>
-                <td> <?php echo $student['nif'] ;?> </td>
-                <td> <?php echo $student['email'] ;?> </td>
+                <td> <?php echo $class['id_teacher'] ;?>, <?php echo DAOTeacherImpl::getOneToObject($class['id_teacher'])->getName() ;?> </td>
+                <td> <?php echo $class['id_course'] ;?>, <?php echo ;?> </td>
+                <td> <?php echo $class['name'] ;?> </td>
+                <!-- FECHA INICIO -> CURSO -->
+                <!-- FECHA FIN -> CURSO -->
+                <td> <?php echo $class['color'] ;?> </td>
 
                 <!-- CRUD BUTTONS -->
+                <!-- END CRUD BUTTONS -->
                 <!-- END CRUD BUTTONS -->
 
             </tr>
