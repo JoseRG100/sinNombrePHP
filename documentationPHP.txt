@@ -49,9 +49,7 @@ JULIO:
 - Faltan: Todas las validaciones de formulario TEACHER UPDATE      `JULIO`          [ESPERAR AL PRODUCTO 3: LARAVEL]
           (mirar de incluir todos los manejadores de excepciones en errorController o utils).
 
-- TODO: CASTEAR DATES PARA QUE INGRESEN EN LA BBDD
-- TODO: CREAR MODELOS PARA ENROLLMENT -> NECESITA COURSE (OK) && NECESITA COURSE (OK)
-- TODO: CREAR MODELOS PARA SCHEDULE -> NECESITA CLASS (OK)
+//TODO: SOLUCIONAR UPDATE DE CLASS-ENTITY
 
 ------------------
 OTROS:
