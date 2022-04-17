@@ -66,6 +66,7 @@ class routesController {
 
     public static function showClassListAvailable(){
         require_once 'views/student/studentClassList.php';
+        require_once 'views/student/studentClassSignUp.php';
     }
 
     public static function showStudentSchedule(){
