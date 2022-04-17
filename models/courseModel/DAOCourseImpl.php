@@ -30,6 +30,32 @@ class DAOCourseImpl implements DAOinterface {
         return $db->query($query);
     }//end getOne
 
+    public static function getOneToObject($objectId) {
+
+        $db     = Database::connect();
+        $query  = "SELECT * FROM courses WHERE id_course=$objectId";
+        $result = $db->query($query);
+
+        $findCourse = new courseEntity();
+
+        if( $result ) {
+            while( $row = $result->fetch_assoc() ) {
+                $findCourse->setIdCourse($row['id_course']);
+                $findCourse->setName($row['name']);
+                $findCourse->setDescription($row['description']);
+                $findCourse->setDateStart($row['date_start']);
+                $findCourse->setDateEnd($row['date_end']);
+                $findCourse->setActive($row['active']);
+            } //end while
+
+            return $findCourse;
+
+        }//end if
+
+        return false;
+
+    }//end getOneToObject
+
     public static function getAll() {
         $db     = Database::connect();
         $query  = "SELECT * FROM courses ORDER BY id_course DESC";
