@@ -76,8 +76,8 @@
             <tbody>
             <tr>
                 <td> <?php echo $class['id_class'] ;?> </td>
-                <td> <?php echo $class['id_teacher'] ;?> </td>
-                <td> <?php echo $class['id_course'] ;?> </td>
+                <td> id: (<?php echo $class['id_teacher'] ;?>), <?php echo DAOTeacherImpl::getOneToObject($class['id_teacher'])->getName() ;?></td>
+                <td> id: (<?php echo $class['id_course'] ;?>), </td>
                 <td> <?php echo $class['name'] ;?> </td>
                 <td> <?php echo $class['color'] ;?> </td>
 

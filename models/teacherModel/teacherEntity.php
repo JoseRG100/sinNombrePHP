@@ -73,4 +73,23 @@ class teacherEntity {
 
     // ------------------------------ MODEL METHODES ------------------------------ //
 
+    /* NO ELIMINAR POR SI SE NECESITAN LOS DESENCRIPT
+    public function decryptPassword() {
+        return password_hash($this->password);
+    }
+
+    public function setName($name) {
+        $this->name = $this->db->real_escape_string($name);
+    }
+
+    public function setDescription($description) {
+        $this->description = $this->db->real_escape_string($description);
+    }
+
+    public function setActive($active) {
+        $this->active = $this->db->real_escape_string($active);
+    }
+     */
+
+
 }//end teacherEntity

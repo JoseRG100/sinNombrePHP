@@ -30,10 +30,7 @@ ADRI:
 ------------------
 JOSE:
 ------------------
-- FALTA: Terminar CRUD (MODELOS Y CONTROLADORES) PARA:
-    - admin     (NO).
-    - class     (faltan controladores y modelos).
-    - course    (faltan controladores y modelos).
+- FALTA: Hacer llaves únicas en campos o conjuntos de campos de las entidades de la BBDD.
 
 - SI SE PUEDE:
     - Crear las VISTA de las dos entidades llamando a MODALS (BOOTSTRAP).

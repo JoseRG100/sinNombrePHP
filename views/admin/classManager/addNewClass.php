@@ -15,28 +15,42 @@
             <div class="modal-body">
                 <!-- FORM CONTAINER -->
                 <form class="container-fluid" action="<?=base_url?>/class/register" method="POST">
-                    <!-- NAME INPUT -->
-                    <div class="form-group">
-                        <label>id_teacher</label>
-                        <input type="number" name="id_teacher" class="form-control"  autofocus>
-                    </div>
-                    <!-- SURNAME INPUT -->
-                    <div class="form-group">
-                        <label>id_course</label>
-                        <input type="number" name="id_course" class="form-control" >
-                    </div>
 
-                    <!-- NIF INPUT -->
+                    <!-- ID_TEACHER INPUT -->
+                    <div class="form-group">
+                        <label>Profesor: </label>
+                        <?php $teachers = DAOTeacherImpl::getAll(); ?>
+                        <select name="id_teacher" class="form-control" >
+                            <?php while( $teacher = mysqli_fetch_array($teachers) ) { ?>
+                                <option value="<?php echo $teacher['id_teacher'] ;?>"> (id: <?php echo $teacher['id_teacher'] ;?>) <?php echo $teacher['name'] ;?> </option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <!-- ID_COURSE INPUT -->
+                    <div class="form-group">
+                        <label>Curso: </label>
+                        <?php $courses = DAOCourseImpl::getAll(); ?>
+                        <select name="id_course" class="form-control" >
+                            <?php while( $course = mysqli_fetch_array($courses) ) { ?>
+                                <option value="<?php echo $course['id_course'] ;?>"> (id: <?php echo $course['id_course'] ;?>) <?php echo $course['name'] ;?> </option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                    <!-- NAME INPUT -->
                     <div class="form-group">
                         <label>name</label>
                         <input type="text" name="name" class="form-control" >
                     </div>
-                    <!-- EMAIL INPUT -->
+                    <!-- COLOR INPUT -->
                     <div class="form-group">
+                        <?php $colors = array('light-green', 'orange', 'red', 'magenta','cyan', 'light-blue', 'blue', 'gray'); ?>
                         <label>color</label>
-                        <input type="text"name="color" class="form-control" >
+                        <select name="color" class="form-control" >
+                            <?php foreach( $colors as $color ) { ?>
+                                <option value="<?php echo $color ;?>"><?php echo $color ;?></option>
+                            <?php } ?>
+                        </select>
                     </div>
-                    <!-- PASSWORD INPUT -->
 
                     <br>
 

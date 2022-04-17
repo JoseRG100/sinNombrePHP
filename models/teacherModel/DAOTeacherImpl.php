@@ -50,34 +50,42 @@ class DAOTeacherImpl implements DAOinterface {
 
         $db     = Database::connect();
         $query  = "SELECT * FROM teachers WHERE id_teacher=$objectId";
-        return $result = $db->query($query);
-
-//      NOTA: NO ELIMINAR, NO SABEMOS SI NECESITAREMOS TRANSFORMAR LOS REGISTROS EN OBJETOS MÁS ADELANTE
-//        $data  = array();
-//
-//        if( $result->num_rows ) {
-//            while( $row = $result->fetch_assoc() ) {
-//                $data[] = [
-//                    'id_teacher' => $row['id_teacher'],
-//                    'name'       => $row['name'],
-//                    'surname'    => $row['surname'],
-//                    'telephone'  => $row['telephone'],
-//                    'nif'        => $row['nif'],
-//                    'email'      => $row['email'],
-//                    'password'   => $row['password'],
-//                ];
-//            } //end while
-//            return $data;
-//        }//end if
-//        return $data;
+        return $db->query($query);
 
     }//end getOne
+
+    public static function getOneToObject($objectId) {
+
+        $db     = Database::connect();
+        $query  = "SELECT * FROM teachers WHERE id_teacher=$objectId";
+        $result = $db->query($query);
+
+        $findTeacher = new teacherEntity();
+
+        if( $result ) {
+            while( $row = $result->fetch_assoc() ) {
+                $findTeacher->setIdTeacher($row['id_teacher']);
+                $findTeacher->setName($row['name']);
+                $findTeacher->setSurname($row['surname']);
+                $findTeacher->setTelephone($row['telephone']);
+                $findTeacher->setNif($row['nif']);
+                $findTeacher->setEmail($row['email']);
+                $findTeacher->setPassword($row['password']);    //TODO: SE TIENE QUE DESENCRIPTAR
+            } //end while
+            
+            return $findTeacher;
+
+        }//end if
+
+        return false;
+
+    }//end getOneToObject
 
     public static function getAll() {
 
         $db     = Database::connect();
         $query  = "SELECT * FROM teachers";
-        return $result = $db->query($query);
+        return $db->query($query);
 
 //      NOTA: NO ELIMINAR, NO SABEMOS SI NECESITAREMOS TRANSFORMAR LOS REGISTROS EN OBJETOS MÁS ADELANTE
 //            $data  = array();
@@ -105,18 +113,13 @@ class DAOTeacherImpl implements DAOinterface {
 
         $db     = Database::connect();
 
-        //-------- ENCRYPT PASSWORD -------- //
-        $password = $changedObject->getPassword();
-        $password = password_hash($db->real_escape_string($password), PASSWORD_BCRYPT, ['cost' => 4]);
-        //------- /ENCRYPT PASSWORD -------- //
-
         $query  = "UPDATE teachers SET
                    name      = '{$changedObject->getName()}', 
                    surName   = '{$changedObject->getSurname()}', 
                    telephone = '{$changedObject->getTelephone()}', 
                    nif       = '{$changedObject->getNif()}', 
                    email     = '{$changedObject->getEmail()}', 
-                   password  = '{$password}'
+                   password  = '{$changedObject->getPassword()}'
                    WHERE id_teacher = $objectId";
         $db->query($query);
 

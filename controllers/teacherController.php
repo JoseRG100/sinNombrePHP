@@ -63,7 +63,7 @@ class teacherController {
         Utils::isAdmin();
         if(isset($_POST)){
 
-            $id_course  = isset($_POST['id_course']) ? $_POST['id_course'] : false;
+            $id_teacher = isset($_POST['id_teacher']) ? $_POST['id_teacher'] : false;
             $name       = isset($_POST['name']) ? $_POST['name'] : false;
             $surname    = isset($_POST['surname']) ? $_POST['surname'] : false;
             $telephone  = isset($_POST['telephone']) ? $_POST['telephone'] : false;
@@ -72,7 +72,7 @@ class teacherController {
             $password   = isset($_POST['password']) ? $_POST['password'] : false;
 
             //TODO: FALTAN TODAS LAS VALIDACIONES
-            if( $id_course && $name && $surname && $telephone && $nif && $email && $password){
+            if( $id_teacher && $name && $surname && $telephone && $nif && $email && $password){
                 $changedTeacher = new teacherEntity();
                 $changedTeacher->setName($name);
                 $changedTeacher->setSurname($surname);
@@ -81,7 +81,7 @@ class teacherController {
                 $changedTeacher->setEmail($email);
                 $changedTeacher->setPassword($password);
 
-                $updateSuccessful = DAOTeacherImpl::update($id_course, $changedTeacher);
+                $updateSuccessful = DAOTeacherImpl::update($id_teacher, $changedTeacher);
 
                 if( $updateSuccessful ){
 
