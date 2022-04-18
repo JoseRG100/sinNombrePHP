@@ -47,6 +47,10 @@
             <form class="row" method="GET">
                 <input class="itemContainer" type="submit" name="btn-showStudentSchedule" value="Horario">
             </form>
+            <!-- SEE PROFILE -->
+            <form class="row" method="GET">
+                <input class="itemContainer" type="submit" name="btn-showStudentProfile" value="Perfil">
+            </form>
         <?php endif; ?>
 
         <!-- SIGN OFF -->

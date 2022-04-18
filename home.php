@@ -46,6 +46,9 @@ showBeforeSession();
     if(isset($_GET['btn-showStudentSchedule'])){
         routesController::showStudentSchedule();
     }
+    if(isset($_GET['btn-showStudentProfile'])){
+        routesController::showStudentProfile();
+    }
 
 // --- SIGN OFF --- //
     if(isset($_GET['btn-singOff'])){
