@@ -5,7 +5,7 @@
 
             <!-- MODAL HEADER -->
             <div class="modal-header">
-                <h5 class="modal-title" id="classSignUp">Añadir nuevo profesor</h5>
+                <h5 class="modal-title" id="classSignUp">Matricularse</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -29,7 +29,7 @@
                     </tr>
                     </thead>
                     <?php while( $class = mysqli_fetch_array($classes) ) { ?>
-                        <tbody>
+                    <tbody>
                         <tr>
                             <td> <?php echo DAOTeacherImpl::getOneToObject($class['id_teacher'])->getName() ;?> <?php echo DAOTeacherImpl::getOneToObject($class['id_teacher'])->getSurname() ;?> </td>
                             <td> <?php echo DAOCourseImpl::getOneToObject($class['id_course'])->getName() ;?> </td>
@@ -49,7 +49,7 @@
                                 </form>
                             </td>
                         </tr>
-                        </tbody>
+                    </tbody>
                     <?php } ?>
                 </table> <!-- END AVAILABLE CLASSES TABLE -->
 
