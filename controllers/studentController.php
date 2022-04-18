@@ -39,18 +39,22 @@ class studentController {
                 $registerSuccessful = DAOStudentImpl::insert($newStudent);
 
                 if($registerSuccessful){
-                    $_SESSION['studentRegister'] = "complete";
+                    $_SESSION['studentUpdate'] = "complete";
+                    $_SESSION['message'] = "Has cambiado tus datos correctamente";
                     header("Location:".base_url);
                 }else{
-                    $_SESSION['studentRegister'] = "failed";
+                    $_SESSION['studentUpdate'] = "failed";
+                    $_SESSION['message'] = "No has puesto bien uno de tus datos";
                 }
 
             }else{
-                $_SESSION['studentRegister'] = "failed";
+                $_SESSION['studentUpdate'] = "failed";
+                $_SESSION['message'] = "No se han recibido bien los datos";
             }
 
         }else{
-            $_SESSION['studentRegister'] = "failed";
+            $_SESSION['studentUpdate'] = "failed";
+            $_SESSION['message'] = "No se ha recibido bien el método de envio";
         }
 
     }

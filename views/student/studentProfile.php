@@ -26,11 +26,6 @@
     <h2>Gestión usuario</h2>
     <!-- END TITTLE -->
 
-    <!-- BUTTON UPDATE STUDENT (MODAL) -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updatePerfil">
-        MODIFICAR PERFIL
-    </button> <!-- END BUTTON ADD NEW TEACHER (MODAL) -->
-
     <!-- USER TABLE -->
 
     <table style="border: solid 1px" class="mt-2">
