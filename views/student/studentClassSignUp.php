@@ -30,19 +30,28 @@
                     </thead>
                     <?php while( $class = mysqli_fetch_array($classes) ) { ?>
                         <tbody>
-                        <tr>
-                            <td> <?php echo DAOTeacherImpl::getOneToObject($class['id_teacher'])->getName() ;?> <?php echo DAOTeacherImpl::getOneToObject($class['id_teacher'])->getSurname() ;?> </td>
-                            <td> <?php echo DAOCourseImpl::getOneToObject($class['id_course'])->getName() ;?> </td>
-                            <td> <?php echo $class['name'] ;?> </td>
-                            <!-- CURSO -> FECHA INICIO -->
-                            <td> <?php echo DAOCourseImpl::getOneToObject($class['id_course'])->getDateStart() ;?> </td>
-                            <!-- CURSO -> FECHA FIN -->
-                            <td> <?php echo DAOCourseImpl::getOneToObject($class['id_course'])->getDateEnd() ;?> </td>
-                            <!-- COLOR -->
-                            <td> <?php echo $class['color'] ;?> </td>
-                            <!-- SIGN UP BUTTON -->
-                            <td> <a> </td>
-                        </tr>
+                            <form method="POST">
+                                <tr>
+
+                                    <td> <?php echo DAOTeacherImpl::getOneToObject($class['id_teacher'])->getName() ;?> <?php echo DAOTeacherImpl::getOneToObject($class['id_teacher'])->getSurname() ;?> </td>
+                                    <td> <?php echo DAOCourseImpl::getOneToObject($class['id_course'])->getName() ;?> </td>
+                                    <td> <?php echo $class['name'] ;?> </td>
+                                    <!-- CURSO -> FECHA INICIO -->
+                                    <td> <?php echo DAOCourseImpl::getOneToObject($class['id_course'])->getDateStart() ;?> </td>
+                                    <!-- CURSO -> FECHA FIN -->
+                                    <td> <?php echo DAOCourseImpl::getOneToObject($class['id_course'])->getDateEnd() ;?> </td>
+                                    <!-- COLOR -->
+                                    <td> <?php echo $class['color'] ;?> </td>
+                                    <!-- SIGN UP BUTTON -->
+
+
+                                    <!-- OPCION 1: TRANSFORMAR ESTE CONTENEDOR EN UN FORM -> PARA MANDAR POR URL  -->
+                                    <input class="btn btn-success" type="submit" name="btn-sendEnrollment" value="Enviar">
+
+                                    <!-- OPCION 3: MANDAR LOS INPUTS POR JQUERY -->
+
+                                </tr>
+                            </form>
                         </tbody>
                     <?php } ?>
                 </table> <!-- END AVAILABLE CLASSES TABLE -->
