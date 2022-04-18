@@ -11,22 +11,22 @@ class enrollmentController {
     public function save(){
 
         //var_dump($_POST['id_student']);
-        //var_dump($_POST['id_course']);
-
+        //var_dump($_POST['id_class']);
 
         Utils::isStudent();
         if(isset($_POST)){
 
-            $id_class = isset($_POST['id_class']) ? $_POST['id_class'] : false;
+
+            $id_student = isset($_POST['id_student']) ? $_POST['id_student'] : false;
+            $id_student_string = intval($id_student);
+            $id_class  = isset($_POST['id_class']) ? $_POST['id_class'] : false;
             $id_class_string = intval($id_class);
-            $id_course  = isset($_POST['id_course']) ? $_POST['id_course'] : false;
-            $id_course_string = intval($id_course);
             $status     = 0;
 
-            if( $id_class && $id_course ){
+            if( $id_student && $id_class_string ){
                 $newEnrollment = new enrollmentEntity();
-                $newEnrollment->setIdStudent($id_class_string);
-                $newEnrollment->setIdCourse($id_course_string);
+                $newEnrollment->setIdStudent($id_student_string);
+                $newEnrollment->setIdClass($id_class_string);
                 $newEnrollment->setStatus($status);
 
                 $registerSuccessful = DAOEnrollmentImpl::insert($newEnrollment);

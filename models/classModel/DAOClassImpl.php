@@ -58,12 +58,12 @@ class DAOClassImpl implements DAOinterface
 
         if( $result ) {
             while( $row = $result->fetch_assoc() ) {
-                $findClass->setIdClass($row['id_course']);
-                $findClass->setIdTeacher($row['name']);
-                $findClass->setIdCourse($row['description']);
-                //$findClass->setId($row['date_start']);
-                $findClass->setName($row['date_end']);
-                $findClass->setColor($row['active']);
+                $findClass->setIdClass($row['id_class']);
+                $findClass->setIdTeacher($row['id_teacher']);
+                $findClass->setIdCourse($row['id_course']);
+                //$findClass->setId($row['id_schedule']);
+                $findClass->setName($row['name']);
+                $findClass->setColor($row['color']);
             } //end while
 
             return $findClass;

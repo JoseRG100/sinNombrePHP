@@ -63,8 +63,13 @@
         <tbody>
             <tr>
                 <td> <?php echo $enrollment['id_enrollment'] ;?> </td>
-                <td> <?php echo DAOCourseImpl::getOneToObject($enrollment['id_class'])->getName() ;?> </td>
-                <td> <?php echo DAOCourseImpl::getOneToObject($enrollment['id_class'])->getName() ;?> </td>
+                <td> <?php echo DAOCourseImpl::getOneToObject(DAOClassImpl::getOneToObject($enrollment['id_class'])->getIdCourse())->getName() ;?> </td>
+                <td> <?php echo DAOTeacherImpl::getOneToObject(DAOClassImpl::getOneToObject($enrollment['id_class'])->getIdTeacher())->getName() ;?>
+                     <?php echo DAOTeacherImpl::getOneToObject(DAOClassImpl::getOneToObject($enrollment['id_class'])->getIdTeacher())->getSurname() ;?>
+                </td>
+                <td> <?php echo DAOCourseImpl::getOneToObject(DAOClassImpl::getOneToObject($enrollment['id_class'])->getIdCourse())->getDateStart() ;?> </td>
+                <td> <?php echo DAOCourseImpl::getOneToObject(DAOClassImpl::getOneToObject($enrollment['id_class'])->getIdCourse())->getDateEnd() ;?> </td>
+
             </tr>
         </tbody>
         <?php } ?>

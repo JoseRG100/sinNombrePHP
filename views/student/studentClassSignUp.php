@@ -44,7 +44,7 @@
                             <td>
                                 <form action="<?=base_url?>/enrollment/save" method="POST">
                                     <input type="hidden" name="id_student" value="<?php echo $_SESSION['student']->id ?>">
-                                    <input type="hidden" name="id_course" value="<?php echo $class['id_class'] ?>">
+                                    <input type="hidden" name="id_class" value="<?php echo $class['id_class'] ?>">
                                     <input type="submit" name="btn-sendEnrollment" class="btn btn-primary" value="INSCRIBIR">
                                 </form>
                             </td>
