@@ -36,6 +36,31 @@ class DAOEnrollmentImpl implements DAOinterface {
         return $db->query($query);
     }
 
+    public static function getOneToObject($objectId) {
+
+        $db     = Database::connect();
+        $query  = "SELECT * FROM enrollment WHERE id_enrollment=$objectId";
+        $result = $db->query($query);
+
+        $findEnrollment = new enrollmentEntity();
+
+        if( $result ) {
+            while( $row = $result->fetch_assoc() ) {
+                $findEnrollment->setIdEnrollment($row['id_enrollment']);
+                $findEnrollment->setIdStudent();e($row['id_student']);
+                $findEnrollment->setIdCourse($row['id_Course']);
+                $findEnrollment->setStatus($row['status']);
+
+            } //end while
+
+            return $findEnrollment;
+
+        }//end if
+
+        return false;
+
+    }//end getOneToObject
+
     public static function getAll()
     {
         $db     = Database::connect();
@@ -50,6 +75,17 @@ class DAOEnrollmentImpl implements DAOinterface {
 
     public static function delete($objectId)
     {
-        // TODO: Implement delete() method.
-    }
-}
+        $db     = Database::connect();
+        $query  = "DELETE FROM enrollment WHERE id_enrollment=$objectId";
+        $db->query($query);
+
+        //VALIDATING THE METHODE
+        if($db->affected_rows) {
+            return TRUE;
+        } //end if
+        return FALSE;
+
+    }//end delete
+
+}//end classManager DAOEnrollmentImpl
+

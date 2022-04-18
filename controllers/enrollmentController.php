@@ -45,4 +45,29 @@ class enrollmentController {
         header("Location:".base_url.'/home');
 
     }
+
+    public function delete(){
+
+        Utils::isStudent();
+        if( isset( $_GET['id'] ) ) {
+            $id_enrollment = $_GET['id'];
+            $deleteSuccessful = DAOEnrollmentImpl::delete($id_enrollment);
+
+            if( $deleteSuccessful ){
+                $_SESSION['enrollmentDelete']  = "complete";
+                $_SESSION['message']        = 'Enrollment, eliminado correctamente.';
+
+            }else {
+                $_SESSION['enrollmentrDelete'] = "failed";
+                $_SESSION['message'] = 'Error. El registro no se encontró en la BBDD.';
+            }
+
+        }else {
+            $_SESSION['enrollmentDeleteDelete'] = "failed";
+            $_SESSION['message'] = 'Error. Tipo de solicitud incorrectemante enviado.';
+        }
+
+        header("Location:".base_url.'/home');
+
+    }
 }
