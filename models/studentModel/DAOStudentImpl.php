@@ -27,8 +27,8 @@ class DAOStudentImpl implements DAOinterface {
 
         $foundUser  = false;
         $db         = Database::connect();
-        $query      = "SELECT * FROM students WHERE email='$loginEmail'";
-        $login = $db->query($query);
+        $query      = "SELECT * FROM students WHERE email = '$loginEmail'";
+        $login      = $db->query($query);
 
         if( $login->num_rows ){
             $probablyUser = $login->fetch_object();
@@ -48,6 +48,35 @@ class DAOStudentImpl implements DAOinterface {
     public static function getOne($objectId) {
         //[THIS FUNCTION IT'S NOT NECESSARY YET]
     }//end getOne
+
+    public static function getOneToObject($objectId) {
+
+        $db     = Database::connect();
+        $query  = "SELECT * FROM students WHERE id = $objectId";
+        $result = $db->query($query);
+
+        $findStudent = new studentEntity();
+
+        if( $result ) {
+            while( $row = $result->fetch_assoc() ) {
+                $findStudent->setId($row['id_course']);
+                $findStudent->setUsername($row['name']);
+                $findStudent->setPassword($row['description']);
+                $findStudent->setEmail($row['date_start']);
+                $findStudent->setName($row['date_end']);
+                $findStudent->setSurname($row['active']);
+                $findStudent->setTelephone($row['active']);
+                $findStudent->setNif($row['active']);
+                $findStudent->setDateRegistered($row['active']);
+            } //end while
+
+            return $findStudent;
+
+        }//end if
+
+        return false;
+
+    }//end getOneToObject
 
     public static function getAll() {
         //[THIS FUNCTION IT'S NOT NECESSARY YET]

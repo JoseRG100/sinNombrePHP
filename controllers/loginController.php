@@ -57,7 +57,7 @@ class loginController {
                     if($student && is_object($student)){
 
                         $_SESSION['identity'] = $student;
-                        $_SESSION['student'] = true;
+                        $_SESSION['student'] = $student;
                         unset($_SESSION['admin']);
                         unset($_SESSION['teacher']);
 
