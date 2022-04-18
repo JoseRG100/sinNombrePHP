@@ -5,7 +5,7 @@
 
             <!-- MODAL HEADER -->
             <div class="modal-header">
-                <h5 class="modal-title" id="classSignUp">Añadir nuevo profesor</h5>
+                <h5 class="modal-title" id="classSignUp">Matricularse</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -41,7 +41,18 @@
                             <!-- COLOR -->
                             <td> <?php echo $class['color'] ;?> </td>
                             <!-- SIGN UP BUTTON -->
-                            <td> <a> </td>
+                            <td>
+                                <!-- BUTTON SIGNUP COURSE (MODAL) -->
+                                <button type="button" class="btn btn-primary" id="classSignUp" data-toggle="modal" data-target="#btnclassSignUp"
+
+                                    Matricularse
+                                </button> <!-- END BUTTON ADD NEW TEACHER (MODAL) -->
+                                <!-- BUTTON DELETE TEACHER -->
+                                <a href="<?=base_url?>/course/delete&id=<?php echo $['id_course'] ;?>">
+                                    Eliminar
+                                </a> <!-- END BUTTON DELETE TEACHER -->
+                            </td> <!-- END CRUD BUTTONS -->
+
                         </tr>
                         </tbody>
                     <?php } ?>
