@@ -6,7 +6,10 @@ class enrollmentController {
         Utils::showError();
     }
 
-    public function register(){
+    public function save(){
+
+        //var_dump($_POST['id_student']);
+        //var_dump($_POST['id_course']);
 
         Utils::isStudent();
         if(isset($_POST)){
@@ -45,6 +48,7 @@ class enrollmentController {
 
     }
 
+
     public function delete(){
 
         Utils::isStudent();
@@ -69,4 +73,5 @@ class enrollmentController {
         header("Location:".base_url.'/home');
 
     }
+
 }

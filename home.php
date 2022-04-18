@@ -103,6 +103,17 @@ function showBeforeSession() {
         Utils::deleteSession('courseDelete');
     }//END SHOW IF YOU'RE IN COURSE_MANAGER
 
+    //-------------------------------------------------//
+    //SHOW IF YOU'RE IN STUDENT_MANAGER
+    if ( isset( $_SESSION['courseEnrollment'] ) ) {
+        routesController::showClassListAvailable();
+        Utils::deleteSession('courseEnrollment');
+    }
+    if ( isset( $_SESSION['unEnrollment'] ) ) {
+        routesController::showClassListAvailable();
+        Utils::deleteSession('unEnrollment');
+    }//END SHOW IF YOU'RE IN COURSE_MANAGER
+
 
 }
 

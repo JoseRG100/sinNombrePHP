@@ -29,8 +29,7 @@
                     </tr>
                     </thead>
                     <?php while( $class = mysqli_fetch_array($classes) ) { ?>
-                        <tbody>
-<<<<<<< HEAD
+                    <tbody>
                         <tr>
                             <td> <?php echo DAOTeacherImpl::getOneToObject($class['id_teacher'])->getName() ;?> <?php echo DAOTeacherImpl::getOneToObject($class['id_teacher'])->getSurname() ;?> </td>
                             <td> <?php echo DAOCourseImpl::getOneToObject($class['id_course'])->getName() ;?> </td>
@@ -43,43 +42,14 @@
                             <td> <?php echo $class['color'] ;?> </td>
                             <!-- SIGN UP BUTTON -->
                             <td>
-                                <!-- BUTTON SIGNUP COURSE (MODAL) -->
-                                <button type="button" class="btn btn-primary" id="classSignUp" data-toggle="modal" data-target="#btnclassSignUp"
-
-                                    Matricularse
-                                </button> <!-- END BUTTON ADD NEW TEACHER (MODAL) -->
-                                <!-- BUTTON DELETE TEACHER -->
-                                <a href="<?=base_url?>/course/delete&id=<?php echo $['id_course'] ;?>">
-                                    Eliminar
-                                </a> <!-- END BUTTON DELETE TEACHER -->
-                            </td> <!-- END CRUD BUTTONS -->
-
+                                <form action="<?=base_url?>/enrollment/save" method="POST">
+                                    <input type="hidden" name="id_student" value="<?php echo $_SESSION['student']->id ?>">
+                                    <input type="hidden" name="id_course" value="<?php echo $class['id_course'] ?>">
+                                    <input type="submit" name="btn-sendEnrollment" class="btn btn-primary" value="INSCRIBIR">
+                                </form>
+                            </td>
                         </tr>
-=======
-                            <form method="POST">
-                                <tr>
-
-                                    <td> <?php echo DAOTeacherImpl::getOneToObject($class['id_teacher'])->getName() ;?> <?php echo DAOTeacherImpl::getOneToObject($class['id_teacher'])->getSurname() ;?> </td>
-                                    <td> <?php echo DAOCourseImpl::getOneToObject($class['id_course'])->getName() ;?> </td>
-                                    <td> <?php echo $class['name'] ;?> </td>
-                                    <!-- CURSO -> FECHA INICIO -->
-                                    <td> <?php echo DAOCourseImpl::getOneToObject($class['id_course'])->getDateStart() ;?> </td>
-                                    <!-- CURSO -> FECHA FIN -->
-                                    <td> <?php echo DAOCourseImpl::getOneToObject($class['id_course'])->getDateEnd() ;?> </td>
-                                    <!-- COLOR -->
-                                    <td> <?php echo $class['color'] ;?> </td>
-                                    <!-- SIGN UP BUTTON -->
-
-
-                                    <!-- OPCION 1: TRANSFORMAR ESTE CONTENEDOR EN UN FORM -> PARA MANDAR POR URL  -->
-                                    <input class="btn btn-success" type="submit" name="btn-sendEnrollment" value="Enviar">
-
-                                    <!-- OPCION 3: MANDAR LOS INPUTS POR JQUERY -->
-
-                                </tr>
-                            </form>
->>>>>>> 7bcadd69329909f936f754feb33019bbb9d4cf02
-                        </tbody>
+                    </tbody>
                     <?php } ?>
                 </table> <!-- END AVAILABLE CLASSES TABLE -->
 

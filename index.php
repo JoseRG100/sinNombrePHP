@@ -30,7 +30,7 @@ function autoOpenSession(){
         Utils::isAdmin();
         header("Location:".base_url.'/home.php');
     }
-    */
+
     //OPEN TEACHER SESSION
     if ( isset($_SESSION['teacher']) && $_SESSION['teacher'] ) {
         Utils::isTeacher();
@@ -41,6 +41,7 @@ function autoOpenSession(){
         Utils::isStudent();
         header("Location:".base_url.'/home.php');
     }
+    */
 }
 //END AUTO-OPEN SESSION
 
