@@ -11,8 +11,8 @@ class DAOEnrollmentImpl implements DAOinterface {
         //$password = password_hash($db->real_escape_string($password), PASSWORD_BCRYPT, ['cost' => 4]);
         //END ENCRYPT PASSWORD
 
-        $query  = "INSERT INTO enrollment (id_enrollment, id_student, id_course, status)
-                   VALUES (NULL, '{$newObject->getIdStudent()}', '{$newObject->getIdCourse()}', '{$newObject->getStatus()}'";
+        $query  = "INSERT INTO enrollment (id_enrollment, id_class, id_course, status)
+                   VALUES (NULL, '{$newObject->getIdStudent()}', '{$newObject->getIdClass()}', '{$newObject->getStatus()}')";
         $db->query($query);
 
         //VALIDATING THE METHODE

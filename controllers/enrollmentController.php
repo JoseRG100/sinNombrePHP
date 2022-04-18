@@ -1,4 +1,6 @@
 <?php
+require_once 'models/enrollmentModel/enrollmentEntity.php';
+require_once 'models/enrollmentModel/DAOEnrollmentImpl.php';
 
 class enrollmentController {
 
@@ -11,18 +13,20 @@ class enrollmentController {
         //var_dump($_POST['id_student']);
         //var_dump($_POST['id_course']);
 
+
         Utils::isStudent();
         if(isset($_POST)){
 
-            $id_student = isset($_POST['id_student']) ? $_POST['id_student'] : false;
+            $id_class = isset($_POST['id_class']) ? $_POST['id_class'] : false;
+            $id_class_string = intval($id_class);
             $id_course  = isset($_POST['id_course']) ? $_POST['id_course'] : false;
+            $id_course_string = intval($id_course);
             $status     = 0;
 
-
-            if( $id_student && $id_course ){
+            if( $id_class && $id_course ){
                 $newEnrollment = new enrollmentEntity();
-                $newEnrollment->setIdStudent($id_student);
-                $newEnrollment->setIdCourse($id_course);
+                $newEnrollment->setIdStudent($id_class_string);
+                $newEnrollment->setIdCourse($id_course_string);
                 $newEnrollment->setStatus($status);
 
                 $registerSuccessful = DAOEnrollmentImpl::insert($newEnrollment);
@@ -30,18 +34,22 @@ class enrollmentController {
 
                 if($registerSuccessful){
 
-                    $_SESSION['enrollmentRegister'] = "complete";
+                    $_SESSION['courseEnrollment'] = "complete";
+                    $_SESSION['message'] = 'Te has suscrito correctamente';
 
                 }else{
-                    $_SESSION['enrollmentRegister'] = "failed";
+                    $_SESSION['courseEnrollment'] = "failed";
+                    $_SESSION['message'] = 'La Query no ha hecho match con la BBDD';
                 }
 
             }else{
-                $_SESSION['enrollmentRegister'] = "failed";
+                $_SESSION['courseEnrollment'] = "failed";
+                $_SESSION['message'] = 'No se han inicializado bien las variables';
             }
 
         }else{
-            $_SESSION['enrollmentRegister'] = "failed";
+            $_SESSION['courseEnrollment'] = "failed";
+            $_SESSION['message'] = 'El método que conecta la vista con el controlador no ha ingresado correctamente';
         }
 
         header("Location:".base_url.'/home');

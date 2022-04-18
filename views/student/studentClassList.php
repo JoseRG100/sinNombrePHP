@@ -47,7 +47,29 @@
         MATRICULARSE EN ASIGNATURAS
     </button> <!-- END BUTTON ADD NEW TEACHER (MODAL) -->
 
-
+    <!-- CLASS TABLE -->
+    <?php $enrollments = DAOEnrollmentImpl::getAll() ?>
+    <table style="border: solid 1px" class="mt-2">
+        <thead>
+        <tr>
+            <th>ID_MATRICULA</th>
+            <th>ASIGNATURA</th>
+            <th>PROFESOR</th>
+            <th>F. INICIO</th>
+            <th>F. FIN</th>
+        </tr>
+        </thead>
+        <?php while( $enrollment = mysqli_fetch_array($enrollments) ) { ?>
+        <tbody>
+            <tr>
+                <td> <?php echo $enrollment['id_enrollment'] ;?> </td>
+                <td> <?php echo DAOCourseImpl::getOneToObject($enrollment['id_class'])->getName() ;?> </td>
+                <td> <?php echo DAOCourseImpl::getOneToObject($enrollment['id_class'])->getName() ;?> </td>
+            </tr>
+        </tbody>
+        <?php } ?>
+    </table> <!-- END CLASS TABLE -->
+    <!-- -------------------------- END MAIN VIEW -------------------------- -->
 
 
 

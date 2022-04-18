@@ -4,7 +4,7 @@ class enrollmentEntity {
     // ------------------------------------- ATRIBUTES ------------------------------------- //
     private $id_enrollment;
     private $id_student;
-    private $id_course;
+    private $id_class;
     private $status;
 
     // ----------------------------------- CONSTRUCTOR ----------------------------------- //
@@ -47,17 +47,17 @@ class enrollmentEntity {
     /**
      * @return mixed
      */
-    public function getIdCourse()
+    public function getIdClass()
     {
-        return $this->id_course;
+        return $this->id_class;
     }
 
     /**
-     * @param mixed $id_course
+     * @param mixed $id_class
      */
-    public function setIdCourse($id_course): void
+    public function setIdClass($id_class): void
     {
-        $this->id_course = $id_course;
+        $this->id_class = $id_class;
     }
 
     /**
@@ -75,5 +75,6 @@ class enrollmentEntity {
     {
         $this->status = $status;
     }
+
 
 }//end enrollmentEntity

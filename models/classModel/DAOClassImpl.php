@@ -48,6 +48,32 @@ class DAOClassImpl implements DAOinterface
         return $result = $db->query($query);
     }//end getOne
 
+    public static function getOneToObject($objectId) {
+
+        $db     = Database::connect();
+        $query  = "SELECT * FROM class WHERE id_class=$objectId";
+        $result = $db->query($query);
+
+        $findClass = new classEntity();
+
+        if( $result ) {
+            while( $row = $result->fetch_assoc() ) {
+                $findClass->setIdClass($row['id_course']);
+                $findClass->setIdTeacher($row['name']);
+                $findClass->setIdCourse($row['description']);
+                //$findClass->setId($row['date_start']);
+                $findClass->setName($row['date_end']);
+                $findClass->setColor($row['active']);
+            } //end while
+
+            return $findClass;
+
+        }//end if
+
+        return false;
+
+    }//end getOneToObject
+
     public static function getAll()
     {
         $db     = Database::connect();
