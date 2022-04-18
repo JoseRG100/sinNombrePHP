@@ -26,7 +26,7 @@ class DAOEnrollmentImpl implements DAOinterface {
 
     public static function findByLogin($loginEmail, $loginPassword)
     {
-        // TODO: Implement findByLogin() method.
+        // [THIS METHODE IS INNECESARY TO THIS PROJECT]
     }
 
     public static function getOne($objectId)

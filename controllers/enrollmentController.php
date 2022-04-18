@@ -11,17 +11,16 @@ class enrollmentController {
         Utils::isStudent();
         if(isset($_POST)){
 
-            $id_student       = isset($_POST['id_student']) ? $_POST['id_student'] : false;
-            $id_course    = isset($_POST['id_course']) ? $_POST['id_course'] : false;
-            $status  = isset($_POST['status']) ? $_POST['status'] : false;
+            $id_student = isset($_POST['id_student']) ? $_POST['id_student'] : false;
+            $id_course  = isset($_POST['id_course']) ? $_POST['id_course'] : false;
+            $status     = 0;
 
 
-            if($id_student && $id_course && $status){
+            if( $id_student && $id_course ){
                 $newEnrollment = new enrollmentEntity();
                 $newEnrollment->setIdStudent($id_student);
                 $newEnrollment->setIdCourse($id_course);
                 $newEnrollment->setStatus($status);
-
 
                 $registerSuccessful = DAOEnrollmentImpl::insert($newEnrollment);
 
