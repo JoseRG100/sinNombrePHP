@@ -66,13 +66,23 @@ class studentController {
             $username   = isset($_POST['username']) ? $_POST['username'] : false;
             $email      = isset($_POST['email']) ? $_POST['email'] : false;
             $password   = isset($_POST['password']) ? $_POST['password'] : false;
+            $name       = isset($_POST['name']) ? $_POST['name'] : false;
+            $surname    = isset($_POST['surname']) ? $_POST['surname'] : false;
+            $telephone  = isset($_POST['telephone']) ? $_POST['telephone'] : false;
+            $nif        = isset($_POST['nif']) ? $_POST['nif'] : false;
+            $date_registered = isset($_POST['date_registered']) ? $_POST['date_registered'] : false;
 
 
-            if($id && $username && $email && $password){
+            if($id && $username && $email && $password && $name && $surname && $telephone && $nif && $date_registered){
                 $changedStudent = new studentEntity();
                 $changedStudent->setUsername($username);
                 $changedStudent->setEmail($email);
                 $changedStudent->setPassword($password);
+                $changedStudent->setName($name);
+                $changedStudent->setSurname($surname);
+                $changedStudent->setTelephone($telephone);
+                $changedStudent->setNif($nif);
+                $changedStudent->setDateRegistered($date_registered);
 
 
                 $updateSuccessful = DAOStudentImpl::update($id, $changedStudent);
