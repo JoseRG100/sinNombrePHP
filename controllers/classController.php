@@ -19,6 +19,20 @@ class classController {
 
         //var_dump($_POST);
 
+        //LLAMANDO ID DEL CURSO ANTERIOR
+                $db = Database::connect();
+                $query = "SELECT id_class FROM Class ORDER BY id_class DESC LIMIT 1;";
+                $result = $db->query($query);
+
+                while($row = $result->fetch_assoc()) {
+                    $jsonArray[]= $row;
+                }
+                echo $jsonArray[0];
+                //var_dump($jsonArray);
+
+        //LLAMANDO ID DEL CURSO ANTERIOR
+
+        /*
         if(isset($_POST)){
 
             $id_teacher     = isset($_POST['id_teacher']) ? $_POST['id_teacher'] : false;
@@ -78,6 +92,8 @@ class classController {
         }
 
         header("Location:".base_url.'/home');
+
+        */
 
     }
 
