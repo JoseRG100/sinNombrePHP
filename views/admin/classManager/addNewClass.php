@@ -21,6 +21,7 @@
                         <label>Profesor: </label>
                         <?php $teachers = DAOTeacherImpl::getAll(); ?>
                         <select name="id_teacher" class="form-control" >
+                            <option value="" disabled selected>Selecciona un profesor</option>
                             <?php while( $teacher = mysqli_fetch_array($teachers) ) { ?>
                                 <option value="<?php echo $teacher['id_teacher'] ;?>"> (id: <?php echo $teacher['id_teacher'] ;?>) <?php echo $teacher['name'] ;?> </option>
                             <?php } ?>
@@ -31,6 +32,7 @@
                         <label>Curso: </label>
                         <?php $courses = DAOCourseImpl::getAll(); ?>
                         <select name="id_course" class="form-control" >
+                            <option value="" disabled selected>Selecciona la asignatura</option>
                             <?php while( $course = mysqli_fetch_array($courses) ) { ?>
                                 <option value="<?php echo $course['id_course'] ;?>"> (id: <?php echo $course['id_course'] ;?>) <?php echo $course['name'] ;?> </option>
                             <?php } ?>
@@ -46,6 +48,7 @@
                         <?php $colors = array('light-green', 'orange', 'red', 'magenta','cyan', 'light-blue', 'blue', 'gray'); ?>
                         <label>color</label>
                         <select name="color" class="form-control" >
+                            <option value="" disabled selected>Selecciona un color</option>
                             <?php foreach( $colors as $color ) { ?>
                                 <option value="<?php echo $color ;?>"><?php echo $color ;?></option>
                             <?php } ?>
