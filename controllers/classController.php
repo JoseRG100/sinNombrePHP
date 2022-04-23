@@ -16,12 +16,18 @@ class classController {
      * @return void
      */
     public function register(){
+
+        //var_dump($_POST);
+
         if(isset($_POST)){
 
             $id_teacher     = isset($_POST['id_teacher']) ? $_POST['id_teacher'] : false;
             $id_course      = isset($_POST['id_course']) ? $_POST['id_course'] : false;
             $name           = isset($_POST['name']) ? $_POST['name'] : false;
             $color          = isset($_POST['color']) ? $_POST['color'] : false;
+            $time_start     = isset($_POST['time_start ']) ? $_POST['time_start '] : false;
+            $time_end       = isset($_POST['time_end ']) ? $_POST['time_end'] : false;
+            $day            = isset($_POST['day']) ? $_POST['day'] : false;
 
             if($id_teacher && $id_course  && $name && $color){
                 $newClass = new classEntity();

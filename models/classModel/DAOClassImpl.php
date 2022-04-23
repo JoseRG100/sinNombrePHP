@@ -1,28 +1,14 @@
 <?php
 
-class DAOClassImpl implements DAOinterface
-{
+class DAOClassImpl implements DAOinterface {
 
 
-    public static function insert($newObject)
-    {
+    public static function insert($newObject) {
 
         $db = Database::connect();
 
-
-        //-------- ENCRYPT PASSWORD -------- //
-        //$password = $newObject->getPassword();
-
-       // $password = password_hash($db->real_escape_string($password), PASSWORD_BCRYPT, ['cost' => 4]);
-
-
-
-        //------- /ENCRYPT PASSWORD -------- //
-
-
-
         $query = "INSERT INTO class (id_class, id_teacher, id_course , id_schedule, name, color)
-                   VALUES (NULL, '{$newObject->getIdTeacher()}', '{$newObject->getIdCourse()}', null, '{$newObject->getName()}', '{$newObject->getColor()}')";
+                   VALUES (NULL, '{$newObject->getIdTeacher()}', '{$newObject->getIdCourse()}', NULL, '{$newObject->getName()}', '{$newObject->getColor()}')";
         $result = $db->query($query);
 
 
