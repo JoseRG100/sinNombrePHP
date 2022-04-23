@@ -83,8 +83,24 @@ class DAOStudentImpl implements DAOinterface {
     }//end getAll
 
     public static function update($objectId, $changedObject) {
-        //[THIS FUNCTION IT'S NOT NECESSARY YET]
+        $db     = Database::connect();
+
+        $query  = "UPDATE students SET
+                   username      = '{$changedObject->getUsernamer()}', 
+                   email   = '{$changedObject->getEmail()}',                    
+                   password       = '{$changedObject->getPassword()}', 
+                 
+                   
+                   WHERE id = $objectId";
+        $db->query($query);
+
+        //VALIDATING THE METHODE
+        if($db->affected_rows) {
+            return TRUE;
+        } //end if
+        return FALSE;
     }//end update
+
 
     public static function delete($objectId) {
         //[THIS FUNCTION IT'S NOT NECESSARY YET]

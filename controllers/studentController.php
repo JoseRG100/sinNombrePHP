@@ -59,4 +59,53 @@ class studentController {
 
     }
 
+    public function update(){
+        if(isset($_POST)){
+
+            $id = isset($_POST['id']) ? $_POST['id'] : false;
+            $username = isset($_POST['username']) ? $_POST['username'] : false;
+            $email = isset($_POST['email']) ? $_POST['email'] : false;
+            $password = isset($_POST['password']) ? $_POST['password'] : false;
+
+
+            if($username && $email && $password){
+                $changedStudent = new studentEntity();
+                $changedStudent->setUsername($username);
+                $changedStudent->setEmail($email);
+                $changedStudent->setPassword($password);
+
+
+                $updateSuccessful = DAOStudentImpl::update($id, $changedStudent);
+
+                if( $updateSuccessful ){
+
+                    $_SESSION['studentUpdate']  = "complete";
+                    $_SESSION['message']        = 'Estudiante, actualizado correctamente.';
+                    header("Location:".base_url.'/home');
+
+                }else{
+                    $_SESSION['studentUpdate'] = "failed";
+                    $_SESSION['message'] = 'Error. El registro no pudo ingresar a la BBDD';
+                    header("Location:".base_url.'/home');
+
+                }
+
+            }else{
+                //TODO: SE PUEDE OCUPAR PARA EL $_SESSION[message]
+                $_SESSION['studentUpdate'] = "failed";
+                $_SESSION['message'] = 'Error. Uno de los datos no se capturó correctamente';
+                header("Location:".base_url.'/home');
+            }
+
+        }else{
+            //TODO: SE PUEDE OCUPAR PARA EL $_SESSION[msg-txt]
+            $_SESSION['studentUpdate'] = "failed";
+            $_SESSION['message'] = 'Error. La solicitud REST no fue enviada correctamente';
+            header("Location:".base_url.'/home');
+        }
+
+        //header("Location:".base_url.'/home');
+
+    }
+
 }
