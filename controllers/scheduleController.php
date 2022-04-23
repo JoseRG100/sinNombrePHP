@@ -16,7 +16,6 @@ class scheduleController {
             $time_end  = isset($_POST['time_end']) ? $_POST['time_end'] : false;
             $day        = isset($_POST['day']) ? $_POST['day'] : false;
 
-
             if($id_class && $time_start && $time_end && $day){
                 $newSchedule = new scheduleEntity();
                 $newSchedule->setIdClass($id_class);

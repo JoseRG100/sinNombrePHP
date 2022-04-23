@@ -23,7 +23,6 @@ class classController {
             $name           = isset($_POST['name']) ? $_POST['name'] : false;
             $color          = isset($_POST['color']) ? $_POST['color'] : false;
 
-
             if($id_teacher && $id_course  && $name && $color){
                 $newClass = new classEntity();
                 $newClass->setIdTeacher($id_teacher);
