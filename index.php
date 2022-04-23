@@ -25,7 +25,6 @@ if ( isset($_SESSION['identity'])) {
 
 function autoOpenSession(){
     //OPEN ADMIN SESSION
-    /*
     if ( isset($_SESSION['admin']) && $_SESSION['admin'] ) {
         Utils::isAdmin();
         header("Location:".base_url.'/home.php');
@@ -41,7 +40,6 @@ function autoOpenSession(){
         Utils::isStudent();
         header("Location:".base_url.'/home.php');
     }
-    */
 }
 //END AUTO-OPEN SESSION
 

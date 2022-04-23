@@ -70,6 +70,11 @@
                 <td> <?php echo DAOCourseImpl::getOneToObject(DAOClassImpl::getOneToObject($enrollment['id_class'])->getIdCourse())->getDateStart() ;?> </td>
                 <td> <?php echo DAOCourseImpl::getOneToObject(DAOClassImpl::getOneToObject($enrollment['id_class'])->getIdCourse())->getDateEnd() ;?> </td>
 
+                <!-- BUTTON DELETE CLASS -->
+                <a href="<?=base_url?>/enrollment/delete&id=<?php echo $enrollment['id_enrollment'];?>">
+                    Eliminar
+                </a> <!-- END BUTTON DELETE CLASS -->
+
             </tr>
         </tbody>
         <?php } ?>

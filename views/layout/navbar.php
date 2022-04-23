@@ -7,22 +7,19 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- NAVBAR ITEMS -->
+    <!-- NAVBAR ITEMS
     <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav mr-auto">
-            <!-- ITEM_1: ¿¿?? -->
             <li class="nav-item active">
                 <a class="nav-link" href="#">Categoria_1</a>
             </li>
-            <!-- ITEM_1: ¿¿?? -->
             <li class="nav-item">
                 <a class="nav-link" href="#">Categoria_2</a>
             </li>
-            <!-- ITEM_1: ¿¿?? -->
             <li class="nav-item">
                 <a class="nav-link" href="#">Categoria_3</a>
             </li>
         </ul>
-    </div>
+    </div> -->
 
 </nav> <!-- /NAVBAR -->
