@@ -5,6 +5,7 @@ class classEntity{
     private $id_class;
     private $id_teacher;
     private $id_course;
+    private $id_schedule;
     private $name;
     private $color;
 
@@ -47,6 +48,22 @@ class classEntity{
     /**
      * @return mixed
      */
+    public function getIdSchedule()
+    {
+        return $this->id_schedule;
+    }
+
+    /**
+     * @param mixed $id_schedule
+     */
+    public function setIdSchedule($id_schedule): void
+    {
+        $this->id_schedule = $id_schedule;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getIdCourse()
     {
         return $this->id_course;
@@ -62,13 +79,6 @@ class classEntity{
 
 
 
-    /**
-     * @return mixed
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
 
     /**
      * @param mixed $name
@@ -76,6 +86,13 @@ class classEntity{
     public function setName($name): void
     {
         $this->name = $name;
+    }
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 
     /**

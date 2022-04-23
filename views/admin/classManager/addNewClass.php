@@ -52,6 +52,24 @@
                         </select>
                     </div>
 
+                    <!-- TIME START -->
+                    <div class="form-group">
+                        <label>Inicio</label>
+                        <input type="time" name="time_start" class="form-control" >
+                    </div>
+
+                    <!-- TIME END -->
+                    <div class="form-group">
+                        <label>Final</label>
+                        <input type="time" name="time_end" class="form-control" >
+                    </div>
+
+                    <!-- DAY -->
+                    <div class="form-group">
+                        <label>Día</label>
+                        <input type="date" name="day" class="form-control" >
+                    </div>
+
                     <br>
 
                     <!-- MODAL FOOTER -->

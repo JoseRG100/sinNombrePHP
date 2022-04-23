@@ -1,16 +1,15 @@
 <?php
 
-class DAOClassImpl implements DAOinterface
-{
+class DAOClassImpl implements DAOinterface {
 
 
-    public static function insert($newObject)
-    {
+    public static function insert($newObject) {
 
         $db = Database::connect();
 
-        $query = "INSERT INTO class (id_class, id_teacher, id_course, name, color)
-                   VALUES (NULL, '{$newObject->getIdTeacher()}', '{$newObject->getIdCourse()}', '{$newObject->getName()}', '{$newObject->getColor()}')";
+        $query = "INSERT INTO class (id_class, id_teacher, id_course , id_schedule, name, color)
+                   VALUES (NULL, '{$newObject->getIdTeacher()}', '{$newObject->getIdCourse()}', 0, '{$newObject->getName()}', '{$newObject->getColor()}')";
+
         $result = $db->query($query);
 
 
