@@ -29,28 +29,29 @@ class classController {
             $time_end       = isset($_POST['time_end ']) ? $_POST['time_end'] : false;
             $day            = isset($_POST['day']) ? $_POST['day'] : false;
 
-            if($id_teacher && $id_course  && $name && $color){
+            if($id_teacher && $id_course  && $name && $color && $time_start && $time_end && $day){
                 $newClass = new classEntity();
                 $newClass->setIdTeacher($id_teacher);
                 $newClass->setIdCourse($id_course);
 
                 //LLAMANDO ID DEL CURSO ANTERIOR
-                $db = Database::connect();
-                $query = "SELECT id_class FROM Class ORDER BY id_class DESC LIMIT 1;";
-                $result = $db->query($query);
-
-                while($row = $result->fetch_assoc()) {
-                    $jsonArray[]= $row;
-                }
-                echo '[' . implode(',', $jsonArray) . ']';
-
-                $newClass->setIdSchedule($id_course);
+//                $db = Database::connect();
+//                $query = "SELECT id_class FROM Class ORDER BY id_class DESC LIMIT 1;";
+//                $result = $db->query($query);
+//
+//                while($row = $result->fetch_assoc()) {
+//                    $jsonArray[]= $row;
+//                }
+//                echo '[' . implode(',', $jsonArray) . ']';
+//
+//                $newClass->setIdSchedule($id_course);
                 //LLAMANDO ID DEL CURSO ANTERIOR
 
 
                 $newClass->setName($name);
                 $newClass->setColor($color);
 
+                scheduleController::register($time_start, $time_end, $day);
 
                 $registerSuccessful = DAOClassImpl::insert($newClass);
 
