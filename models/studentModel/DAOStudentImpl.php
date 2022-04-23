@@ -91,14 +91,14 @@ class DAOStudentImpl implements DAOinterface {
         //------- /ENCRYPT PASSWORD -------- //
 
         $query  = "UPDATE students SET
+                    username          = '{$changedObject->getUsername()}', 
+                    password          = '{$password}', 
+                    email             = '{$changedObject->getEmail()}',  
                     name              = '{$changedObject->getName()}',
                     surname           = '{$changedObject->getSurname()}',
                     telephone         = '{$changedObject->getTelephone()}',
                     nif               = '{$changedObject->getNif()}',
-                    date_registered   = '{$changedObject->getDateRegistered()}',
-                    username          = '{$changedObject->getUsername()}', 
-                    email             = '{$changedObject->getEmail()}',                    
-                    password          = '{$password}' 
+                    date_registered   = '{$changedObject->getDateRegistered()}'
                     WHERE id = $objectId";
         $db->query($query);
 

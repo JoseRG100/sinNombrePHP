@@ -68,47 +68,65 @@
                                         <!-- ID INPUT -->
                                         <div class="form-group">
                                             <td class='col-md-3'>ID:</td>
-                                            <td><input type="text" class="form-control input-sm" name="id" value="<?php echo $_SESSION['student']->id;?>" readonly></td>
+                                            <td><input type="text" class="form-control input-sm" name="id"
+                                                       value="<?php echo $_SESSION['student']->id;?>" readonly>
+                                            </td>
                                         </div> <!-- END ID INPUT -->
                                         <!-- USERNAME INPUT -->
                                         <tr>
                                             <td>Username:</td>
-                                            <td><input type="text" class="form-control input-sm" name="username" value="<?php echo $currentStudent->getUsername();?>" required></td>
+                                            <td><input type="text" class="form-control input-sm" name="username"
+                                                       value="<?php echo $currentStudent->getUsername();?>" required>
+                                            </td>
                                         </tr> <!-- END USERNAME -->
                                         <!-- PASSWORD -->
                                         <tr>
                                             <td>Password:</td>
-                                            <td><input type="password" class="form-control input-sm" name="password" value="<?php echo $currentStudent->getTelephone();?>" required></td>
+                                            <td><input type="password" class="form-control input-sm" name="password"
+                                                       value="<?php echo $currentStudent->getTelephone();?>" required>
+                                            </td>
                                         </tr> <!-- END PASSWORD -->
                                         <!-- EMAIL -->
                                         <tr>
                                             <td>Correo electrónico:</td>
-                                            <td><input type="email" class="form-control input-sm" name="email" value="<?php echo $currentStudent->getEmail();?>" required></td>
+                                            <td><input type="email" class="form-control input-sm" name="email"
+                                                       value="<?php echo $currentStudent->getEmail();?>" required>
+                                            </td>
                                         </tr> <!-- END EMAIL -->
                                         <!-- NAME -->
                                         <tr>
                                             <td>Nombres:</td>
-                                            <td><input type="text" class="form-control input-sm" name="name" value="<?php echo $currentStudent->getName();?>" required></td>
+                                            <td><input type="text" class="form-control input-sm" name="name"
+                                                       value="<?php echo $currentStudent->getName();?>" required>
+                                            </td>
                                         </tr> <!-- END NAME -->
                                         <!-- LASTNAME -->
                                         <tr>
                                             <td>Apellidos:</td>
-                                            <td><input type="text" class="form-control input-sm" name="surname" value="<?php echo $currentStudent->getSurname();?>" required></td>
+                                            <td><input type="text" class="form-control input-sm" name="surname"
+                                                       value="<?php echo $currentStudent->getSurname();?>" required>
+                                            </td>
                                         </tr> <!-- END LASTNAME -->
                                         <!-- TELEPHONE -->
                                         <tr>
                                             <td>Telefono:</td>
-                                            <td><input type="text" class="form-control input-sm" name="telephone" value="<?php echo $currentStudent->getTelephone();?>" required></td>
+                                            <td><input type="text" class="form-control input-sm" name="telephone"
+                                                       value="<?php echo $currentStudent->getTelephone();?>" required>
+                                            </td>
                                         </tr> <!-- END TELEPHONE -->
                                         <!-- NIF -->
                                         <tr>
                                             <td>NIF:</td>
-                                            <td><input type="text" class="form-control input-sm" name="nif" value="<?php echo $currentStudent->getNif();?>" required></td>
+                                            <td><input type="text" class="form-control input-sm" name="nif"
+                                                       value="<?php echo $currentStudent->getNif();?>" required>
+                                            </td>
                                         </tr> <!-- END NIF -->
                                         <!-- DATE_REGISTERED -->
                                         <tr>
-                                            <td>NIF:</td>
-                                            <td><input type="date" class="form-control input-sm" name="nif" value="<?php echo $currentStudent->getDateRegistered();?>" readonly></td>
+                                            <td>Fecha de registro:</td>
+                                            <td><input type="date" class="form-control input-sm" name="date_registered"
+                                                       value="<?php echo $currentStudent->getDateRegistered();?>" readonly>
+                                            </td>
                                         </tr> <!-- END DATE_REGISTERED -->
 
                                         </tbody>
@@ -120,7 +138,7 @@
 
                         <!-- FORM SUBMIT-BUTTON -->
                         <div class="panel-footer text-center">
-                            <button type="submit" class="btn btn-success btn-block"><i class="glyphicon glyphicon-refresh"></i> Actualizar hoja de vida</button>
+                            <button type="submit" class="btn btn-success btn-block"><i class="glyphicon glyphicon-refresh"></i> Actualizar perfil</button>
                         </div> <!-- END FORM SUBMIT-BUTTON -->
 
                     </div>

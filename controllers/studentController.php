@@ -60,12 +60,15 @@ class studentController {
     }
 
     public function update(){
+
+        //var_dump($_POST);
+
         if(isset($_POST)){
 
             $id         = isset($_POST['id']) ? $_POST['id'] : false;
             $username   = isset($_POST['username']) ? $_POST['username'] : false;
-            $email      = isset($_POST['email']) ? $_POST['email'] : false;
             $password   = isset($_POST['password']) ? $_POST['password'] : false;
+            $email      = isset($_POST['email']) ? $_POST['email'] : false;
             $name       = isset($_POST['name']) ? $_POST['name'] : false;
             $surname    = isset($_POST['surname']) ? $_POST['surname'] : false;
             $telephone  = isset($_POST['telephone']) ? $_POST['telephone'] : false;
@@ -73,16 +76,17 @@ class studentController {
             $date_registered = isset($_POST['date_registered']) ? $_POST['date_registered'] : false;
 
 
-            if($id && $username && $email && $password && $name && $surname && $telephone && $nif && $date_registered){
+            if($id && $username && $password && $email && $name && $surname && $telephone
+                && $nif ){
                 $changedStudent = new studentEntity();
                 $changedStudent->setUsername($username);
-                $changedStudent->setEmail($email);
                 $changedStudent->setPassword($password);
+                $changedStudent->setEmail($email);
                 $changedStudent->setName($name);
                 $changedStudent->setSurname($surname);
                 $changedStudent->setTelephone($telephone);
                 $changedStudent->setNif($nif);
-                $changedStudent->setDateRegistered($date_registered);
+                //$changedStudent->setDateRegistered($date_registered);
 
 
                 $updateSuccessful = DAOStudentImpl::update($id, $changedStudent);
