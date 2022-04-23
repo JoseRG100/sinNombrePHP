@@ -1,4 +1,5 @@
 <?php
+//require_once 'scheduleController.php';
 require_once 'models/classModel/classEntity.php';
 require_once 'models/classModel/DAOClassImpl.php';
 
@@ -19,28 +20,14 @@ class classController {
 
         //var_dump($_POST);
 
-        //LLAMANDO ID DEL CURSO ANTERIOR
-                $db = Database::connect();
-                $query = "SELECT id_class FROM Class ORDER BY id_class DESC LIMIT 1;";
-                $result = $db->query($query);
-
-                while($row = $result->fetch_assoc()) {
-                    $jsonArray[]= $row;
-                }
-                echo $jsonArray[0];
-                //var_dump($jsonArray);
-
-        //LLAMANDO ID DEL CURSO ANTERIOR
-
-        /*
         if(isset($_POST)){
 
             $id_teacher     = isset($_POST['id_teacher']) ? $_POST['id_teacher'] : false;
             $id_course      = isset($_POST['id_course']) ? $_POST['id_course'] : false;
             $name           = isset($_POST['name']) ? $_POST['name'] : false;
             $color          = isset($_POST['color']) ? $_POST['color'] : false;
-            $time_start     = isset($_POST['time_start ']) ? $_POST['time_start '] : false;
-            $time_end       = isset($_POST['time_end ']) ? $_POST['time_end'] : false;
+            $time_start     = isset($_POST['time_start']) ? $_POST['time_start'] : false;
+            $time_end       = isset($_POST['time_end']) ? $_POST['time_end'] : false;
             $day            = isset($_POST['day']) ? $_POST['day'] : false;
 
             if($id_teacher && $id_course  && $name && $color && $time_start && $time_end && $day){
@@ -48,24 +35,21 @@ class classController {
                 $newClass->setIdTeacher($id_teacher);
                 $newClass->setIdCourse($id_course);
 
-                //LLAMANDO ID DEL CURSO ANTERIOR
-//                $db = Database::connect();
-//                $query = "SELECT id_class FROM Class ORDER BY id_class DESC LIMIT 1;";
-//                $result = $db->query($query);
-//
-//                while($row = $result->fetch_assoc()) {
-//                    $jsonArray[]= $row;
-//                }
-//                echo '[' . implode(',', $jsonArray) . ']';
-//
-//                $newClass->setIdSchedule($id_course);
-                //LLAMANDO ID DEL CURSO ANTERIOR
-
+                //CALLING THE OLDEST CLASS_ID
+                $db = Database::connect();
+                $query = "SELECT * FROM Class ORDER BY id_class DESC LIMIT 1;";
+                $result = $db->query($query);
+                while($row = $result->fetch_assoc()) {
+                    $jsonArray[]= $row;
+                }
+                $id_schedule = ($jsonArray[0]['id_class'] + 1);
+                $newClass->setIdSchedule($id_schedule);
+                //END CALLING THE OLDEST CLASS_ID
 
                 $newClass->setName($name);
                 $newClass->setColor($color);
 
-                scheduleController::register($time_start, $time_end, $day);
+                scheduleController::register($id_schedule, $time_start, $time_end, $day);
 
                 $registerSuccessful = DAOClassImpl::insert($newClass);
 
@@ -74,7 +58,6 @@ class classController {
 
                     $_SESSION['classRegister'] = "complete";
                     $_SESSION['message'] = 'Clase, registrada correctamente.';
-                    header("Location:".base_url.'/home');
 
                 }else{
                     $_SESSION['classRegister'] = "failed";
@@ -92,8 +75,6 @@ class classController {
         }
 
         header("Location:".base_url.'/home');
-
-        */
 
     }
 

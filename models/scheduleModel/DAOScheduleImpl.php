@@ -7,7 +7,7 @@ class DAOScheduleImpl implements DAOinterface {
         $db     = Database::connect();
 
         $query  = "INSERT INTO schedule (id_schedule, id_class, time_start, time_end, day)
-                   VALUES (NULL, 0, '{$newObject->getTimeStart()}', '{$newObject->getTimeEnd()}', '{$newObject->getDay()}')";
+                   VALUES ('{$newObject->getIdSchedule()}', '{$newObject->getIdClass()}', '{$newObject->getTimeStart()}', '{$newObject->getTimeEnd()}', '{$newObject->getDay()}')";
         $db->query($query);
 
         //VALIDATING THE METHODE

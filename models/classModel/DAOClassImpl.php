@@ -8,7 +8,7 @@ class DAOClassImpl implements DAOinterface {
         $db = Database::connect();
 
         $query = "INSERT INTO class (id_class, id_teacher, id_course , id_schedule, name, color)
-                   VALUES (NULL, '{$newObject->getIdTeacher()}', '{$newObject->getIdCourse()}', 0, '{$newObject->getName()}', '{$newObject->getColor()}')";
+                   VALUES (NULL, '{$newObject->getIdTeacher()}', '{$newObject->getIdCourse()}', '{$newObject->getIdSchedule()}', '{$newObject->getName()}', '{$newObject->getColor()}')";
 
         $result = $db->query($query);
 
