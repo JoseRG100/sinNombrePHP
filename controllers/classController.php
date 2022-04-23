@@ -33,6 +33,21 @@ class classController {
                 $newClass = new classEntity();
                 $newClass->setIdTeacher($id_teacher);
                 $newClass->setIdCourse($id_course);
+
+                //LLAMANDO ID DEL CURSO ANTERIOR
+                $db = Database::connect();
+                $query = "SELECT id_class FROM Class ORDER BY id_class DESC LIMIT 1;";
+                $result = $db->query($query);
+
+                while($row = $result->fetch_assoc()) {
+                    $jsonArray[]= $row;
+                }
+                echo '[' . implode(',', $jsonArray) . ']';
+
+                $newClass->setIdSchedule($id_course);
+                //LLAMANDO ID DEL CURSO ANTERIOR
+
+
                 $newClass->setName($name);
                 $newClass->setColor($color);
 
