@@ -65,16 +65,16 @@ class enrollmentController {
             $deleteSuccessful = DAOEnrollmentImpl::delete($id_enrollment);
 
             if( $deleteSuccessful ){
-                $_SESSION['enrollmentDelete']  = "complete";
-                $_SESSION['message']        = 'Enrollment, eliminado correctamente.';
+                $_SESSION['unEnrollment']  = "complete";
+                $_SESSION['message'] = 'Te has desinscrito de la clase correctamente.';
 
             }else {
-                $_SESSION['enrollmentrDelete'] = "failed";
+                $_SESSION['unEnrollment'] = "failed";
                 $_SESSION['message'] = 'Error. El registro no se encontró en la BBDD.';
             }
 
         }else {
-            $_SESSION['enrollmentDeleteDelete'] = "failed";
+            $_SESSION['unEnrollment'] = "failed";
             $_SESSION['message'] = 'Error. Tipo de solicitud incorrectemante enviado.';
         }
 

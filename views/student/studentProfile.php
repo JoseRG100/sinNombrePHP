@@ -18,16 +18,19 @@
         Utils::deleteSession('message_type');
     }?> <!-- END ERROR: STUDENT UPDATE -->
 
-
     <!-- -------------------------- END ALERTS -------------------------- -->
 
     <!-- -------------------------- MAIN VIEW -------------------------- -->
     <!-- TITTLE -->
-    <h2>Gestión usuario</h2>
+    <h2>Gestión de usuario</h2>
     <!-- END TITTLE -->
 
-    <!-- USER TABLE -->
+    <!-- USER MANAGER -->
 
+    <!-- END USER MANAGER -->
+
+
+    <!-- USER TABLE -->
     <table style="border: solid 1px" class="mt-2">
         <thead>
         <tr>

@@ -17,7 +17,7 @@
         Utils::deleteSession('message_type');
     }?> <!-- END ERROR: TEACHER REGISTER -->
 
-    <!-- SUCCESS: CLASS UPDATE -->
+    <!-- SUCCESS: CLASS UNENROLLMENT -->
     <?php if(isset($_SESSION['unEnrollment']) && $_SESSION['unEnrollment'] == 'complete') {
         $_SESSION['message_type'] = 'success';
         require_once 'views/flashAlert.php';
@@ -25,7 +25,7 @@
         Utils::deleteSession('message_type');
     }?> <!-- END SUCCESS: CLASS UPDATE -->
 
-    <!-- ERROR: CLASS UPDATE -->
+    <!-- ERROR: CLASS UNENROLLMENT -->
     <?php if(isset($_SESSION['unEnrollment']) && $_SESSION['unEnrollment'] == 'failed') {
         $_SESSION['message_type'] = 'danger';
         require_once 'views/flashAlert.php';
@@ -52,7 +52,6 @@
     <table style="border: solid 1px" class="mt-2">
         <thead>
         <tr>
-            <th>ID_MATRICULA</th>
             <th>ASIGNATURA</th>
             <th>PROFESOR</th>
             <th>F. INICIO</th>
@@ -62,7 +61,6 @@
         <?php while( $enrollment = mysqli_fetch_array($enrollments) ) { ?>
         <tbody>
             <tr>
-                <td> <?php echo $enrollment['id_enrollment'] ;?> </td>
                 <td> <?php echo DAOCourseImpl::getOneToObject(DAOClassImpl::getOneToObject($enrollment['id_class'])->getIdCourse())->getName() ;?> </td>
                 <td> <?php echo DAOTeacherImpl::getOneToObject(DAOClassImpl::getOneToObject($enrollment['id_class'])->getIdTeacher())->getName() ;?>
                      <?php echo DAOTeacherImpl::getOneToObject(DAOClassImpl::getOneToObject($enrollment['id_class'])->getIdTeacher())->getSurname() ;?>
@@ -71,10 +69,11 @@
                 <td> <?php echo DAOCourseImpl::getOneToObject(DAOClassImpl::getOneToObject($enrollment['id_class'])->getIdCourse())->getDateEnd() ;?> </td>
 
                 <!-- BUTTON DELETE CLASS -->
-                <a href="<?=base_url?>/enrollment/delete&id=<?php echo $enrollment['id_enrollment'];?>">
-                    Eliminar
-                </a> <!-- END BUTTON DELETE CLASS -->
-
+                <td>
+                    <a href="<?=base_url?>/enrollment/delete&id=<?php echo $enrollment['id_enrollment'];?>">
+                        Eliminar
+                    </a> <!-- END BUTTON DELETE CLASS -->
+                </td>
             </tr>
         </tbody>
         <?php } ?>
