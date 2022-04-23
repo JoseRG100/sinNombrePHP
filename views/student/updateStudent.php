@@ -17,10 +17,10 @@
                 <?php $currentStudent = DAOStudentImpl::getOneToObject($_SESSION['student']->id);?>
                 <form class="container-fluid" action="<?=base_url?>/student/update" method="POST">
 
-                    <!-- USERNAME INPUT -->
+                    <!-- ID INPUT -->
                     <div class="form-group">
                         <label>ID</label>
-                        <input type="text" id="studentId" name="id" class="form-control" value="<?php echo $_SESSION['student']->id;?>" readonly>
+                        <input type="text" name="id" class="form-control" value="<?php echo $_SESSION['student']->id;?>" readonly>
                     </div>
                     <!-- USERNAME INPUT -->
                     <div class="form-group">
