@@ -14,22 +14,28 @@
             <!-- MODAL BODY -->
             <div class="modal-body">
                 <!-- FORM CONTAINER -->
+                <?php $currentStudent = DAOStudentImpl::getOneToObject($_SESSION['student']->id);?>
                 <form class="container-fluid" action="<?=base_url?>/student/update" method="POST">
 
                     <!-- USERNAME INPUT -->
                     <div class="form-group">
+                        <label>ID</label>
+                        <input type="text" id="studentId" name="id" class="form-control" value="<?php echo $_SESSION['student']->id;?>" readonly>
+                    </div>
+                    <!-- USERNAME INPUT -->
+                    <div class="form-group">
                         <label>USERNAME</label>
-                        <input type="text" id="studentUsername" name="username" class="form-control" value="<?php echo $_SESSION['student']->username;?>">
+                        <input type="text" id="studentUsername" name="username" class="form-control" value="<?php echo $currentStudent->getUsername();?>">
                     </div>
                     <!-- EMAIL INPUT -->
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="email" id="studentEmail" name="email" class="form-control" value="<?php echo $_SESSION['student']->email;?>">
+                        <input type="email" id="studentEmail" name="email" class="form-control" value="<?php echo $currentStudent->getEmail();?>">
                     </div>
                     <!-- PASSWORD INPUT -->
                     <div class="form-group">
                         <label>Password</label>
-                        <input type="password" id="studentPassword" name="password" class="form-control" value="<?php echo $_SESSION['student']->password;?>">
+                        <input type="password" id="studentPassword" name="password" class="form-control" value="<?php echo $currentStudent->getTelephone();?>">
                     </div>
                     <br>
 

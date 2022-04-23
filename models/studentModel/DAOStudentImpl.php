@@ -59,15 +59,15 @@ class DAOStudentImpl implements DAOinterface {
 
         if( $result ) {
             while( $row = $result->fetch_assoc() ) {
-                $findStudent->setId($row['id_course']);
-                $findStudent->setUsername($row['name']);
-                $findStudent->setPassword($row['description']);
-                $findStudent->setEmail($row['date_start']);
-                $findStudent->setName($row['date_end']);
-                $findStudent->setSurname($row['active']);
-                $findStudent->setTelephone($row['active']);
-                $findStudent->setNif($row['active']);
-                $findStudent->setDateRegistered($row['active']);
+                $findStudent->setId($row['id']);
+                $findStudent->setUsername($row['username']);
+                $findStudent->setPassword($row['password']);
+                $findStudent->setEmail($row['email']);
+                $findStudent->setName($row['name']);
+                $findStudent->setSurname($row['surname']);
+                $findStudent->setTelephone($row['telephone']);
+                $findStudent->setNif($row['nif']);
+                $findStudent->setDateRegistered($row['date_registered']);
             } //end while
 
             return $findStudent;
@@ -85,12 +85,15 @@ class DAOStudentImpl implements DAOinterface {
     public static function update($objectId, $changedObject) {
         $db     = Database::connect();
 
+        //-------- ENCRYPT PASSWORD -------- //
+        $password = $changedObject->getPassword();
+        $password = password_hash($db->real_escape_string($password), PASSWORD_BCRYPT, ['cost' => 4]);
+        //------- /ENCRYPT PASSWORD -------- //
+
         $query  = "UPDATE students SET
-                   username      = '{$changedObject->getUsernamer()}', 
-                   email   = '{$changedObject->getEmail()}',                    
-                   password       = '{$changedObject->getPassword()}', 
-                 
-                   
+                   username     = '{$changedObject->getUsername()}', 
+                   email        = '{$changedObject->getEmail()}',                    
+                   password     = '{$password}' 
                    WHERE id = $objectId";
         $db->query($query);
 

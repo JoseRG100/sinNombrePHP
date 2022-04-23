@@ -117,6 +117,10 @@ function showBeforeSession() {
         Utils::deleteSession('unEnrollment');
     }//END SHOW IF YOU'RE IN COURSE_MANAGER
 
+    if ( isset( $_SESSION['studentUpdate'] ) ) {
+        routesController::showStudentProfile();
+        Utils::deleteSession('studentUpdate');
+    }
 
 }
 

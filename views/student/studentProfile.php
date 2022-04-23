@@ -121,19 +121,20 @@
         <tr>
             <th>USERNAME</th>
             <th>EMAIL</th>
-            <th>CONTRASEÑA</th>
+            <th>TELÉFONO</th>
 
 
         </tr>
         </thead>
 
+        <?php $currentStudent = DAOStudentImpl::getOneToObject($_SESSION['student']->id);?>
+
             <tbody>
             <tr>
 
-                <td> <?php echo $_SESSION['student']->username;?> </td>
-                <td> <?php echo $_SESSION['student']->email;?> </td>
-                <td> <?php echo $_SESSION['student']->password;?> </td>
-
+                <td> <?php echo $currentStudent->getUsername();?> </td>
+                <td> <?php echo $currentStudent->getEmail();?> </td>
+                <td> <?php echo $currentStudent->getTelephone();?> </td>
 
                 <!-- CRUD BUTTONS -->
                 <td>
