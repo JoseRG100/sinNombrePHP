@@ -75,7 +75,6 @@ class routesController {
 
     public static function showStudentProfile(){
         require_once 'views/student/studentProfile.php';
-        require_once 'views/student/updateStudent.php';
     }
 
 }

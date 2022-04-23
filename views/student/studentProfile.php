@@ -23,7 +23,7 @@
     <!-- -------------------------- MAIN VIEW -------------------------- -->
 
     <!-- USER MANAGER -->
-    <div class="container">
+    <div class="container pb-4">
         <div class="row">
 
             <!-- FORM CONTAINER -->
@@ -148,47 +148,7 @@
         </div>
     </div>
 
-
-
     <!-- END USER MANAGER -->
-
-
-    <!-- USER TABLE -->
-    <table style="border: solid 1px" class="mt-2">
-        <thead>
-        <tr>
-            <th>USERNAME</th>
-            <th>EMAIL</th>
-            <th>TELÉFONO</th>
-
-
-        </tr>
-        </thead>
-
-        <?php $currentStudent = DAOStudentImpl::getOneToObject($_SESSION['student']->id);?>
-
-            <tbody>
-            <tr>
-
-                <td> <?php echo $currentStudent->getUsername();?> </td>
-                <td> <?php echo $currentStudent->getEmail();?> </td>
-                <td> <?php echo $currentStudent->getTelephone();?> </td>
-
-                <!-- CRUD BUTTONS -->
-                <td>
-                    <!-- BUTTON UPDATE STUDENT (MODAL) -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateStudent">
-
-
-                        Editar
-                    </button> <!-- END BUTTON UPDATE STUDENT (MODAL) -->
-
-                </td> <!-- END CRUD BUTTONS -->
-
-            </tr>
-            </tbody>
-
-    </table> <!-- END TEACHERS TABLE -->
     <!-- -------------------------- END MAIN VIEW -------------------------- -->
 
 
