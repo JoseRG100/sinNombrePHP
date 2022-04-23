@@ -9,7 +9,7 @@ class scheduleController {
     public static function register($time_start, $time_end, $day){
 
         Utils::isStudent();
-        if(isset($_POST)){
+        //if(isset($_POST)){
 
 //            $id_class       = isset($_POST['id_class']) ? $_POST['id_class'] : false;
 //            $time_start    = isset($_POST['time_start']) ? $_POST['time_start'] : false;
@@ -38,9 +38,9 @@ class scheduleController {
                 $_SESSION['scheduleRegister'] = "failed";
             }
 
-        }else{
+      /*  }else{
             $_SESSION['scheduleRegister'] = "failed";
-        }
+        }*/
 
         header("Location:".base_url.'/home');
 

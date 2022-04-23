@@ -4,8 +4,21 @@ class DAOScheduleImpl implements DAOinterface {
 
     public static function insert($newObject)
     {
-        // TODO: Implement insert() method.
-    }
+        $db     = Database::connect();
+
+        $query  = "INSERT INTO schedule (id_schedule, id_class, time_start, time_end, day)
+                   VALUES (NULL, 0, '{$newObject->getTimeStart()}', '{$newObject->getTimeEnd()}', '{$newObject->getDay()}')";
+        $db->query($query);
+
+        //VALIDATING THE METHODE
+        if($db->affected_rows) {
+            return TRUE;
+        } //end if
+        return FALSE;
+        //END OF VALIDATION
+
+    }//end insert
+
 
     public static function findByLogin($loginEmail, $loginPassword)
     {
