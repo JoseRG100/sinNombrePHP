@@ -26,6 +26,7 @@
                         <label>Profesor: </label>
                         <?php $teachers = DAOTeacherImpl::getAll(); ?>
                         <select name="id_teacher" class="form-control" >
+                            <option value="" disabled selected>Selecciona un profesor</option>
                             <?php while( $teacher = mysqli_fetch_array($teachers) ) { ?>
                                 <option value="<?php echo $teacher['id_teacher'] ;?>"> (id: <?php echo $teacher['id_teacher'] ;?>) <?php echo $teacher['name'] ;?> </option>
                             <?php } ?>
