@@ -1,0 +1,54 @@
+.wrapper {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    align-items: stretch;
+
+    main{
+      width:100%;
+    }
+
+    .sidebar{
+      background-color: rgba(99, 102, 241);
+      width: 100%;
+      max-width: 250px;
+
+      &__header{
+        background-color: rgba(0,0,0,.3);
+        padding: 18px;
+        display: flex;
+        align-items: center;
+
+        h3{
+          font-weight: 600;
+          color:#fff;
+          font-size: 17px;
+          margin: 0;
+          padding: 0;
+          letter-spacing: 0.8px;
+        }
+
+      } 
+
+      ul{
+        margin-top: 15px;
+        li{
+          padding: 10px 18px;
+          a{
+            color: white;
+            font-size: 17px;
+            opacity: 0.8;
+            font-weight: 400;
+          }
+
+          &.active{
+            a{
+              opacity: 1;
+              font-weight: 600;
+            }
+            
+          }
+        }
+      }
+    }
+}

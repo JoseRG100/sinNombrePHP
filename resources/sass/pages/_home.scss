@@ -1,0 +1,30 @@
+.home{
+  &__header{
+    height: 86px;
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    background-color: rgba(99, 102, 241);
+    justify-content: center;
+
+    &__actions{
+      display: flex;
+      color: white;
+      align-items: center;
+
+      a{
+        text-decoration: none;
+        margin-right: 20px;
+        color: white;
+
+        &:last-child{
+          margin-right: 0;
+        }
+
+        &:hover{
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}
