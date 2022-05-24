@@ -16,4 +16,4 @@ En este producto 3 se ha desarrollado una app web de notas para un centro educat
 ## ESTRUCTURA DEL PROYECTO 📋
 
 
-- Producto 3: https://www.youtube.com/watch?v=-HchOViyqMs
+- Producto 3: https://youtu.be/BgLUNxVfS9Y 
